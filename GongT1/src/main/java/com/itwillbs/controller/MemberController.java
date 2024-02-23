@@ -273,6 +273,13 @@ public class MemberController {
 		return "mypageCompany/mypageCompany2";
 	}//mypageCompany2
 	
+	@GetMapping("/mypageCompany/mypageCompany3")
+	public String mypageCompany3(HttpSession session, Model model) {
+		System.out.println("MemberController mypageCompany3()");
+		
+		return "resume/projectWrite";
+	}
+	
 	
 	@GetMapping("/mypageCompany/mypageCompany4")
 	public String mypageCompany4(HttpSession session, Model model) {
@@ -357,6 +364,13 @@ public class MemberController {
 		
 		return "mypageFreelancer/mypageFreelancer2";
 	}//mypageFreelancer2
+	
+	@GetMapping("/mypageFreelancer/mypageFreelancer3")
+	public String mypageFreelancer3(HttpSession session, Model model) {
+		System.out.println("MemberController mypageFreelancer3()");
+		
+		return "resume/resumeWrite";
+	}
 	
 	@GetMapping("/mypageFreelancer/mypageFreelancer4")
 	public String mypageFreelancer4(HttpSession session, Model model) {
