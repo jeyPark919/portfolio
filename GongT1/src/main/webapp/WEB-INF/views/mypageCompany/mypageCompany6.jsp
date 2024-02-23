@@ -45,12 +45,9 @@
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
 <label>비밀번호</label><br>
 <input type="password" name="pw"  style="font-size:20px;"><br><br>
-<input type="submit" value="탈퇴하기" style="background-color: blue; width: 100px; color: white; font-size:20px;">
+<input type="submit" value="탈퇴하기" style="background-color: #1842B6; width: 100px; color: white; font-size:20px;">
 </fieldset>
 </form>
-        
-
-
  			</div>
         </div>
     </div>

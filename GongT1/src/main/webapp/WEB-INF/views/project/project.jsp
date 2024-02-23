@@ -196,12 +196,16 @@
         </button>
      </c:if>
      </c:if>
+          	<c:if test="${!empty sessionScope.id }">
+     	 <c:if test="${sessionScope.type eq 0 }">
      	<button type="button" class="button button-update">
         	<span onclick="location.href='#'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
         	<span onclick="location.href='#'">1:1 채팅 신청</span>
         </button>
+        </c:if>
+        </c:if>
 <!--         <div class="buttons"> -->
 <!--             <button type="button" class="button button-print"><span>찜하기</span></button> -->
 <!--             <button type="button" class="button button-send-email"><span>1:1 채팅 신청</span></button> -->
