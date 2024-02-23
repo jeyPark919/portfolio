@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+<title>공티 - SI 프리랜서 매칭</title>
 <style>
 	#img{
 		background-image: url("${pageContext.request.contextPath}/resources/computer1.png");
