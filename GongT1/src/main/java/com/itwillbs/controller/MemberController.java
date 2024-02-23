@@ -411,7 +411,12 @@ public class MemberController {
 		}
 	}//updatePro()
 	
-	
+	//개인정보처리방침
+	@GetMapping("/main/privacyPolicy")
+	public String privacyPolicy() {
+		System.out.println("MemberController privacyPolicy()");
+		return "main/privacyPolicy";
+	}
 	
 	
 }
