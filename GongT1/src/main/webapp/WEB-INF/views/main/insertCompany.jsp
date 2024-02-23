@@ -47,7 +47,7 @@ width: 100px;
 <fieldset>
 <legend><h5>필수 정보입니다. 모두 입력해주세요.</h5></legend>
 <h3>아이디</h3>
-<input type="text" width="300" name="id" class="id" maxlength="20" required autofocus>
+<input type="button" type="text" width="300" name="id" class="id" maxlength="20" required autofocus>
 <button value="중복확인" class="dupid">중복확인</button><br>
 <sub>※아이디 영문,숫자 20자 내로 입력해주세요.</sub>
 <div class="dupdivid"></div><br>
@@ -62,17 +62,17 @@ width: 100px;
 <sub>※기업명을 입력해주세요.</sub>
 <h3>사업자 번호</h3>
 <input type="text" name="comnum" class="comnum" maxlength="12" required>
-<button value="중복확인" class="dupcomnum">중복확인</button><br>
+<button type="button" value="중복확인" class="dupcomnum">중복확인</button><br>
 <sub>※사업자 등록번호를 입력해주세요.</sub>
 <div class="dupdivcomnum"></div><br>
 <h3>이메일</h3>
 <input type="email" name="email" class="email" maxlength="50" required>
-<button value="중복확인" class="dupemail">중복확인</button><br>
+<button type="button" value="중복확인" class="dupemail">중복확인</button><br>
 <sub>※이메일을 입력해주세요.</sub>
 <div class="dupdivemail"></div><br>
 <h3>전화번호</h3>
 <input type="text" name="phone" class="phone" maxlength="13" required>
-<button value="중복확인" class="dupphone">중복확인</button><br>
+<button type="button" value="중복확인" class="dupphone">중복확인</button><br>
 <sub>※전화번호를 입력해주세요.</sub>
 <div class="dupdivphone"></div><br>
 <center>

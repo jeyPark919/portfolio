@@ -62,22 +62,27 @@ width: 100px;
 <h3>비밀번호 확인</h3>
 <input type="password" name="pw2" maxlength="20" required><br>
 <sub>※비밀번호를 다시 작성해주세요.</sub>
-<h3>이름</h3>
+<h3>기업명</h3>
 <input type="text" name="name" maxlength="20" required><br>
-<sub>※이름을 입력해주세요.</sub>
+<sub>※기업명을 입력해주세요.</sub>
+<h3>사업자 번호</h3>
+<input type="text" name="comnum" class="comnum" maxlength="12" required>
+<button type="button" value="중복확인" class="dupcomnum">중복확인</button><br>
+<sub>※사업자 등록번호를 입력해주세요.</sub>
+<div class="dupdivcomnum"></div><br>
 <h3>이메일</h3>
 <input type="email" name="email" class="email" maxlength="50" required>
-<button value="중복확인" class="dupemail">중복확인</button><br>
+<button type="button" value="중복확인" class="dupemail">중복확인</button><br>
 <sub>※이메일을 입력해주세요.</sub>
-<div class="dupdivemail"></div>
+<div class="dupdivemail"></div><br>
 <h3>전화번호</h3>
 <input type="text" name="phone" class="phone" maxlength="13" required>
-<button value="중복확인" class="dupphone">중복확인</button><br>
+<button type="button" value="중복확인" class="dupphone">중복확인</button><br>
 <sub>※전화번호를 입력해주세요.</sub>
 <div class="dupdivphone"></div><br>
 <center>
-<button type="submit" value="회원가입" id="button" class="submit">회원가입</button>
-<button type="reset" value="취소" id="button" class="cancel" onclick="history.back()">돌아가기</button>
+<button type="submit" value="회원가입" class="submit">회원가입</button>
+<button type="reset" value="취소" class="cancel" onclick="history.back()">돌아가기</button>
 </center>
 </fieldset>
 </form>
