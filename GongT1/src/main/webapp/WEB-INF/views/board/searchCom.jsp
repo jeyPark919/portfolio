@@ -87,7 +87,7 @@ th, td {
 }
 
 h5{
-	text-align: center; background-color: blue;
+	text-align: center; background-color: #1842B6;
 	color : white !important;
 	border-top-left-radius: 18px;
 	border-top-right-radius: 18px;
@@ -156,8 +156,8 @@ h5{
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
-  <label><button type="button" class="btn btn-primary" id="sortMatching">매칭순</button>
-  <button type="button" class="btn btn-primary" id="sortReadcount">조회순</button></label>
+  <label><button type="button" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
+  <button type="button" class="btn btn-primary" id="sortReadcount" style="background-color: #1842B6 !important;">조회순</button></label>
 </div>
 	<table class="table">
   <thead>
@@ -190,7 +190,7 @@ h5{
 	<option value="name123">회사명</option>
 	</select>
 	<input type="text" class="search" name="search">
-	<input type="submit" value="검색" class="btn btn-primary">
+	<input type="submit" value="검색" class="btn btn-primary" style="background-color: #1842B6 !important;">
 	</form>
 	
 	<div id="page_control">

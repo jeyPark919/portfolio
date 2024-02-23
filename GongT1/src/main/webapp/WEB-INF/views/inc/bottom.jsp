@@ -40,7 +40,7 @@
                         <div class="mt-4 d-flex flex-column short-link">
                             <a href="#" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>대표자 홍진숙</a>
                             <a href="#" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>사업자 등록번호</a>
-                            <a href="privacyPolicy.html" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>개인정보처리방침</a>
+                            <a href="${pageContext.request.contextPath}/main/privacyPolicy" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>개인정보처리방침</a>
                         </div>
                     </div>
 

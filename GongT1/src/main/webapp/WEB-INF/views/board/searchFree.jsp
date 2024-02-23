@@ -89,7 +89,7 @@ th, td {
 }
 
 h5{
-	text-align: center; background-color: blue;
+	text-align: center; background-color: #1842B6;
 	color : white !important;
 	border-top-left-radius: 18px;
 	border-top-right-radius: 18px;
@@ -123,7 +123,7 @@ h5{
 
 <div class="sidemenu">
         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
-        <button type="button" class="button button-modify-resume" style= "color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'" style="color: white !important;">프리랜서 찾기</span></button>
 </div><br>
 
 <div id="left2">
@@ -158,8 +158,8 @@ h5{
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
-  <label><button type="button" class="btn btn-primary" id="sortMatching">매칭순</button>
-  <button type="button" class="btn btn-primary" id="sortSalary">급여순</button></label>
+  <label><button type="button" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
+  <button type="button" class="btn btn-primary" id="sortSalary" style="background-color: #1842B6 !important;">급여순</button></label>
 </div>
 
 <table class="table">
@@ -190,7 +190,7 @@ h5{
 	<option value="name123">이름</option>
 	</select>
 	<input type="text" class="search" name="search">
-	<input type="submit" value="검색" class="btn btn-primary">
+	<input type="submit" value="검색" class="btn btn-primary" style="background-color: #1842B6 !important;">
 	</form>
 	
 	<div id="page_control">

@@ -47,6 +47,12 @@ public class MemberController {
 		return "main/login";
 	}
 	
+	@GetMapping("/main/privacyPolicy")
+	public String privacy() {
+		System.out.println("MemberController privacyPolicy()");
+		return "main/privacyPolicy";
+	}
+	
 	@PostMapping("/main/loginPro")
 	public String loginPro(MemberDTO memberDTO, HttpSession session) {
 		System.out.println("MemberController loginPro()");
