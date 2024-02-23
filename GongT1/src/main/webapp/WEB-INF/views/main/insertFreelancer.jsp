@@ -1,0 +1,196 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>공티 - 프리랜서 회원가입</title>
+<style>
+input{
+height: 45px;
+width: 400px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.content {
+  padding: 1rem;
+/*   font-size: 2rem; */
+  border-radius: 1rem;
+}
+
+button {
+background-color: blue;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 100px;
+
+}
+
+</style>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+<jsp:include page="../inc/top.jsp" />
+</head>
+<body>
+
+
+
+<br><br><br>
+<div class="wrapper">
+<div class="content">
+<h1>회원가입</h1>
+<form action="${pageContext.request.contextPath}/main/insertFreelancerPro" id="join" method="post">
+<p>회원가입을 통하여 프로젝트에 참여해보세요!</p>
+
+<fieldset>
+<legend><h5>필수 정보입니다. 모두 입력해주세요.</h5></legend>
+<h3>아이디</h3>
+<input type="text" width="300" name="id" class="id" maxlength="20" required autofocus>
+<button value="중복확인" class="dupid">중복확인</button><br>
+<sub>※아이디 영문,숫자 20자 내로 입력해주세요.</sub>
+<div class="dupdivid"></div><br>
+<h3>비밀번호</h3>
+<input type="password" name="pw" maxlength="20" required><br>
+<sub>※비밀번호 6자이상 20자이하로 입력해주세요.</sub>
+<h3>비밀번호 확인</h3>
+<input type="password" name="pw2" maxlength="20" required><br>
+<sub>※비밀번호를 다시 작성해주세요.</sub>
+<h3>이름</h3>
+<input type="text" name="name" maxlength="20" required><br>
+<sub>※이름을 입력해주세요.</sub>
+<h3>이메일</h3>
+<input type="email" name="email" class="email" maxlength="50" required>
+<button value="중복확인" class="dupemail">중복확인</button><br>
+<sub>※이메일을 입력해주세요.</sub>
+<div class="dupdivemail"></div>
+<h3>전화번호</h3>
+<input type="text" name="phone" class="phone" maxlength="13" required>
+<button value="중복확인" class="dupphone">중복확인</button><br>
+<sub>※전화번호를 입력해주세요.</sub>
+<div class="dupdivphone"></div><br>
+<center>
+<button type="submit" value="회원가입" id="button" class="submit">회원가입</button>
+<button type="reset" value="취소" id="button" class="cancel" onclick="history.back()">돌아가기</button>
+</center>
+</fieldset>
+</form>
+
+
+</div>
+</div>
+<br><br><br><br><br>
+
+
+<script type="text/javascript">
+
+$(function() {
+	//아이디 중복 확인
+	$(".dupid").click(function(){
+		$.ajax({
+			url : '${pageContext.request.contextPath}/main/idCheck',
+			data : {'id' : $('.id').val()}, 
+			success : function(result){
+				if(result=="iddup"){
+					result = "사용불가능한 아이디입니다.";
+					$(".dupdivid").css("color", "red");
+				}else{
+					result = "사용가능한 아이디입니다.";
+					$(".dupdivid").css("color", "green");
+				}
+				$('.dupdivid').html(result);
+			}
+		});
+	
+	});
+		
+	//이메일 중복 확인
+	$(".dupemail").click(function(){
+	$.ajax({
+		url : '${pageContext.request.contextPath}/main/emailCheck',
+		data : {'email' : $('.email').val()}, 
+		success : function(result){
+			if(result=="emaildup"){
+				result = "사용불가능한 이메일입니다.";
+				$(".dupdivemail").css("color", "red");
+			}else{
+				result = "사용가능한 이메일입니다.";
+				$(".dupdivemail").css("color", "green");
+			}
+			$('.dupdivemail').html(result);
+			}
+		});
+
+	});
+	
+	//전화번호 중복 확인
+	$(".dupphone").click(function(){
+	$.ajax({
+		url : '${pageContext.request.contextPath}/main/phoneCheck',
+		data : {'phone' : $('.phone').val()}, 
+		success : function(result){
+			if(result=="phonedup"){
+				result = "사용불가능한 전화번호입니다.";
+				$(".dupdivphone").css("color", "red");
+			}else{
+				result = "사용가능한 전화번호입니다.";
+				$(".dupdivphone").css("color", "green");
+			}
+			$('.dupdivphone').html(result);
+			}
+		});
+
+	});
+	
+});
+
+//하이픈
+//전화번호 하이픈
+$(".phone").on('keydown keyup',function() {
+              this.value = this.value.replace(/[^0-9]/g, '');
+
+              var str = this.value;
+              var tmp = '';
+              var bullet = '-';
+
+              if (str.length > 3 && str.length < 8) {
+                  tmp += str.substr(0, 3);
+                  tmp += bullet;
+                  tmp += str.substr(3);
+                  this.value = tmp;
+              } else if (str.length == 8) {
+                  tmp += str.substr(0, 4);
+                  tmp += bullet;
+                  tmp += str.substr(4);
+                  this.value = tmp;
+              } else if (str.length == 10) {
+                  tmp += str.substr(0, 2);
+                  tmp += bullet;
+                  tmp += str.substr(2, 4);
+                  tmp += bullet;
+                  tmp += str.substr(6); // 10자리일때
+                  this.value = tmp;
+              } else if (str.length > 8) {
+                  tmp += str.substr(0, 3);
+                  tmp += bullet;
+                  tmp += str.substr(3, 4);
+                  tmp += bullet;
+                  tmp += str.substr(7, 4);
+                  this.value = tmp;
+              } else {
+                  this.value = str;
+              }
+          });
+
+
+
+</script>
+<jsp:include page="../inc/bottom.jsp" />
+</body>
+</html>

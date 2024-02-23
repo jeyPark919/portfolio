@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.itwillbs.mappers.ChatMapper">
+		<select id="ChattingBang" resultType="com.itwillbs.domain.ChatDTO">
+			select c.sid, c.rid, c.c_matching, m.c_content, m.c_time 
+			from chat c join message m 
+			on c.c_num = m.c_num
+			where sid = #{id} or rid = #{id}
+		
+		</select>
+		
+<!-- 		<insert id="insertbang"> -->
+<!-- 			insert into chat(sid, rid) -->
+<!-- 			values(#{sid}, #{rid}) -->
+<!-- 		</insert> -->
+		
+		
+		<insert id="insertmessage">
+			insert into message(id, c_content, c_num)
+			values(#{id}, #{c_content}, #{c_num})
+		
+		</insert>
+</mapper>
