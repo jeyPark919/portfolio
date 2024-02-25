@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>notice</title>
+<title>공T 문의하기</title>
 <style>
 #border{
 	height: 1000px;

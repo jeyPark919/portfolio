@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로젝트</title>
+<title>공T 프로젝트</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <style>
@@ -25,7 +25,7 @@
 	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
     <div class="sidemenu">
         <button type="button" class="button button-update" style="background-color: #1842B6;">
-        	<span style="color: white;" onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
+        	<span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
         <button type="button" class="button button-update" >
         <span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
     </div>
@@ -198,7 +198,7 @@
      </c:if>
           	<c:if test="${!empty sessionScope.id }">
      	 <c:if test="${sessionScope.type eq 0 }">
-     	<button type="button" class="button button-update">
+     	<button type="button" class="button button-update" onclick="btnscrap()">
         	<span onclick="location.href='#'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
@@ -226,7 +226,15 @@
 </div>
 
 <!--	Footer Start -->
-    <jsp:include page="../inc/bottom.jsp"/>s
+    <jsp:include page="../inc/bottom.jsp"/>
 <!--	Footer End -->
+<script type="text/javascript">
+
+//찜하기 완료되었을 때 알림창
+function btnscrap(btnscrap) {
+	alert("해당 글이 스크랩되었습니다.");
+}
+
+</script>
 </body>
 </html>

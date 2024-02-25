@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공티 - 비밀번호 찾기 결과</title>
+<title>공T 비밀번호 찾기 결과</title>
 <style type="text/css">
 
 

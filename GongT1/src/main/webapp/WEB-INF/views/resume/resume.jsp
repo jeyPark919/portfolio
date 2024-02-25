@@ -6,9 +6,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>이력서</title>
+<title>공T 이력서</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <style>
 
 </style>
@@ -23,7 +24,9 @@
          <button type="button" class="button button-update" >
         	<span style="color: white;" onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
         <button type="button" class="button button-update"  style="background-color: #1842B6;" >
-        <span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+        <span style="color: black;" onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+        
+        
     </div>
 </div>
 
@@ -227,8 +230,8 @@
      </c:if>
      	<c:if test="${!empty sessionScope.id }">
      	 <c:if test="${sessionScope.type eq 1 }">
-     	<button type="button" class="button button-update">
-        	<span onclick="location.href='#'">찜하기</span>
+     	<button type="button" class="button button-update" onclick="btnscrap()">
+        	<span onclick="location.href='${pageContext.request.contextPath}/project/projectScrap'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
         	<span onclick="location.href='#'">메세지 보내기</span>
@@ -254,6 +257,11 @@
 let now = new Date();
 let current = now.toLocaleString();
 document.querySelector("#updateDate").innerHTML = current;
+
+//찜하기 완료되었을 때 알림창
+function btnscrap(btnscrap) {
+	alert("해당 글이 스크랩되었습니다.");
+}
 
 </script>
     <jsp:include page="../inc/bottom.jsp"/>

@@ -5,7 +5,7 @@
 <jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
-<title>마이페이지 - 프리랜서</title>
+<title>공T 마이페이지</title>
 <style>
 input{
 height: 45px;

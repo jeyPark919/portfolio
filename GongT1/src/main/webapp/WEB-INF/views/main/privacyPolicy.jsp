@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>공T 개인정보처리방침</title>
 <style>
 .page-content {
 	padding-bottom: 3.2rem;

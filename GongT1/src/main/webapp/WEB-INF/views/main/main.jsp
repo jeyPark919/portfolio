@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-<title>공티 - SI 프리랜서 매칭</title>
+<title>공T SI 프리랜서 매칭</title>
 <style>
 	#img{
 		background-image: url("${pageContext.request.contextPath}/resources/computer1.png");
@@ -104,7 +104,7 @@ ul.imgs li{
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
 
         <!-- Icon Font Stylesheet -->

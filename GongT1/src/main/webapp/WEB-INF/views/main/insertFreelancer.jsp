@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>공티 - 프리랜서 회원가입</title>
+<title>공티T 회원가입</title>
 <style>
 input{
 height: 45px;

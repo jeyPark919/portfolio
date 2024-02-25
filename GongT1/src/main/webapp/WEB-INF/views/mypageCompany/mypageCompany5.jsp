@@ -6,7 +6,7 @@
 <jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
-<title>마이페이지 - 기업</title>
+<title>공T 마이페이지</title>
 <script type="text/javascript">
 
 	function popUp(){

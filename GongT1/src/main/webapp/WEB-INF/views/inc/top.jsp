@@ -4,13 +4,14 @@
 
 
 <header>
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
 
 <!-- Icon Font Stylesheet -->
@@ -26,7 +27,7 @@
 
 <!-- Template Stylesheet -->
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-        
+    
 <!-- Spinner Start -->
 <div id="spinner"
 class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -70,9 +71,6 @@ ${sessionScope.id}님 반갑습니다.
 <c:if test="${sessionScope.type eq 1 }">
 <a href="${pageContext.request.contextPath}/mypageCompany/mypageCompany1" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">마이페이지</a>
 </c:if>
-
-
-<button type="button">알림</button>
 </div>
 </c:if>
 </div>

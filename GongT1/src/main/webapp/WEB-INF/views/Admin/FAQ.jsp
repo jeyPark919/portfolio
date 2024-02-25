@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>notice</title>
+<title>공T 자주 묻는 질문</title>
 <style>
 #border{
 	height: 1000px;
