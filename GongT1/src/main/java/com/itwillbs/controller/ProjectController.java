@@ -101,23 +101,23 @@ public class ProjectController {
 	} //project()
 	
 	@GetMapping("/project/scrap")
-	@ResponseBody
 	public String scrap(Scrap_projectDTO scrap_projectDTO, HttpSession session, HttpServletRequest request) {
 		System.out.println("ResumeController scrap()");
-		String result="";
 		scrap_projectDTO.setP_num(Integer.parseInt(request.getParameter("p_num")));
 		scrap_projectDTO.setId((String)session.getAttribute("id"));
 		Scrap_projectDTO scrap_projectDTO2 = projectService.scrap(scrap_projectDTO);
+		String result="";
 		if(scrap_projectDTO2 !=null) {
 			result="scrapDup";
-			return result;
 		} else {
 			result = "scrapOk";
 			projectService.insertScrap(scrap_projectDTO);
-			return result;
 		}
+		return "redirect:/board/searchCom";
 	}
 	
+	
 
+	
 	
 }

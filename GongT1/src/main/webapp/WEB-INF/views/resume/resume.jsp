@@ -230,7 +230,8 @@
      </c:if>
      	<c:if test="${!empty sessionScope.id }">
      	 <c:if test="${sessionScope.type eq 1 }">
-     	<button type="button" class="button button-update" id="scrap" name="scrap">
+     	<button type="button" class="button button-update" class="scrap" onclick="scrap()">
+<%--         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span> --%>
         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
@@ -277,6 +278,11 @@
 // 		})
 // 	})
 // });
+
+function scrap() {
+	alert('해당 글을 찜하였습니다.');
+}
+
 </script>
     <jsp:include page="../inc/bottom.jsp"/>
 </body>

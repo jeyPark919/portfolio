@@ -103,21 +103,19 @@ public class ResumeController {
 	} //resume()
 	
 	@GetMapping("/resume/scrap")
-	@ResponseBody
 	public String scrap(Scrap_resumeDTO scrap_resumeDTO, HttpSession session, HttpServletRequest request) {
 		System.out.println("ResumeController scrap()");
-		String result="";
 		scrap_resumeDTO.setR_num(Integer.parseInt(request.getParameter("r_num")));
 		scrap_resumeDTO.setId((String)session.getAttribute("id"));
 		Scrap_resumeDTO scrap_resumeDTO2 = resumeService.scrap(scrap_resumeDTO);
+		String result="";
 		if(scrap_resumeDTO2 !=null) {
 			result="scrapDup";
-			return result;
 		} else {
 			result = "scrapOk";
 			resumeService.insertScrap(scrap_resumeDTO);
-			return result;
 		}
+		return "redirect:/board/searchFree";
 	}
 	
 	
