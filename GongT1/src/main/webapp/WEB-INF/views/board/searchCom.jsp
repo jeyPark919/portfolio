@@ -156,8 +156,10 @@ h5{
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
-  <label><button type="button" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
-  <button type="button" class="btn btn-primary" id="sortReadcount" style="background-color: #1842B6 !important;">조회순</button></label>
+<form action="${pageContext.request.contextPath}/board/searchCom" method="get">
+  <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
+  <button name="sort" value="sortR" type="submit" class="btn btn-primary" id="sortReadcount" style="background-color: #1842B6 !important;">조회순</button></label>
+</form>
 </div>
 	<table class="table">
   <thead>
@@ -193,19 +195,19 @@ h5{
 	<input type="submit" value="검색" class="btn btn-primary" style="background-color: #1842B6 !important;">
 	</form>
 	
-	<div id="page_control">
+<div id="page_control">
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath}/board/project?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[이전]</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}">[이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage}" step="1">
-<a href="${pageContext.request.contextPath}/board/project?pageNum=${i}&search=${pageDTO.search}">${i}</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${i}&search=${pageDTO.search}&sort=${pageDTO.sort}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.pageCount > pageDTO.endPage}">
-	<a href="${pageContext.request.contextPath}/board/project?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}">[다음]</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}">[다음]</a>
 </c:if>
-	</div>
+</div>
 </div>
 
 	</div>
@@ -216,9 +218,18 @@ h5{
 <!--	Footer End -->
 
 <script type="text/javascript">
-$(function(){
-	
-});
+// $(function(){
+// 	$('#sortMatching').click(function(){
+// 		var arr1 = [${projectDTO.matching }];
+// 		arr1.sort().reverse();
+// 	});
+// });
+// $(function(){
+// 	$('#sortReadcount').click(function(){
+// 		var arr2 = [${projectDTO.p_readcount }];
+// 		arr2.sort().reverse();
+// 	});
+// });
 </script>
     </body>
 

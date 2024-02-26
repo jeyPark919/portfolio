@@ -158,8 +158,10 @@ h5{
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
-  <label><button type="button" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
-  <button type="button" class="btn btn-primary" id="sortSalary" style="background-color: #1842B6 !important;">급여순</button></label>
+<form action="${pageContext.request.contextPath}/board/searchFree" method="get">
+  <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
+  <button name="sort" value="sortS" type="submit" class="btn btn-primary" id="sortSalary" style="background-color: #1842B6 !important;">급여순</button></label>
+</form>
 </div>
 
 <table class="table">
@@ -195,15 +197,15 @@ h5{
 	
 	<div id="page_control">
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath}/resume/resume?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[이전]</a>
+	<a href="${pageContext.request.contextPath}/board/searchFree?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}">[이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage}" step="1">
-<a href="${pageContext.request.contextPath}/resume/resume?pageNum=${i}&search=${pageDTO.search}">${i}</a>
+<a href="${pageContext.request.contextPath}/board/searchFree?pageNum=${i}&search=${pageDTO.search}&sort=${pageDTO.sort}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.pageCount > pageDTO.endPage}">
-	<a href="${pageContext.request.contextPath}/resume/resume?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}">[다음]</a>
+	<a href="${pageContext.request.contextPath}/board/searchFree?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}">[다음]</a>
 </c:if>
 	</div>
 </div>

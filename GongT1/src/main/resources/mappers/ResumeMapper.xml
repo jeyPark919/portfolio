@@ -10,30 +10,45 @@
 	<select id="getResumeCount" resultType="java.lang.Integer">
 		select count(*) from resume
 	</select>
+	
 	<select id="getResumeMaxNum" resultType="java.lang.Integer"> select max(r_num) from resume </select>
 	
-<select id="getResume" resultType="com.itwillbs.domain.ResumeDTO"> select r.*, f.field, rg.region from resume r join field f on r.field_num = f.field_num join region rg on r.region_num = rg.region_num where r.r_num = #{r_num} </select>
-<select id="getMember" resultType="com.itwillbs.domain.MemberDTO"> select m.* from member m join resume r on m.id = r.id where r.r_num = #{r_num} </select>
+	<select id="getResume" resultType="com.itwillbs.domain.ResumeDTO">
+		select r.*, f.field, rg.region from resume r join field f on r.field_num = f.field_num
+		join region rg on r.region_num = rg.region_num where r.r_num = #{r_num}
+	</select>
+	
+	<select id="getMember" resultType="com.itwillbs.domain.MemberDTO">
+		select m.* from member m join resume r on m.id = r.id where r.r_num = #{r_num}
+	</select>
 
 
-<select id="getResumeBoardList" resultType="com.itwillbs.domain.ResumeDTO">
-select r.*, m.name, m.matching from resume r join member m on r.id = m.id
-<if test="search != null">
-<if test="select == 'r_name'"> where r_name like CONCAT('%',#{search},'%') </if>
-<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
-<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
-</if>
-order by r.r_num desc limit #{startRow},#{pageSize}
-</select>
-<select id="getResumeBoardCount" resultType="java.lang.Integer">
-select count(r.r_num) from resume r join member m on r.id = m.id
-<if test="search != null">
-<if test="select == 'r_name'"> where r_name like CONCAT('%',#{search},'%') </if>
-<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
-<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
-</if>
-</select>
-<select id="getResumeBoard" resultType="com.itwillbs.domain.ResumeDTO"> select * from resume where r_num = #{r_num} </select>
+	<select id="getResumeBoardList" resultType="com.itwillbs.domain.ResumeDTO">
+		select r.*, m.name, m.matching from resume r join member m on r.id = m.id
+			<if test="search != null">
+			<if test="select == 'r_name'"> where r_name like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
+			</if>
+			<if test="sort == null">
+			order by r.r_num desc limit #{startRow},#{pageSize}
+			</if>
+			<if test="sort == 'sortM'"> order by m.matching desc, r.r_num desc limit #{startRow},#{pageSize}</if>
+			<if test="sort == 'sortS'"> order by r.r_salary desc limit #{startRow},#{pageSize}</if>
+	</select>
+
+	<select id="getResumeBoardCount" resultType="java.lang.Integer">
+		select count(r.r_num) from resume r join member m on r.id = m.id
+			<if test="search != null">
+			<if test="select == 'r_name'"> where r_name like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
+			</if>
+	</select>
+
+	<select id="getResumeBoard" resultType="com.itwillbs.domain.ResumeDTO">
+		select * from resume where r_num = #{r_num}
+	</select>
 
 
 
