@@ -97,6 +97,9 @@ ${sessionScope.id}님 반갑습니다.
 
 <c:if test="${sessionScope.type eq 0 }">
 <a href="${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer1" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">마이페이지</a>
+<c:if test="${sessionScope.id eq 'admin' }">
+<a href="${pageContext.request.contextPath}/Adminpage/Adminmain" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">관리자페이지</a>
+</c:if>
 <a href="${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer5" class="notification">
   <span>쪽지함</span>
 <!--   <span class="badge">3</span> -->
@@ -111,9 +114,7 @@ ${sessionScope.id}님 반갑습니다.
 </a>
 </c:if>
 
-<c:if test="${sessionScope.id eq admin }">
-<a href="${pageContext.request.contextPath}/Adminpage/Adminmain" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">관리자페이지</a>
-</c:if>
+
 
 
 </div>

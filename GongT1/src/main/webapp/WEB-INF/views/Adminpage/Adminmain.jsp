@@ -239,7 +239,7 @@
 <th>${MemberDTO.comnum}</th>
 <th>${MemberDTO.matching}</th>
 </tr>
-<br><br>
+
 </div>
 	</c:forEach>
 	
