@@ -115,4 +115,13 @@ public class AdminService {
 		
 		adminDAO.deleteresume(resumeDTO);
 	}
+	
+	
+	public AdminDTO userCheck(MemberDTO memberDTO) {
+		System.out.println("AdminService userCheck()");
+		
+		return adminDAO.userCheck(memberDTO);
+	}
+	
+	
 }

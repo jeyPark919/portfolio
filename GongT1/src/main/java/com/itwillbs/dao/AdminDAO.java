@@ -100,4 +100,10 @@ public class AdminDAO {
 		sqlSession.delete(namesapce+".deleteresume" , resumeDTO);
 	}
 	
+	public AdminDTO userCheck(MemberDTO memberDTO) {
+		System.out.println("AdminDAO userCheck()");
+		
+		return sqlSession.selectOne(namesapce+".userCheck", memberDTO);
+	}
+	
 }

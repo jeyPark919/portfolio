@@ -55,7 +55,10 @@ select count(*) from notice
 			where r_num = #{r_num}
 		</delete>
 		
-		
+		<select id="userCheck" resultType="com.itwillbs.domain.AdminDTO">
+			select * from admin
+			where admin_id = #{id} and admin_pw = #{pw}
+		</select>
 
 
 
