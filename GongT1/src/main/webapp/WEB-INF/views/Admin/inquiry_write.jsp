@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -74,7 +75,6 @@ a {
 <div id="left">		
 <ul>
 <li> <a href="${pageContext.request.contextPath}/Admin/notice">공지사항</a></li>
-
 <li> <a href="${pageContext.request.contextPath}/Admin/FAQ">자주 묻는 질문</a></li>
 <li  style="font-weight: bold;"><a href="${pageContext.request.contextPath}/Admin/inquiry">1:1문의</a></li>
 
@@ -82,25 +82,56 @@ a {
 </div>
 
 <div id="right">
-<form action="" id="join">
-<fieldset>
+<!-- <form action="" id="join"> -->
+
 <h2>문의 하기</h2>
 
 <div>
-<input type="text" name="ir_title" placeholder="제목을 입력하세요.">
-</div> 
 
+<form action="${pageContext.request.contextPath}/Admin/inquiry_writePro" method="post">
 
- <div> 
- <textarea name="ir_content" rows="20" cols="50" placeholder="내용을 입력하세요."></textarea> 
- </div> 
- <input type="button" value="제출"  onclick="location.href='/Admin/inquiry'">
-
-</fieldset>	
-</form>				
+<div>
+<table>
+<c:if test="${sessionScope.id ne 'admin'}">
+<tr>
+	<td>문의 작성자</td>
+	<td><input type="text" name="id" id = "write" value="${sessionScope.id}" readonly></td>
+</tr>
+<tr>
+	<td>문의 제목</td>
+	<td><input type="text" id = "write" name="i_title"  style ="width:473px;"></td>
+</tr>
+<tr>
+	<td>문의 내용</td>
+	<td><textarea name="i_content" rows="20" cols="50" id = "write"></textarea></td>
+</tr>
+</c:if>
+<c:if test="${sessionScope.id == 'admin'}">
+<tr>
+<td>답변 작성자</td>
+	<td><input type="text" name="admin_id" id = "write" value="${sessionScope.id}" readonly></td>
+</tr>
+<tr>
+<td>답변 제목</td>
+	<td><input type="text" id = "write" name="asw_title"  style ="width:473px;"></td>
+</tr>
+<tr>
+<td>문의 답변내용</td>
+	<td><textarea name="asw_content" rows="20" cols="50" id = "write"></textarea></td>
+</tr>
+</c:if>
+</table>
+</div>
+</form>
+<input type="submit" value="글쓰기" class="btn"   
+onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
+</div>
+</div>			
 <div class="clear"></div>
+
+
 </div>
-</div>
-<jsp:include page="../inc//bottom.jsp" />
+
+<jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>

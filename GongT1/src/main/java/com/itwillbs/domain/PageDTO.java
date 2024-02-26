@@ -19,8 +19,15 @@ public class PageDTO {
 	private String search;
 	
 	//select 추가
-	private String select;
-		
+		private String select;
+	@Override
+	public String toString() {
+		return "PageDTO [pageSize=" + pageSize + ", pageNum=" + pageNum + ", currentPage=" + currentPage + ", startRow="
+				+ startRow + ", endRow=" + endRow + ", pageBlock=" + pageBlock + ", startPage=" + startPage
+				+ ", endPage=" + endPage + ", count=" + count + ", pageCount=" + pageCount + ", search=" + search
+				+ ", select=" + select + "]";
+	}
+	
 	public String getSelect() {
 		return select;
 	}

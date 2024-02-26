@@ -110,33 +110,28 @@ padding-right:60px;
 
 <div id="right">
 <form action="" id="join">
-<fieldset>
-<!-- <h2>자주 묻는 질문</h2> -->
-
-<div id="side1_c">
-<ul>
-<h3 >기업 회원 </h3>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-
-</ul>
-</div>
 
 
-<div id="side2_c">
+
 <h3>프리랜서 회원 </h3>
 <ul>
-<!-- <h3>프리랜서 회원 </h3> -->
-<li id="side2"><a href="${pageContext.request.contextPath}/inc/intro">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
+<h3>서비스 이용 절차를 알려주세요</h3>
+
+<h5 style="font-weight:bold">'클라이언트' 계정으로 회원가입 > 프로젝트 등록 > 검수 상담 > 지원자 모집 > 미팅 > 검토 > 계약 > 프로젝트 시작</h5>
+
+<p>1. 프로젝트 등록을 위해 '클라이언트' 계정으로 가입해주세요.</p><br>
+<p>2. 의뢰하실 프로젝트 내용을 알고 계신 만큼 작성하여 등록해주세요.</p><br>
+<p>3. 위시켓 검수 매니저와 유선으로 견적/기간 상담 후, 최종적으로 사이트에 프로젝트가 등록됩니다.</p><br>
+<p>4. 모집 시작일로부터 최대 2주까지 지원자를 모집받아보실 수 있습니다.</p><br>
+<p>5. 지원자 중 가장 마음에 드는 파트너 2명과 온라인/오프라인 미팅 진행이 가능합니다.</p><br>
+<p>6. 미팅 후 계약할 파트너를 검토할 수 있습니다.</p><br>
+<p>7. 협의된 업무 범위, 견적/기간을 바탕으로 담당 매니저가 계약서를 작성해드립니다.</p><br>
+<p>8. 대금 입금 후 프로젝트가 착수됩니다.</p><br>
+
+<p>위시켓에서는 프로젝트의 시작부터 끝까지 전 과정 진행을 도와드립니다.</p><br>
+<p>단계 별로 담당 매니저가 배정되어 프로젝트가 원활히 진행될 수 있도록 신속, 정확한 응대를 제공합니다.</p><br>
 </ul>
-</div>
+
 
 				
 
@@ -144,7 +139,7 @@ padding-right:60px;
 <!-- 					<a href="#">이전</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> -->
 <!-- 					<a href="#">4</a><a href="#">5</a><a href="#">6</a> <a href="#">7</a><a -->
 <!-- 						href="#">8</a><a href="#">9</a> <a href="#">10</a> <a href="#">다음</a> -->
-</fieldset>	
+
 </form>			
 <div class="clear"></div>	
 <div id="table_search">
