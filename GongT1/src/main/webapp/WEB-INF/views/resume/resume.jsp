@@ -21,6 +21,7 @@
 	</div>
 	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
     <div class="sidemenu">
+
 <!-- <<<<<<< HEAD -->
 <%--         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button> --%>
 <%--         <button type="button" class="button button-modify-resume"  style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button> --%>
@@ -34,6 +35,7 @@
         
     </div>
 <!-- >>>>>>> refs/remotes/origin/RedPanda -->
+
 </div>
 
     <div class="modal modal-spinner" role="dialog" aria-hidden="true" style="display:none;"></div>
@@ -263,6 +265,7 @@
 </div>
 
 <script>
+<<<<<<< HEAD
 // let now = new Date();
 // let current = now.toLocaleString();
 // document.querySelector("#updateDate").innerHTML = current;
@@ -290,6 +293,8 @@
 function scrap() {
 	alert('해당 글을 찜하였습니다.');
 }
+=======
+>>>>>>> refs/remotes/origin/brunch
 
 </script>
     <jsp:include page="../inc/bottom.jsp"/>

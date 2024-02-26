@@ -29,33 +29,32 @@ public class ChattingService {
 		return chattingDAO.ChattingBangF(id);
 	}//ChattingBang()
 	
-	public List<ChatDTO> ChattingBangFF(String id) {
-		System.out.println("ChattingService ChattingBangFF()");
-		
-		return chattingDAO.ChattingBangFF(id);
-	}//ChattingBang()
+
 	
 	
-	public List<ChatDTO> ChattingBangCC(String id) {
-		System.out.println("ChattingService ChattingBangCC()");
-		
-		return chattingDAO.ChattingBangCC(id);
-	}//ChattingBang()
+
 	
 	public void insertMessage(MessageDTO messageDTO) {
 		System.out.println("MemberService insertMember()");
 		chattingDAO.insertMessage(messageDTO);
 	}
 
-	public ChatDTO getChat(String id) {
-		// TODO Auto-generated method stub
-		return chattingDAO.getChat(id);
-	}
-	
+
 	public void updateMatching(ChatDTO chatDTO) {
 		System.out.println("BoardService updateBoard()");
 		
 		chattingDAO.updateMatching(chatDTO);
+	}
+	
+	public ChatDTO getChat(int c_num) {
+		// TODO Auto-generated method stub
+		return chattingDAO.getChat(c_num);
+	}
+
+	public List<ChatDTO> getMessage(int c_num) {
+		// TODO Auto-generated method stub
+		return chattingDAO.getMessage(c_num);
+
 	}
 	
 	

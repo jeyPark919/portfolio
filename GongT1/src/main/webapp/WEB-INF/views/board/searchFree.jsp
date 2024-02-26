@@ -124,11 +124,13 @@ h5{
 <div class="sidemenu">
 
         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
+
         <button type="button" class="button button-modify-resume" style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'" style="color: white !important;">프리랜서 찾기</span></button>
 
 
 <%-- <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button> --%>
 <%--         <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'" style="color: white !important;">프리랜서 찾기</span></button> --%>
+
 
 </div><br>
 

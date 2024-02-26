@@ -9,9 +9,9 @@
 <title>공T 마이페이지</title>
 <script type="text/javascript">
 
-	function popUp(){
+	function popUp(num){
 		// open("경로", "이름", "옵션")
-		window.open("${pageContext.request.contextPath}/inc/chattingc", "", "width=500px, height=400, left=800px, top=200px");
+		window.open("${pageContext.request.contextPath}/inc/chatting?c_num="+num, "", "width=800px, height=700, left=600px, top=150px");
 	}
 	
 </script>

@@ -125,19 +125,18 @@
     	<caption><span class="skip">모집 정보</span></caption>
         <tbody>
         	<tr>
-            	<th scope="row">근무지역</th>
-                <td>
-                	${projectDTO.region}
-                	
+            	<th scope="row" style="vertical-align: middle;">근무지역</th>
+                <td style="vertical-align: middle;">
+                	&nbsp;&nbsp;${projectDTO.region}
                 </td>
             </tr>
             <tr>
-                <th scope="row">필요인원</th>
-                <td>${projectDTO.p_member}명</td>
+                <th scope="row" style="vertical-align: middle;">필요인원</th>
+                <td style="vertical-align: middle;">${projectDTO.p_member}명</td>
             </tr>
             <tr>
-                <th scope="row">필요직종</th>
-                <td><div class="content is-label">
+                <th scope="row" style="vertical-align: middle;">필요직종</th>
+                <td style="vertical-align: middle;"><div class="content is-label">
                     	<div class="value">
                         	<ul class="list-hopework">
                 					<li><div class="item">${projectDTO.field}</div></li>

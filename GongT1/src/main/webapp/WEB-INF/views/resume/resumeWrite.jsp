@@ -113,8 +113,10 @@ width: 100px;
 
 <center>
 
+
 <button type="submit" value="회원가입" id="button" class="submit" style="background-color: #1842B6;">등록하기</button>
 <button type="reset" value="취소" id="button" class="cancel" style="background-color: #1842B6;" onclick="history.back()">돌아가기</button>
+
 
 </center>
 </fieldset>

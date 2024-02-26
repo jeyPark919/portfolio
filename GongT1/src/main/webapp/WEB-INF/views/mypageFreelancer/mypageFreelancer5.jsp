@@ -8,11 +8,12 @@
 <meta charset="UTF-8">
 
 <title>마이페이지 - 프리랜서</title>
-<script type="text/javascript">
 
-	function popUp(){
+<script>
+
+	function popUp(num){
 		// open("경로", "이름", "옵션")
-		window.open("${pageContext.request.contextPath}/inc/chattingf", "", "width=500px, height=400, left=800px, top=200px");
+		window.open("${pageContext.request.contextPath}/inc/chatting?c_num="+num, "", "width=800px, height=700, left=600px, top=150px");
 	}
 	
 </script>
@@ -70,28 +71,54 @@ tr:hover {background-color: coral;}
 
 
 <table>
-  <tr style="background-color: transparent !important;">
-    <th style=" font-size:25px !important; color: black;">보낸사람</th>
+<!-- <<<<<<< HEAD -->
+<!--   <tr style="background-color: transparent !important;"> -->
+<!--     <th style=" font-size:25px !important; color: black;">보낸사람</th> -->
 
-    <th style=" font-size:25px !important; color: black;">내용</th>
-    <th style=" font-size:25px !important; color: black;">시간</th>
-    <th style=" font-size:25px !important; color: black;">매칭 여부</th>
-  </tr>
-  <c:forEach var="ChattingDTO" items="${ChattingDTOListF}">
- <tr>
-    <th>${ChattingDTO.cid}</th>
-    <th>${ChattingDTO.c_content}</th>
-    <th>${ChattingDTO.c_time}</th>
+<!--     <th style=" font-size:25px !important; color: black;">내용</th> -->
+<!--     <th style=" font-size:25px !important; color: black;">시간</th> -->
+<!--     <th style=" font-size:25px !important; color: black;">매칭 여부</th> -->
+<!--   </tr> -->
+<%--   <c:forEach var="ChattingDTO" items="${ChattingDTOListF}"> --%>
+<!--  <tr> -->
+<%--     <th>${ChattingDTO.cid}</th> --%>
+<%--     <th>${ChattingDTO.c_content}</th> --%>
+<%--     <th>${ChattingDTO.c_time}</th> --%>
+<!-- ======= -->
+	<tr style="background-color: transparent !important;">
+    	<th style=" font-size:25px !important; color: black;">보낸사람</th>
+    	<th style=" font-size:25px !important; color: black;">내용</th>
+    	<th style=" font-size:25px !important; color: black;">시간</th>
+    	<th style=" font-size:25px !important; color: black;">매칭 여부</th>
+	</tr>
+	<c:forEach var="chattingDTO" items="${ChattingDTOListF}">
+	<tr>
+    	<th>${chattingDTO.cid}</th>
+    	<th>${chattingDTO.c_content}</th>
+    	<th>${chattingDTO.c_time}</th>
 
-<c:if test="${ChattingDTO.c_matching eq 0}">
-<th>미 매칭</th>
-</c:if>
-<c:if test="${ChattingDTO.c_matching eq 1}">
-<th>매칭 완료</th>
-</c:if>
+
+<!-- <<<<<<< HEAD -->
+<%-- <c:if test="${ChattingDTO.c_matching eq 0}"> --%>
+<!-- <th>미 매칭</th> -->
+<%-- </c:if> --%>
+<%-- <c:if test="${ChattingDTO.c_matching eq 1}"> --%>
+<!-- <th>매칭 완료</th> -->
+<%-- </c:if> --%>
  
-  <th><button onclick="popUp();">전체 쪽지</button></th>
-   </tr>
+<!--   <th><button onclick="popUp();">전체 쪽지</button></th> -->
+<!--    </tr> -->
+<!-- ======= -->
+		<c:if test="${chattingDTO.c_matching eq 0}">
+		<th>미 매칭</th>
+		</c:if>
+		<c:if test="${chattingDTO.c_matching eq 1}">
+		<th>매칭 완료</th>
+		</c:if>
+ 
+		<th><button onclick="popUp(${chattingDTO.c_num});">전체 쪽지</button></th>
+	</tr>
+
   	</c:forEach>
 </table>
 

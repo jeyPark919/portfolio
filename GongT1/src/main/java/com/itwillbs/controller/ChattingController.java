@@ -3,6 +3,7 @@ package com.itwillbs.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -44,61 +45,49 @@ public class ChattingController {
 //	}
 	
 	
-	@GetMapping("/inc/chattingc")
-	public String chattingc(HttpSession session, Model model) {
-		System.out.println("MemberController mypageCompany5()");
+
+	@GetMapping("/inc/chatting")
+	public String chattingbang(HttpServletRequest request, Model model) {
+		System.out.println("ChattingController chattingbang()");
+		int c_num = Integer.parseInt(request.getParameter("c_num"));
+		List<ChatDTO> messageList = chattingService.getMessage(c_num);
 		
-		String id = (String)session.getAttribute("id");
-		System.out.println(id);
-		List<ChatDTO> ChattingDTOListCC = chattingService.ChattingBangCC(id);
+		model.addAttribute("chatDTO", chattingService.getChat(c_num));
+		model.addAttribute("messageList",messageList);
 		
-		model.addAttribute("ChattingDTOListCC",ChattingDTOListCC);
-		
-		return "/inc/chattingc";
-	}//mypageFreelancer5
+		return "/inc/chatting";
+	}//chattingbang()
 	
-	@GetMapping("/inc/chattingf")
-	public String chattingf(HttpSession session, Model model) {
-		System.out.println("MemberController mypageCompany5()");
-		
-		String id = (String)session.getAttribute("id");
-		System.out.println(id);
-		List<ChatDTO> ChattingDTOListFF = chattingService.ChattingBangFF(id);
-		
-		model.addAttribute("ChatDTO", chattingService.getChat(id));
-		model.addAttribute("ChattingDTOListFF",ChattingDTOListFF);
-		
-		return "/inc/chattingf";
-	}//mypageFreelancer5
 	
 	
 	@PostMapping("/inc/insertMessagePro")
 	public String insertMessagePro(MessageDTO messageDTO) {
-		System.out.println("chattingController insertMessagePro()");
+		System.out.println("ChattingController insertMessagePro()");
 		chattingService.insertMessage(messageDTO);
-		return "redirect:/inc/chatting";
+		return "redirect:/inc/chatting?c_num="+messageDTO.getC_num();
+	}//insertMessagePro
+	
+
+	@PostMapping("/inc/updateMatching")
+	public String updateMatching(ChatDTO chatDTO) {
+		System.out.println("BoardController updatePro()");
+		System.out.println(chatDTO);
+		
+		chattingService.updateMatching(chatDTO);
+		
+		return "redirect:/inc/close";
 	}
 	
-//	@PostMapping("/updateMatching")
-//	public String updateMatchingC(ChatDTO chatDTO) {
-//		System.out.println("BoardController updatePro()");
-//		System.out.println(chatDTO);
-//		
-//		chattingService.updateMatching(chatDTO);
-//		
-//		// /board/list 글목록으로 주소변경하면서 이동
-//		return "redirect:/mypageCompany/mypageCompany5";
-//	}
-//	
-//	@PostMapping("/updateMatching")
-//	public String updateMatchingF(ChatDTO chatDTO) {
-//		System.out.println("BoardController updatePro()");
-//		System.out.println(chatDTO);
-//		
-//		chattingService.updateMatching(chatDTO);
-//		
-//		// /board/list 글목록으로 주소변경하면서 이동
-//		return "redirect:/mypageFreelancer/mypageFreelancer5";
-//	}
 	
-}
+	@GetMapping("/inc/close")
+	public String close() {
+		System.out.println("close()");
+		return "/inc/close";
+	}
+
+	
+
+
+	
+}//class ChattingController
+

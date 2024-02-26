@@ -33,37 +33,40 @@ public class ChattingDAO {
 	
 	}//ChattingCheck()
 	
-	public List<ChatDTO> ChattingBangFF(String id) {
-		System.out.println("ChattingDAO ChattingBangFF()");
-		
-		return sqlSession.selectList(namespace + ".ChattingBangFF", id);
-	
-	}//ChattingCheck()
-	
-	public List<ChatDTO> ChattingBangCC(String id) {
-		System.out.println("ChattingDAO ChattingBangCC()");
-		
-		return sqlSession.selectList(namespace + ".ChattingBangCC", id);
-	
-	}//ChattingCheck()
-	
+
 	
 	public void insertMessage(MessageDTO messageDTO) {
 		System.out.println("MemberDAO insertMember()");
 		System.out.println(messageDTO.getId());
-		
 	
 		sqlSession.insert(namespace+".insertmessage",messageDTO);
+
 	}
 
-	public ChatDTO getChat(String id) {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace+".getChat", id);
-	}
+
 	
 	public void updateMatching(ChatDTO chatDTO) {
 		System.out.println("ChattingDAO updateMatching()");
 		
 		sqlSession.update(namespace+".updateMatching", chatDTO);
+		sqlSession.update(namespace+".updateMatchingF", chatDTO);
+		sqlSession.update(namespace+".updateMatchingC", chatDTO);
 	}
+
+
+
+	
+	public ChatDTO getChat(int c_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getChat", c_num);
+	}//getChat()
+
+	
+	public List<ChatDTO> getMessage(int c_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".getMessage", c_num);
+	}//getMessage()
+	
+	
+
 }
