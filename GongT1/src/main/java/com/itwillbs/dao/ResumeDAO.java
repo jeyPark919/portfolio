@@ -14,6 +14,7 @@ import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.RegionDTO;
 import com.itwillbs.domain.ResumeDTO;
+import com.itwillbs.domain.Scrap_resumeDTO;
 
 @Repository
 public class ResumeDAO {
@@ -61,6 +62,18 @@ public class ResumeDAO {
 		System.out.println("ResumeDAO getResumeBoard()");
 		return sqlSession.selectOne(namespace + ".getResumeBoard", resumeDTO);
 	}//getResumeBoard()
+
+	//찜 확인
+	public Scrap_resumeDTO scrap(Scrap_resumeDTO scrap_resumeDTO) {
+		System.out.println("ResumeDAO scrap()");
+		return sqlSession.selectOne(namespace+".scrap", scrap_resumeDTO);
+	}
+	
+	//찜 넣기
+	public void insertScrap(Scrap_resumeDTO scrap_resumeDTO) {
+		System.out.println("ResumeDAO insertScrap()");
+		sqlSession.insert(namespace+".insertScrap", scrap_resumeDTO);
+	}
 
 
 	

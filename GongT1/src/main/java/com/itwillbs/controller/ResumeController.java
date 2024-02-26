@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ResumeDTO;
+import com.itwillbs.domain.Scrap_resumeDTO;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ResumeService;
 
@@ -97,6 +101,27 @@ public class ResumeController {
 		return "board/searchFree";
 	
 	} //resume()
+	
+	@GetMapping("/resume/scrap")
+	@ResponseBody
+	public String scrap(Scrap_resumeDTO scrap_resumeDTO, HttpSession session, HttpServletRequest request) {
+		System.out.println("ResumeController scrap()");
+		String result="";
+		scrap_resumeDTO.setR_num(Integer.parseInt(request.getParameter("r_num")));
+		scrap_resumeDTO.setId((String)session.getAttribute("id"));
+		Scrap_resumeDTO scrap_resumeDTO2 = resumeService.scrap(scrap_resumeDTO);
+		if(scrap_resumeDTO2 !=null) {
+			result="scrapDup";
+			return result;
+		} else {
+			result = "scrapOk";
+			resumeService.insertScrap(scrap_resumeDTO);
+			return result;
+		}
+	}
+	
+	
+	
 	
 	
 }

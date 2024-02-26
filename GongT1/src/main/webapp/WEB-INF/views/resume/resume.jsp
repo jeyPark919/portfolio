@@ -230,8 +230,8 @@
      </c:if>
      	<c:if test="${!empty sessionScope.id }">
      	 <c:if test="${sessionScope.type eq 1 }">
-     	<button type="button" class="button button-update" onclick="btnscrap()">
-        	<span onclick="location.href='${pageContext.request.contextPath}/project/projectScrap'">찜하기</span>
+     	<button type="button" class="button button-update" id="scrap" name="scrap">
+        	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
         	<span onclick="location.href='#'">메세지 보내기</span>
@@ -254,15 +254,29 @@
 </div>
 
 <script>
-let now = new Date();
-let current = now.toLocaleString();
-document.querySelector("#updateDate").innerHTML = current;
+// let now = new Date();
+// let current = now.toLocaleString();
+// document.querySelector("#updateDate").innerHTML = current;
 
-//찜하기 완료되었을 때 알림창
-function btnscrap(btnscrap) {
-	alert("해당 글이 스크랩되었습니다.");
-}
-
+//찜하기 완료되었을 때 알림창, 이미 찜하기를 눌렀을 경우 알림창
+// $(function(scrap){
+// 	$("#scrap").click(function(){
+// 		$.ajax({
+// 			url : {},
+// 			//data 수정
+// 			data : {'resumeDTO.r_num':$('resumeDTO.r_num').val()},
+// 			success : function(result){
+// 				if(result=="scrapDup"){
+// 					result = "이미 찜하신 목록입니다.";
+// 				} else{
+// 					result = "해당 글을 찜하였습니다.";
+// 				}
+// 				alert(result);
+// 			}
+			
+// 		})
+// 	})
+// });
 </script>
     <jsp:include page="../inc/bottom.jsp"/>
 </body>

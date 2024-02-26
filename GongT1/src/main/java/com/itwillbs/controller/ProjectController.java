@@ -11,9 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.Scrap_projectDTO;
+import com.itwillbs.domain.Scrap_resumeDTO;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProjectService;
 import com.itwillbs.service.ResumeService;
@@ -96,6 +99,24 @@ public class ProjectController {
 		return "board/searchCom";
 	
 	} //project()
+	
+	@GetMapping("/project/scrap")
+	@ResponseBody
+	public String scrap(Scrap_projectDTO scrap_projectDTO, HttpSession session, HttpServletRequest request) {
+		System.out.println("ResumeController scrap()");
+		String result="";
+		scrap_projectDTO.setP_num(Integer.parseInt(request.getParameter("p_num")));
+		scrap_projectDTO.setId((String)session.getAttribute("id"));
+		Scrap_resumeDTO scrap_resumeDTO2 = projectService.scrap(scrap_projectDTO);
+		if(scrap_resumeDTO2 !=null) {
+			result="scrapDup";
+			return result;
+		} else {
+			result = "scrapOk";
+			projectService.insertScrap(scrap_projectDTO);
+			return result;
+		}
+	}
 	
 
 	

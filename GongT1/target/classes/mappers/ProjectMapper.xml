@@ -50,8 +50,23 @@ select count(p.p_num) from project p join member m on p.id = m.id
 <select id="getProjectBoard" resultType="com.itwillbs.domain.ProjectDTO"> select * from project where p_num = #{p_num} </select>
 <update id="updateProjectReadcount"> update project set p_readcount = p_readcount + 1 where p_num = #{p_num} </update>
 		
+<!-- 찜 확인 -->
+<select id="scrap" resultType="com.itwillbs.domain.Scrap_projectDTO">
+	select * from scrap_resume
+	where p_num = #{p_num} and id = #{id}
+</select>
+
+<!-- 찜 하기 -->
+<insert id="insertScrap">
+	insert into scrap_project
+	values (#{sp_num}, #{p_num}, #{id})
+</insert>	
+	
+	
+	
+	
+	
+	
 	
 		
 </mapper>
-
-

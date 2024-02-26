@@ -13,6 +13,7 @@ import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.RegionDTO;
 import com.itwillbs.domain.ResumeDTO;
+import com.itwillbs.domain.Scrap_resumeDTO;
 
 
 
@@ -69,6 +70,18 @@ public class ResumeService {
 		System.out.println("ResumeService getResumeBoard()");
 		return resumeDAO.getResumeBoard(resumeDTO);
 	}//getResumeBoard()
+
+
+	public Scrap_resumeDTO scrap(Scrap_resumeDTO scrap_resumeDTO) {
+		System.out.println("ResumeService scrap()");
+		return resumeDAO.scrap(scrap_resumeDTO);
+	}
+
+
+	public void insertScrap(Scrap_resumeDTO scrap_resumeDTO) {
+		System.out.println("ResumeService insertScrap()");
+		resumeDAO.insertScrap(scrap_resumeDTO);
+	}
 
 
 	

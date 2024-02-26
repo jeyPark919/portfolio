@@ -47,7 +47,7 @@ width: 100px;
 <fieldset>
 <legend><h5>필수 정보입니다. 모두 입력해주세요.</h5></legend>
 <h3>아이디</h3>
-<input type="button" type="text" width="300" name="id" class="id" maxlength="20" required autofocus>
+<input type="text" width="300" name="id" class="id" maxlength="20" required autofocus>
 <button value="중복확인" class="dupid">중복확인</button><br>
 <sub>※아이디 영문,숫자 20자 내로 입력해주세요.</sub>
 <div class="dupdivid"></div><br>
