@@ -122,12 +122,18 @@ h5{
 </div>
 
 <div class="sidemenu">
+
         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
-        <button type="button" class="button button-modify-resume" style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+        <button type="button" class="button button-modify-resume" style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'" style="color: white !important;">프리랜서 찾기</span></button>
+
+
+<%-- <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button> --%>
+<%--         <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'" style="color: white !important;">프리랜서 찾기</span></button> --%>
+
 </div><br>
 
 <div id="left2">
-<h5>직종(분야)</h5>
+<h5 style="background-color: #1842B6;">직종(분야)</h5>
 <label><input type="checkbox" name="projectField" id="projf1" checked>개발자</label><br>
 <label><input type="checkbox" name="projectField" id="projf2">퍼블리셔</label><br>
 <label><input type="checkbox" name="projectField" id="projf3">디자이너</label><br>
@@ -135,7 +141,7 @@ h5{
 </div><br>
 
 <div id="left3">
-<h5>지역</h5>
+<h5 style="background-color: #1842B6;">지역</h5>
 <label><input type="checkbox" name="region" id="regionA" checked>전체</label><br>
 <label><input type="checkbox" name="region" id="region1">서울특별시</label><br>
 <label><input type="checkbox" name="region" id="region2">부산광역시</label><br>

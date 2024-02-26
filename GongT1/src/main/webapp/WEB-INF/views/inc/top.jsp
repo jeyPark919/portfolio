@@ -4,6 +4,7 @@
 
 
 <header>
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -12,7 +13,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
 
 <!-- Icon Font Stylesheet -->
@@ -28,6 +29,7 @@
 
 <!-- Template Stylesheet -->
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+
 
 <style>
 body {
@@ -59,6 +61,7 @@ body {
 }
 </style>
         
+
 <!-- Spinner Start -->
 <div id="spinner"
 class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -113,9 +116,6 @@ ${sessionScope.id}님 반갑습니다.
 <!--   <span class="badge">3</span> -->
 </a>
 </c:if>
-
-
-
 
 </div>
 </c:if>

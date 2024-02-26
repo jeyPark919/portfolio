@@ -6,7 +6,7 @@
 <jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
-<title>마이페이지 - 프리랜서</title>
+<title>공T 마이페이지</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

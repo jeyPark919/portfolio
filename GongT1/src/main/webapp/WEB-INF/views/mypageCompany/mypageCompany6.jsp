@@ -5,7 +5,7 @@
 <jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
-<title>마이페이지 - 기업</title>
+<title>공T 마이페이지</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 
@@ -48,9 +48,6 @@
 <input type="submit" value="탈퇴하기" style="background-color: #1842B6; width: 100px; color: white; font-size:20px;">
 </fieldset>
 </form>
-        
-
-
  			</div>
         </div>
     </div>

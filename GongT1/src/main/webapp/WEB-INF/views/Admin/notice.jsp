@@ -6,9 +6,11 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+
 <title>notice</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
 <style>
 #border{

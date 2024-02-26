@@ -6,9 +6,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로젝트</title>
+<title>공T 프로젝트</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <style>
 
 </style>
@@ -25,7 +26,7 @@
 	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
     <div class="sidemenu">
         <button type="button" class="button button-update" style="background-color: #1842B6;">
-        	<span style="color: white;" onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
+        	<span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
         <button type="button" class="button button-update" >
         <span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
     </div>
@@ -196,12 +197,18 @@
         </button>
      </c:if>
      </c:if>
-     	<button type="button" class="button button-update">
-        	<span onclick="location.href='#'">찜하기</span>
+          	<c:if test="${!empty sessionScope.id }">
+     	 <c:if test="${sessionScope.type eq 0 }">
+     	<button type="button" class="button button-update" class="scrap" onclick="scrap()">
+        	<span onclick="location.href='${pageContext.request.contextPath}/project/scrap?p_num=${projectDTO.p_num}'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
+
         	<span onclick="location.href='#'">쪽지보내기</span>
+
         </button>
+        </c:if>
+        </c:if>
 <!--         <div class="buttons"> -->
 <!--             <button type="button" class="button button-print"><span>찜하기</span></button> -->
 <!--             <button type="button" class="button button-send-email"><span>1:1 채팅 신청</span></button> -->
@@ -222,7 +229,34 @@
 </div>
 
 <!--	Footer Start -->
-    <jsp:include page="../inc/bottom.jsp"/>s
+    <jsp:include page="../inc/bottom.jsp"/>
 <!--	Footer End -->
+<script type="text/javascript">
+
+//찜하기를 눌렀을 때 알림창
+// $(function(){
+// 	$(".scrap").click(function(){
+// 		$.ajax({
+// 			url : '${pageContext.request.contextPath}/project/scrap?p_num=${projectDTO.p_num}',
+// 			//data 수정
+// 			data : {'projectDTO.p_num':$('projectDTO.p_num').val()},
+// 			success : function(result){
+// 				if(result=="scrapDup"){
+// 					result = "이미 찜하신 목록입니다.";
+// 				} else{
+// 					result = "해당 글을 찜하였습니다.";
+// 				}
+// 				window.alert(result);
+// 			}
+// 		});
+// 	});
+// });
+
+function scrap() {
+	alert('해당 글을 찜하였습니다.');
+}
+
+
+</script>
 </body>
 </html>

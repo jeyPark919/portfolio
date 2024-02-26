@@ -6,9 +6,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>이력서</title>
+<title>공T 이력서</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <style>
 
 </style>
@@ -20,9 +21,19 @@
 	</div>
 	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
     <div class="sidemenu">
-        <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
-        <button type="button" class="button button-modify-resume"  style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
-</div><br>
+<!-- <<<<<<< HEAD -->
+<%--         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button> --%>
+<%--         <button type="button" class="button button-modify-resume"  style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button> --%>
+<!-- </div><br> -->
+<!-- ======= -->
+         <button type="button" class="button button-update" >
+        	<span  onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
+        <button type="button" class="button button-update"  style="background-color: #1842B6;" >
+        <span style="color: black;" onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+        
+        
+    </div>
+<!-- >>>>>>> refs/remotes/origin/RedPanda -->
 </div>
 
     <div class="modal modal-spinner" role="dialog" aria-hidden="true" style="display:none;"></div>
@@ -223,14 +234,19 @@
         </button>
      </c:if>
      </c:if>
-     	
-     	<button type="button" class="button button-update">
-        	<span onclick="location.href='#'">찜하기</span>
+     	<c:if test="${!empty sessionScope.id }">
+     	 <c:if test="${sessionScope.type eq 1 }">
+     	<button type="button" class="button button-update" class="scrap" onclick="scrap()">
+<%--         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span> --%>
+        	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
+
         	<span onclick="location.href='#'">쪽지 보내기</span>
+
         </button>
-     
+     	</c:if>
+     	</c:if>
 
         <div class="nav" role="navigation">
             <ul>
@@ -247,9 +263,33 @@
 </div>
 
 <script>
-let now = new Date();
-let current = now.toLocaleString();
-document.querySelector("#updateDate").innerHTML = current;
+// let now = new Date();
+// let current = now.toLocaleString();
+// document.querySelector("#updateDate").innerHTML = current;
+
+//찜하기 완료되었을 때 알림창, 이미 찜하기를 눌렀을 경우 알림창
+// $(function(scrap){
+// 	$("#scrap").click(function(){
+// 		$.ajax({
+// 			url : {},
+// 			//data 수정
+// 			data : {'resumeDTO.r_num':$('resumeDTO.r_num').val()},
+// 			success : function(result){
+// 				if(result=="scrapDup"){
+// 					result = "이미 찜하신 목록입니다.";
+// 				} else{
+// 					result = "해당 글을 찜하였습니다.";
+// 				}
+// 				alert(result);
+// 			}
+			
+// 		})
+// 	})
+// });
+
+function scrap() {
+	alert('해당 글을 찜하였습니다.');
+}
 
 </script>
     <jsp:include page="../inc/bottom.jsp"/>

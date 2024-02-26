@@ -6,12 +6,17 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+
 <title>notice</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
+
+
+
 <style>
 #border{
 	height: 1000px;
 }
+
 #up {
 	margin-top : 75px;
 	text-align: center;

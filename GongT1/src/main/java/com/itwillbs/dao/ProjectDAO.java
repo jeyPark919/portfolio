@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.Scrap_projectDTO;
+import com.itwillbs.domain.Scrap_resumeDTO;
 
 @Repository
 public class ProjectDAO {
@@ -63,6 +65,18 @@ public class ProjectDAO {
 		System.out.println("ProjectDAO updateProjectReadcount()");
 		sqlSession.update(namespace + ".updateProjectReadcount", projectDTO);
 	}//updateProjectReadcount()
+
+	public Scrap_projectDTO scrap(Scrap_projectDTO scrap_projectDTO) {
+		System.out.println("ProjectDAO scrap()");
+		return sqlSession.selectOne(namespace+".scrap", scrap_projectDTO);
+	}
+
+	public void insertScrap(Scrap_projectDTO scrap_projectDTO) {
+		System.out.println("ProjectDAO insertScrap()");
+		sqlSession.insert(namespace+".insertScrap", scrap_projectDTO);
+
+	}
+	
 	
 	
 

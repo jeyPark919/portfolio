@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>공티 - 회원 가입</title>
+<title>공티T 회원가입</title>
 <style>
 #joinh1{
 	text-align: center;

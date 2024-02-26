@@ -11,6 +11,8 @@ import com.itwillbs.dao.ProjectDAO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.Scrap_projectDTO;
+import com.itwillbs.domain.Scrap_resumeDTO;
 
 @Service
 public class ProjectService {
@@ -70,6 +72,16 @@ public class ProjectService {
 		System.out.println("ProjectService updateProjectReadcount()");
 		projectDAO.updateProjectReadcount(projectDTO);
 	}//updateProjectReadcount()
+
+	public Scrap_projectDTO scrap(Scrap_projectDTO scrap_projectDTO) {
+		System.out.println("ProjectService scrap()");
+		return projectDAO.scrap(scrap_projectDTO);
+	}
+	
+	public void insertScrap(Scrap_projectDTO scrap_projectDTO) {
+		System.out.println("ProjectService insertScrap()");
+		projectDAO.insertScrap(scrap_projectDTO);
+	}
 
 
 	
