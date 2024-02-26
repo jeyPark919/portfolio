@@ -238,7 +238,7 @@
 <th>${NoticeDTO.n_date}</th>
 
 </tr>
-<br><br>
+
 </div>
 	</c:forEach>
 	

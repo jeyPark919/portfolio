@@ -9,6 +9,7 @@ public class ChatDTO {
 	private String fid;
 	private String cid;
 	private int c_matching;
+	private String id;
 	
 	private String c_content;
 	private Timestamp c_time;
@@ -26,6 +27,12 @@ public class ChatDTO {
 	}
 	public void setCid(String cid) {
 		this.cid = cid;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getC_content() {
 		return c_content;

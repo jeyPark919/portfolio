@@ -55,4 +55,9 @@ public class ChattingDAO {
 	
 		sqlSession.insert(namespace+".insertmessage",messageDTO);
 	}
+
+	public ChatDTO getChat(String id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getChat", id);
+	}
 }

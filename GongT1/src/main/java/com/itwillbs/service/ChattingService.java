@@ -45,6 +45,11 @@ public class ChattingService {
 		System.out.println("MemberService insertMember()");
 		chattingDAO.insertMessage(messageDTO);
 	}
+
+	public ChatDTO getChat(String id) {
+		// TODO Auto-generated method stub
+		return chattingDAO.getChat(id);
+	}
 	
 	
 }

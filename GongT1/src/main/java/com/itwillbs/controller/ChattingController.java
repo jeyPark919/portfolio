@@ -66,6 +66,7 @@ public class ChattingController {
 		System.out.println(id);
 		List<ChatDTO> ChattingDTOListFF = chattingService.ChattingBangFF(id);
 		
+		model.addAttribute("ChatDTO", chattingService.getChat(id));
 		model.addAttribute("ChattingDTOListFF",ChattingDTOListFF);
 		
 		return "/inc/chattingf";

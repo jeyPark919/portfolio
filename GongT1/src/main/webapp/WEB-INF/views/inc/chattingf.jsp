@@ -97,33 +97,47 @@ body {
 <!-- </table> -->
 
 <!-- </div> -->
+<%-- <p>${sessionScope.id}</p> --%>
+<!-- <div id="messge"> -->
 
-<div id="messge">
+<%-- <c:if test="${sessionScope.id ne ChatDTO.id}"> --%>
+<!-- <div class="container"> -->
 
-<c:if test="${ ChattingDTO.sid !eq sessionScope.id}">
-<div class="container">
+<%-- <c:forEach var="ChattingDTO" items="${ChattingDTOListFF}"> --%>
+
+<%-- <p>${ChattingDTO.id}님</p> --%>
+<%--   <p>${ChattingDTO.c_content}</p> --%>
+<%--   <span class="time-right">${ChattingDTO.c_time}</span><br> --%>
+<%-- </c:forEach> --%>
+<!-- </div> -->
+<%-- </c:if> --%>
+
+
+
+
+
+<c:if test="${sessionScope.id eq ChatDTO.fid}">
 
 <c:forEach var="ChattingDTO" items="${ChattingDTOListFF}">
 
-<p>${ChattingDTO.sid}님</p>
-  <p>${ChattingDTO.c_content}</p>
-  <span class="time-right">${ChattingDTO.c_time}</span><br>
-</c:forEach>
+<c:if test="${sessionScope.id ne ChattingDTO.id }">
+<div class="container">
+<p>${ChattingDTO.id}님</p>
+  <p >${ChattingDTO.c_content}</p>
+  <span class="time-left">${ChattingDTO.c_time}</span><br>
 </div>
 </c:if>
 
-
-
-
-
-<c:if test="${ChattingDTO.sid eq sessionScope.id}">
+<c:if test="${sessionScope.id  eq ChattingDTO.id }">
 <div class="container darker">
-<c:forEach var="ChattingDTO" items="${ChattingDTOListFF}">
-<p >${ChattingDTO.sid}님</p>
+<p>${ChattingDTO.id}님</p>
   <p >${ChattingDTO.c_content}</p>
   <span class="time-left">${ChattingDTO.c_time}</span><br>
-  </c:forEach>
 </div>
+</c:if>
+
+  </c:forEach>
+
 </c:if> 
 
 <%-- <form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" method="post"> --%>

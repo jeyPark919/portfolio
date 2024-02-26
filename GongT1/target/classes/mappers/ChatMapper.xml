@@ -44,9 +44,13 @@
 			where c.cid = #{id} 
 		</select>
 
-<!-- 		<insert id="insertmessage"> -->
-<!-- 			insert into message(id, c_content, c_num) -->
-<!-- 			values(#{id}, #{c_content}, #{c_num}) -->
+		<insert id="insertmessage">
+			insert into message(id, c_content, c_num)
+			values(#{id}, #{c_content}, #{c_num})
 		
-<!-- 		</insert> -->
+		</insert>
+
+			<select id="getChat" resultType="com.itwillbs.domain.ChatDTO">
+				select * from chat where fid = #{id} or cid = #{id}
+			</select>
 </mapper>

@@ -100,12 +100,12 @@ body {
 
 <div id="messge">
 
-<c:if test="${ ChattingDTO.sid !eq sessionScope.id}">
+<c:if test="${ ChattingDTO.cid ne sessionScope.id}">
 <div class="container">
 
 <c:forEach var="ChattingDTO" items="${ChattingDTOListCC}">
 
-<p>${ChattingDTO.sid}님</p>
+<p>${ChattingDTO.fid}님</p>
   <p>${ChattingDTO.c_content}</p>
   <span class="time-right">${ChattingDTO.c_time}</span><br>
 </c:forEach>
@@ -116,10 +116,10 @@ body {
 
 
 
-<c:if test="${ChattingDTO.sid eq sessionScope.id}">
+<c:if test="${ChattingDTO.cid eq sessionScope.id}">
 <div class="container darker">
 <c:forEach var="ChattingDTO" items="${ChattingDTOListCC}">
-<p >${ChattingDTO.sid}님</p>
+<p >${ChattingDTO.cid}님</p>
   <p >${ChattingDTO.c_content}</p>
   <span class="time-left">${ChattingDTO.c_time}</span><br>
   </c:forEach>
