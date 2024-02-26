@@ -73,7 +73,7 @@ public class ProjectService {
 		projectDAO.updateProjectReadcount(projectDTO);
 	}//updateProjectReadcount()
 
-	public Scrap_resumeDTO scrap(Scrap_projectDTO scrap_projectDTO) {
+	public Scrap_projectDTO scrap(Scrap_projectDTO scrap_projectDTO) {
 		System.out.println("ProjectService scrap()");
 		return projectDAO.scrap(scrap_projectDTO);
 	}

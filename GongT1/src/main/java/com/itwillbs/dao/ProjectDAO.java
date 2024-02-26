@@ -66,7 +66,7 @@ public class ProjectDAO {
 		sqlSession.update(namespace + ".updateProjectReadcount", projectDTO);
 	}//updateProjectReadcount()
 
-	public Scrap_resumeDTO scrap(Scrap_projectDTO scrap_projectDTO) {
+	public Scrap_projectDTO scrap(Scrap_projectDTO scrap_projectDTO) {
 		System.out.println("ProjectDAO scrap()");
 		return sqlSession.selectOne(namespace+".scrap", scrap_projectDTO);
 	}

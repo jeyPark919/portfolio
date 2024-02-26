@@ -198,7 +198,7 @@
      </c:if>
           	<c:if test="${!empty sessionScope.id }">
      	 <c:if test="${sessionScope.type eq 0 }">
-     	<button type="button" class="button button-update">
+     	<button type="button" class="button button-update" class="scrap" onclick="scrap()">
         	<span onclick="location.href='${pageContext.request.contextPath}/project/scrap?p_num=${projectDTO.p_num}'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
@@ -230,10 +230,25 @@
 <!--	Footer End -->
 <script type="text/javascript">
 
-//찜하기 완료되었을 때 알림창
-// function btnscrap(btnscrap) {
-// 	alert("해당 글이 스크랩되었습니다.");
-// }
+//찜하기 완료되었을 때 알림창, 이미 찜하기를 눌렀을 경우 알림창
+// $(function(scrap){
+// 	$("#scrap").click(function(){
+// 		$.ajax({
+// 			url : {},
+// 			//data 수정
+// 			data : {'resumeDTO.r_num':$('resumeDTO.r_num').val()},
+// 			success : function(result){
+// 				if(result=="scrapDup"){
+// 					result = "이미 찜하신 목록입니다.";
+// 				} else{
+// 					result = "해당 글을 찜하였습니다.";
+// 				}
+// 				alert(result);
+// 			}
+			
+// 		})
+// 	})
+// });
 
 </script>
 </body>

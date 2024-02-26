@@ -107,8 +107,8 @@ public class ProjectController {
 		String result="";
 		scrap_projectDTO.setP_num(Integer.parseInt(request.getParameter("p_num")));
 		scrap_projectDTO.setId((String)session.getAttribute("id"));
-		Scrap_resumeDTO scrap_resumeDTO2 = projectService.scrap(scrap_projectDTO);
-		if(scrap_resumeDTO2 !=null) {
+		Scrap_projectDTO scrap_projectDTO2 = projectService.scrap(scrap_projectDTO);
+		if(scrap_projectDTO2 !=null) {
 			result="scrapDup";
 			return result;
 		} else {
