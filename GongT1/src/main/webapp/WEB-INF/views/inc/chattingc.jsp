@@ -100,14 +100,14 @@ body {
 
 <div id="messge">
 
-<c:if test="${! ChattingDTO.sid eq sessionScope.id}}">
+<c:if test="${ ChattingDTO.sid !eq sessionScope.id}">
 <div class="container">
 
-<c:forEach var="ChattingDTO" items="${ChattingDTOList2}">
+<c:forEach var="ChattingDTO" items="${ChattingDTOListCC}">
 
 <p>${ChattingDTO.sid}님</p>
   <p>${ChattingDTO.c_content}</p>
-  <span class="time-right">${ChattingDTO.c_time}</span>
+  <span class="time-right">${ChattingDTO.c_time}</span><br>
 </c:forEach>
 </div>
 </c:if>
@@ -118,21 +118,21 @@ body {
 
 <c:if test="${ChattingDTO.sid eq sessionScope.id}">
 <div class="container darker">
-<c:forEach var="ChattingDTO" items="${ChattingDTOList2}">
+<c:forEach var="ChattingDTO" items="${ChattingDTOListCC}">
 <p >${ChattingDTO.sid}님</p>
   <p >${ChattingDTO.c_content}</p>
-  <span class="time-left">${ChattingDTO.c_time}</span>
+  <span class="time-left">${ChattingDTO.c_time}</span><br>
   </c:forEach>
 </div>
 </c:if> 
 
-<form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" method="post">
-<input type="text" name="id" class="id" value="${sessionScope.id}" readonly><br>
+<%-- <form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" method="post"> --%>
+<%-- <input type="text" name="id" class="id" value="${sessionScope.id}" readonly><br> --%>
 
-<input type="text" name="c_content" maxlength="20" required><br>
-<button type="submit" value="보내기" class="submit">보내기</button>
-</form>
-</div>
+<!-- <input type="text" name="c_content" maxlength="20" required><br> -->
+<!-- <button type="submit" value="보내기" class="submit">보내기</button> -->
+<!-- </form> -->
+<!-- </div> -->
 
 
 

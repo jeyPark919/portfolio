@@ -4,13 +4,24 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.itwillbs.mappers.ChatMapper">
-		<select id="ChattingBang" resultType="com.itwillbs.domain.ChatDTO">
-			select c.sid, c.rid, c.c_matching, m.c_content, m.c_time 
+  
+<!--   		마이페이지 채팅 목록 -->
+		<select id="ChattingBangC" resultType="com.itwillbs.domain.ChatDTO">
+			select c.cid, c.fid, c.c_matching, m.c_content, m.c_time,m.id 
 			from chat c join message m 
 			on c.c_num = m.c_num
-			where sid = #{id} or rid = #{id}
-		
+			where c.cid = #{id}
+			and m.id != #{id} 
 		</select>
+		
+		<select id="ChattingBangF" resultType="com.itwillbs.domain.ChatDTO">
+			select c.cid, c.fid, c.c_matching, m.c_content, m.c_time , m.id
+			from chat c join message m 
+			on c.c_num = m.c_num
+			where c.fid = #{id} 
+			and m.id != #{id} 
+		</select>
+		
 		
 <!-- 		<insert id="insertbang"> -->
 <!-- 			insert into chat(sid, rid) -->
@@ -18,9 +29,24 @@
 <!-- 		</insert> -->
 		
 		
-		<insert id="insertmessage">
-			insert into message(id, c_content, c_num)
-			values(#{id}, #{c_content}, #{c_num})
+<!-- 		쪽지 방 -->
+		<select id="ChattingBangFF" resultType="com.itwillbs.domain.ChatDTO">
+			select c.cid, c.fid, c.c_matching, m.c_content, m.c_time , m.id
+			from chat c join message m 
+			on c.c_num = m.c_num
+			where c.fid = #{id} 
+		</select>
 		
-		</insert>
+			<select id="ChattingBangCC" resultType="com.itwillbs.domain.ChatDTO">
+			select c.cid, c.fid, c.c_matching, m.c_content, m.c_time , m.id
+			from chat c join message m 
+			on c.c_num = m.c_num
+			where c.cid = #{id} 
+		</select>
+
+<!-- 		<insert id="insertmessage"> -->
+<!-- 			insert into message(id, c_content, c_num) -->
+<!-- 			values(#{id}, #{c_content}, #{c_num}) -->
+		
+<!-- 		</insert> -->
 </mapper>

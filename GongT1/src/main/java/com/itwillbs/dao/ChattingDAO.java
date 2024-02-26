@@ -19,10 +19,31 @@ public class ChattingDAO {
 	private static final String namespace="com.itwillbs.mappers.ChatMapper";
 	
 	
-	public List<ChatDTO> ChattingBang(String id) {
-		System.out.println("ChattingDAO ChattingBang()");
+	public List<ChatDTO> ChattingBangC(String id) {
+		System.out.println("ChattingDAO ChattingBangC()");
 		
-		return sqlSession.selectList(namespace + ".ChattingBang", id);
+		return sqlSession.selectList(namespace + ".ChattingBangC", id);
+	
+	}//ChattingCheck()
+	
+	public List<ChatDTO> ChattingBangF(String id) {
+		System.out.println("ChattingDAO ChattingBangF()");
+		
+		return sqlSession.selectList(namespace + ".ChattingBangF", id);
+	
+	}//ChattingCheck()
+	
+	public List<ChatDTO> ChattingBangFF(String id) {
+		System.out.println("ChattingDAO ChattingBangFF()");
+		
+		return sqlSession.selectList(namespace + ".ChattingBangFF", id);
+	
+	}//ChattingCheck()
+	
+	public List<ChatDTO> ChattingBangCC(String id) {
+		System.out.println("ChattingDAO ChattingBangCC()");
+		
+		return sqlSession.selectList(namespace + ".ChattingBangCC", id);
 	
 	}//ChattingCheck()
 	

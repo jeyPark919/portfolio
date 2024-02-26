@@ -20,11 +20,9 @@
 	</div>
 	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
     <div class="sidemenu">
-         <button type="button" class="button button-update" >
-        	<span style="color: white;" onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
-        <button type="button" class="button button-update"  style="background-color: #1842B6;" >
-        <span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
-    </div>
+        <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
+        <button type="button" class="button button-modify-resume"  style= "background-color: #1842B6; "><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+</div><br>
 </div>
 
     <div class="modal modal-spinner" role="dialog" aria-hidden="true" style="display:none;"></div>

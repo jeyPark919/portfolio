@@ -16,12 +16,30 @@ public class ChattingService {
 	@Inject
 	private ChattingDAO chattingDAO;
 	
-	public List<ChatDTO> ChattingBang(String id) {
-		System.out.println("ChattingService ChattingBang()");
+	public List<ChatDTO> ChattingBangC(String id) {
+		System.out.println("ChattingService ChattingBangC()");
 		
-		return chattingDAO.ChattingBang(id);
+		return chattingDAO.ChattingBangC(id);
 	}//ChattingBang()
 	
+	public List<ChatDTO> ChattingBangF(String id) {
+		System.out.println("ChattingService ChattingBangF()");
+		
+		return chattingDAO.ChattingBangF(id);
+	}//ChattingBang()
+	
+	public List<ChatDTO> ChattingBangFF(String id) {
+		System.out.println("ChattingService ChattingBangFF()");
+		
+		return chattingDAO.ChattingBangFF(id);
+	}//ChattingBang()
+	
+	
+	public List<ChatDTO> ChattingBangCC(String id) {
+		System.out.println("ChattingService ChattingBangCC()");
+		
+		return chattingDAO.ChattingBangCC(id);
+	}//ChattingBang()
 	
 	public void insertMessage(MessageDTO messageDTO) {
 		System.out.println("MemberService insertMember()");

@@ -35,7 +35,7 @@ tr:hover {background-color: #748dd3;}
     
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany1'"><span>회원정보 수정</span></button>
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany2'"><span>나의 프로젝트</span></button>
-    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany3'"><span>프로젝트 등록</span></button>
+    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/project/projectWrite'"><span>프로젝트 등록</span></button>
     	<button type="button" class="button button-update" style="background-color: #1842B6;"><span style="color: white;">관심 프리랜서(찜)</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany5'"><span>1:1채팅 내역</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany6'"><span>회원탈퇴</span></button>

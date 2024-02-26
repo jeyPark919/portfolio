@@ -11,7 +11,7 @@
 
 	function popUp(){
 		// open("경로", "이름", "옵션")
-		window.open("${pageContext.request.contextPath}/inc/chatting", "", "width=500px, height=400, left=800px, top=200px");
+		window.open("${pageContext.request.contextPath}/inc/chattingc", "", "width=500px, height=400, left=800px, top=200px");
 	}
 	
 </script>
@@ -44,7 +44,7 @@ tr:hover {background-color: coral;}
     
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany1'"><span>회원정보 수정</span></button>
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany2'"><span>나의 프로젝트</span></button>
-    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany3'"><span>프로젝트 등록</span></button>
+    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/project/projectWrite'"><span>프로젝트 등록</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany4'"><span>관심 프리랜서(찜)</span></button>
     	<button type="button" class="button button-update" style="background-color: #1842B6;"><span style="color: white;">1:1채팅 내역</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany6'"><span>회원탈퇴</span></button>
@@ -65,28 +65,27 @@ tr:hover {background-color: coral;}
 <div class="summary col-4"></div>
 <div class="list list-education"></div>
 
-<fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
-
-	
-
+<fieldset style="text-align: center; font-size: 20px; width: 100%;">
 <table>
   <tr style="background-color: transparent !important;">
     <th style=" font-size:25px !important; color: black;">보낸사람</th>
+
     <th style=" font-size:25px !important; color: black;">내용</th>
     <th style=" font-size:25px !important; color: black;">시간</th>
     <th style=" font-size:25px !important; color: black;">매칭 여부</th>
   </tr>
- <c:forEach var="ChattingDTO" items="${ChattingDTOList2}">
+ <c:forEach var="ChattingDTO" items="${ChattingDTOListC}">
  <tr>
-    <th>${ChattingDTO.sid}</th>
+
+    <th>${ChattingDTO.fid}</th>
     <th>${ChattingDTO.c_content}</th>
     <th>${ChattingDTO.c_time}</th>
 
 <c:if test="${ChattingDTO.c_matching eq 0}">
-<th>미 매칭</th><br><br>
+<th>미 매칭</th>
 </c:if>
 <c:if test="${ChattingDTO.c_matching eq 1}">
-<th>매칭 완료</th><br><br>
+<th>매칭 완료</th>
 </c:if>
 <th><button onclick="popUp();">전체 쪽지</button></th>
 

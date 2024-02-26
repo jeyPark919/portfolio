@@ -299,9 +299,9 @@ public class MemberController {
 		
 //		model.addAttribute("ChattingDTOList",ChattingDTOList);
 		
-		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+		List<ChatDTO> ChattingDTOListC = chattingService.ChattingBangC(id);
 		
-		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+		model.addAttribute("ChattingDTOListC",ChattingDTOListC);
 		
 		return "mypageCompany/mypageCompany5";
 	}//mypageCompany5
@@ -378,9 +378,9 @@ public class MemberController {
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);
-		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+		List<ChatDTO> ChattingDTOListF = chattingService.ChattingBangF(id);
 		
-		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+		model.addAttribute("ChattingDTOListF",ChattingDTOListF);
 		
 		return "mypageFreelancer/mypageFreelancer5";
 	}//mypageFreelancer5

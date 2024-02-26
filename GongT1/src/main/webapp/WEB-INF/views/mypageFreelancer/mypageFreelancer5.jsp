@@ -7,6 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지 - 프리랜서</title>
+<script type="text/javascript">
+
+	function popUp(){
+		// open("경로", "이름", "옵션")
+		window.open("${pageContext.request.contextPath}/inc/chattingf", "", "width=500px, height=400, left=800px, top=200px");
+	}
+	
+</script>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -35,7 +43,7 @@ tr:hover {background-color: coral;}
     
          <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer1'"><span >회원정보 수정</span></button>
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer2'"><span>나의 이력서</span></button>
-    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer3'"><span>이력서 등록</span></button>
+    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/resume/resumeWrite'"><span>이력서 등록</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer4'"><span>관심 프로젝트(찜)</span></button>
     	<button type="button" class="button button-update" style="background-color: #1842B6;"><span style="color: white;">1:1채팅 내역</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer6'"><span>회원탈퇴</span></button>
@@ -55,32 +63,37 @@ tr:hover {background-color: coral;}
 
 <div class="summary col-4"></div>
 <div class="list list-education"></div>
-<br>
+
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
-<c:forEach var="ChattingDTO" items="${ChattingDTOList2}">
+
 
 <table>
-  <tr>
-    <th>보낸사람</th>
-    <th>내용</th>
-    <th>시간</th>
-    <th>매칭 여부</th>
+  <tr style="background-color: transparent !important;">
+    <th style=" font-size:25px !important; color: black;">보낸사람</th>
+
+    <th style=" font-size:25px !important; color: black;">내용</th>
+    <th style=" font-size:25px !important; color: black;">시간</th>
+    <th style=" font-size:25px !important; color: black;">매칭 여부</th>
   </tr>
+  <c:forEach var="ChattingDTO" items="${ChattingDTOListF}">
  <tr>
-    <th>${ChattingDTO.sid}</th>
+    <th>${ChattingDTO.cid}</th>
     <th>${ChattingDTO.c_content}</th>
     <th>${ChattingDTO.c_time}</th>
 
 <c:if test="${ChattingDTO.c_matching eq 0}">
-<th>미 매칭</th><br><br>
+<th>미 매칭</th>
 </c:if>
 <c:if test="${ChattingDTO.c_matching eq 1}">
-<th>매칭 완료</th><br><br>
+<th>매칭 완료</th>
 </c:if>
-  </tr>
+ 
+  <th><button onclick="popUp();">전체 쪽지</button></th>
+   </tr>
+  	</c:forEach>
 </table>
 
-	</c:forEach>
+
 </fieldset>
 
         

@@ -26,23 +26,51 @@ public class ChattingController {
 	private MemberService memberService;
 	
 	
-	@GetMapping("/inc/chatting")
-	public String chattingbang(HttpSession session, Model model, MemberDTO memberDTO) {
-		System.out.println("ChattingController chattingbang()");
+//	@GetMapping("/inc/chatting")
+//	public String chattingbang(HttpSession session, Model model, MemberDTO memberDTO) {
+//		System.out.println("ChattingController chattingbang()");
+//		
+//		String id = (String)session.getAttribute("id");
+//		System.out.println(id);
+////		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
+////		
+//		session.setAttribute("id",memberDTO.getId());
+//		
+//		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+//		
+//		
+//		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+//		
+//		return "/inc/chatting";
+//	}
+	
+	
+	@GetMapping("/inc/chattingc")
+	public String chattingc(HttpSession session, Model model) {
+		System.out.println("MemberController mypageCompany5()");
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);
-//		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
-//		
-		session.setAttribute("id",memberDTO.getId());
+		List<ChatDTO> ChattingDTOListCC = chattingService.ChattingBangCC(id);
 		
-		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+		model.addAttribute("ChattingDTOListCC",ChattingDTOListCC);
 		
+		return "/inc/chattingc";
+	}//mypageFreelancer5
+	
+	@GetMapping("/inc/chattingf")
+	public String chattingf(HttpSession session, Model model) {
+		System.out.println("MemberController mypageCompany5()");
 		
-		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+		String id = (String)session.getAttribute("id");
+		System.out.println(id);
+		List<ChatDTO> ChattingDTOListFF = chattingService.ChattingBangFF(id);
 		
-		return "/inc/chatting";
-	}
+		model.addAttribute("ChattingDTOListFF",ChattingDTOListFF);
+		
+		return "/inc/chattingf";
+	}//mypageFreelancer5
+	
 	
 	@PostMapping("/inc/insertMessagePro")
 	public String insertMessagePro(MessageDTO messageDTO) {

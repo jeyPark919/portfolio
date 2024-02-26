@@ -6,25 +6,26 @@ public class ChatDTO {
 
 	private int c_num;
 	private int p_num;
-	private String sid;
-	private String rid;
+	private String fid;
+	private String cid;
 	private int c_matching;
 	
 	private String c_content;
 	private Timestamp c_time;
 	
 	
-	public String getSid() {
-		return sid;
+
+	public String getFid() {
+		return fid;
 	}
-	public void setSid(String sid) {
-		this.sid = sid;
+	public void setFid(String fid) {
+		this.fid = fid;
 	}
-	public String getRid() {
-		return rid;
+	public String getCid() {
+		return cid;
 	}
-	public void setRid(String rid) {
-		this.rid = rid;
+	public void setCid(String cid) {
+		this.cid = cid;
 	}
 	public String getC_content() {
 		return c_content;
