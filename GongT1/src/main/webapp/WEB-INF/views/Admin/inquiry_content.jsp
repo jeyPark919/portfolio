@@ -68,7 +68,7 @@ a {
 </style>
 </head>
 <body>
-<jsp:include page="../inc//top.jsp" />
+<jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
 	<h1>공지사항</h1>
@@ -93,12 +93,16 @@ a {
 <tr><td>문의 작성날짜</td><td>${inquiryDTO.i_date}</td></tr>
 </table>
 <div id="table_search">
+		<c:if test="${sessionScope.id != 'admin'}">
 		<input type="button" value="문의 수정" class="btn" 
   			onclick="location.href='${pageContext.request.contextPath}/Admin/update?n_num=${inquiryDTO.i_num}'">
-		<c:if test="${sessionScope.id != 'admin'}">
 		<input type="button" value="문의 삭제" class="btn" 
   			onclick="location.href='${pageContext.request.contextPath}/Admin/delete?n_num=${inquiryDTO.i_num}'">
   			</c:if>
+  			<c:if test="${sessionScope.id == 'admin'}">
+		<input type="button" value="답변 쓰기" class="btn" 
+  	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${inquiryDTO.i_num}'">
+				</c:if>
 <input type="button" value="문의 목록" class="btn" 
   onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
 </div>

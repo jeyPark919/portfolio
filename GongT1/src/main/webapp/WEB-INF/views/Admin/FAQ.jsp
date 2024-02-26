@@ -116,11 +116,11 @@ padding-right:60px;
 <div id="side1_c">
 <ul>
 <h3 >기업 회원 </h3>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a><br></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a><br></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a><br></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a><br></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a><br></li>
 
 </ul>
 </div>
@@ -130,11 +130,11 @@ padding-right:60px;
 <h3>프리랜서 회원 </h3>
 <ul>
 <!-- <h3>프리랜서 회원 </h3> -->
-<li id="side2"><a href="${pageContext.request.contextPath}/inc/intro">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
+<li id="side2"><a href="${pageContext.request.contextPath}/Support/intro.jsp">매칭 방법 안내1</a><br></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
 </ul>
 </div>
 

@@ -105,10 +105,17 @@ a {
 	<td>문의 내용</td>
 	<td><textarea name="i_content" rows="20" cols="50" id = "write"></textarea></td>
 </tr>
+<input type="submit" value="글쓰기" class="btn"   
+onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
 </c:if>
+
 <c:if test="${sessionScope.id == 'admin'}">
 <tr>
-<td>답변 작성자</td>
+	<td>답변 수신자</td>
+	<td><input type="text" name="id" id = "write" value="${inquiryDTO.id}" readonly></td>
+	</tr>
+<tr>
+	<td>답변 작성자</td>
 	<td><input type="text" name="admin_id" id = "write" value="${sessionScope.id}" readonly></td>
 </tr>
 <tr>
@@ -118,13 +125,17 @@ a {
 <tr>
 <td>문의 답변내용</td>
 	<td><textarea name="asw_content" rows="20" cols="50" id = "write"></textarea></td>
+
 </tr>
+<input type="submit" value="답변 쓰기" class="btn"   
+onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_update?num=${inquiryDTO.i_num }'">
 </c:if>
+
 </table>
 </div>
+
+
 </form>
-<input type="submit" value="글쓰기" class="btn"   
-onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
 </div>
 </div>			
 <div class="clear"></div>

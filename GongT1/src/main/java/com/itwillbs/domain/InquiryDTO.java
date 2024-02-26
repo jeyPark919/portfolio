@@ -70,4 +70,14 @@ public class InquiryDTO {
 		this.asw_date = asw_date;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "InquiryDTO [i_num=" + i_num + ", admin_id=" + admin_id + ", id=" + id + ", i_title=" + i_title
+				+ ", i_content=" + i_content + ", i_date=" + i_date + ", asw_title=" + asw_title + ", asw_content="
+				+ asw_content + ", asw_date=" + asw_date + "]";
+	}
+	
+	
+	
 }

@@ -14,12 +14,12 @@ public class PageDTO {
 	
 	private int count;
 	private int pageCount;
-	
+	private String id;
 	//검색어 추가
 	private String search;
-	
+		
 	//select 추가
-		private String select;
+	private String select;
 	@Override
 	public String toString() {
 		return "PageDTO [pageSize=" + pageSize + ", pageNum=" + pageNum + ", currentPage=" + currentPage + ", startRow="
@@ -27,7 +27,13 @@ public class PageDTO {
 				+ ", endPage=" + endPage + ", count=" + count + ", pageCount=" + pageCount + ", search=" + search
 				+ ", select=" + select + "]";
 	}
-	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getSelect() {
 		return select;
 	}

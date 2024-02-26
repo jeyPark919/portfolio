@@ -92,7 +92,7 @@ a {
 </tr>
 <c:forEach var="irDTO" items="${inquiryList }">
 <tr onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_content?i_num=${irDTO.i_num}'">
-<td>${irDTO.i_num}</td><td class="left">${irDTO.i_title}</td><td>${irDTO.admin_id}</td>
+<td>${irDTO.i_num}</td><td class="left">${irDTO.i_title}</td><td>${irDTO.id}</td>
     	<td><fmt:formatDate value="${irDTO.i_date}" pattern="yyyy.MM.dd"/></td>
     	</tr>
     </c:forEach>
@@ -101,13 +101,14 @@ a {
 				</table>
 				<div id="table_search">
 					<c:if test="${sessionScope.id != 'admin'}">
-						<input type="button" value="글쓰기" class="btn" 
+						<input type="button" value="문의글 쓰기" class="btn" 
   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write'">
 			</c:if>
-			<c:if test="${sessionScope.id == 'admin'}">
-		<input type="button" value="답변 쓰기" class="btn" 
-  	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'">
-				</c:if></div>
+<%-- 			<c:if test="${sessionScope.id == 'admin'}"> --%>
+<!-- 		<input type="button" value="답변 쓰기" class="btn"  -->
+<%--   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'"> --%>
+<%-- 				</c:if> --%>
+				</div>
 				<div class="clear"></div>
 <!-- 				<div id="page_control"> -->
 <!-- 					<a href="#">이전</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> -->

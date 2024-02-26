@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +43,7 @@ public class AdminController {
 		System.out.println(pageDTO);
 		
 		List<NoticeDTO> noticeList = adminService.getNoticeList(pageDTO);
+		
 		int count = adminService.getNoticeCount(pageDTO);
 		int pageBlock=10;
 		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
@@ -104,7 +106,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/Admin/inquiry" ,method=RequestMethod.GET)
-	public String list(HttpServletRequest request, PageDTO pageDTO, Model model) {
+	public String list(HttpServletRequest request, PageDTO pageDTO, Model model, HttpSession session) {
 		System.out.println("AdminController list()");
 		// 한화면에 보여줄 글개수 설정
 		int pageSize = 10;
@@ -120,9 +122,18 @@ public class AdminController {
 		pageDTO.setPageSize(pageSize);
 		pageDTO.setPageNum(pageNum);
 		pageDTO.setCurrentPage(currentPage);
+		pageDTO.setId((String)session.getAttribute("id"));
 		
-		List<InquiryDTO> inquiryList = adminService.getInquiryList(pageDTO);
-		
+		List<InquiryDTO> inquiryList = null;
+		String id = (String)session.getAttribute("id");
+		if((String)session.getAttribute("id")!= (null)) {
+			if (id.equals("admin")) { 
+				inquiryList = adminService.getInquiryList(pageDTO);
+				
+			} else {
+				inquiryList = adminService.getInquiryList2(pageDTO);
+			}
+		}
 		// 페이징 작업
 		// 전체 글개수 구하기  int 리턴할형 count = getBoardCount()
 		int count = adminService.getInquiryCount(pageDTO);
@@ -181,6 +192,7 @@ public class AdminController {
 		System.out.println(inquiryDTO);
 		
 		adminService.insertInquiry(inquiryDTO);
+//		adminService.insertInquiry2(inquiryDTO);
 		return "redirect:/Admin/inquiry";
 }
 	@RequestMapping(value="/Admin/update" ,method=RequestMethod.GET)
@@ -209,25 +221,26 @@ public class AdminController {
 		adminService.deleteNotice(noticeDTO);
 		return "redirect:/Admin/notice";
 	}///////
-//	@RequestMapping(value="/Admin/inquiry_update" ,method=RequestMethod.GET)
-//	public String update(InquiryDTO inquiryDTO,Model model) {
-//		System.out.println("AdminController inquiry_update()");
-//		System.out.println(inquiryDTO);
-//		inquiryDTO = adminService.getInquiry(inquiryDTO);
-//		System.out.println(inquiryDTO);
-//		model.addAttribute("inquiryDTO",inquiryDTO);
-//		return "Admin/inquiry_update";
-//	}	
-//	@RequestMapping(value="/Admin/inquiryupdatePro" ,method=RequestMethod.POST)
-//	public String inquiry_updatePro(InquiryDTO inquiryDTO) {
-//		System.out.println("AdminController inquiry_updatePro()");
-//		System.out.println(inquiryDTO);
-//		
-//		adminService.updateInquiry(inquiryDTO);
-//		
-//		// /board/list 글목록으로 주소변경하면서 이동
-//		return "redirect:/Admin/inquiry";
-//	}
+	@RequestMapping(value="/Admin/inquiry_update" ,method=RequestMethod.GET)
+	public String update(InquiryDTO inquiryDTO,Model model) {
+		System.out.println("AdminController inquiry_update()");
+		System.out.println(inquiryDTO);
+		inquiryDTO = adminService.getInquiry(inquiryDTO);
+		System.out.println(inquiryDTO);
+		model.addAttribute("inquiryDTO",inquiryDTO);
+		System.out.println("AdminController inquiry_update()");
+		return "Admin/inquiry_write";
+	}	
+	@RequestMapping(value="/Admin/inquiry_updatePro" ,method=RequestMethod.POST)
+	public String inquiry_updatePro(InquiryDTO inquiryDTO) {
+		System.out.println("AdminController inquiry_updatePro()");
+		System.out.println(inquiryDTO);
+		
+		adminService.updateInquiry(inquiryDTO);
+		
+		// /board/list 글목록으로 주소변경하면서 이동
+		return "redirect:/Admin/inquiry";
+	}
 	@RequestMapping(value="/Admin/inquiry_delete" ,method=RequestMethod.GET)
 	public String delete(InquiryDTO inquiryDTO) {
 		System.out.println("AdminController delete()");
