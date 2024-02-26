@@ -62,14 +62,9 @@ width: 100px;
 <h3>비밀번호 확인</h3>
 <input type="password" name="pw2" maxlength="20" required><br>
 <sub>※비밀번호를 다시 작성해주세요.</sub>
-<h3>기업명</h3>
+<h3>이름</h3>
 <input type="text" name="name" maxlength="20" required><br>
-<sub>※기업명을 입력해주세요.</sub>
-<h3>사업자 번호</h3>
-<input type="text" name="comnum" class="comnum" maxlength="12" required>
-<button type="button" value="중복확인" class="dupcomnum">중복확인</button><br>
-<sub>※사업자 등록번호를 입력해주세요.</sub>
-<div class="dupdivcomnum"></div><br>
+<sub>※이름을 입력해주세요.</sub>
 <h3>이메일</h3>
 <input type="email" name="email" class="email" maxlength="50" required>
 <button type="button" value="중복확인" class="dupemail">중복확인</button><br>

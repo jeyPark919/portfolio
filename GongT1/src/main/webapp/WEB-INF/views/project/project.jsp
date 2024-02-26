@@ -198,8 +198,8 @@
      </c:if>
           	<c:if test="${!empty sessionScope.id }">
      	 <c:if test="${sessionScope.type eq 0 }">
-     	<button type="button" class="button button-update" onclick="btnscrap()">
-        	<span onclick="location.href='${pageContext.request.contextPath}/project/scrap?r_num=${projectDTO.p_num}'">찜하기</span>
+     	<button type="button" class="button button-update">
+        	<span onclick="location.href='${pageContext.request.contextPath}/project/scrap?p_num=${projectDTO.p_num}'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
         	<span onclick="location.href='#'">메세지 보내기</span>
@@ -231,9 +231,9 @@
 <script type="text/javascript">
 
 //찜하기 완료되었을 때 알림창
-function btnscrap(btnscrap) {
-	alert("해당 글이 스크랩되었습니다.");
-}
+// function btnscrap(btnscrap) {
+// 	alert("해당 글이 스크랩되었습니다.");
+// }
 
 </script>
 </body>
