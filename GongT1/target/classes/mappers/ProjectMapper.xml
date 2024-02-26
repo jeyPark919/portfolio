@@ -62,11 +62,5 @@ select count(p.p_num) from project p join member m on p.id = m.id
 	values (#{sp_num}, #{p_num}, #{id})
 </insert>	
 	
-	
-	
-	
-	
-	
-	
 		
 </mapper>
