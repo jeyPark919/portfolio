@@ -37,7 +37,7 @@ tr:hover {background-color: #748dd3;}
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer2'"><span>나의 이력서</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/resume/resumeWrite'"><span>이력서 등록</span></button>
     	<button type="button" class="button button-update" style="background-color: #1842B6;"><span style="color: white;">관심 프로젝트(찜)</span></button>
-    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer5'"><span>1:1채팅 내역</span></button>
+    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer5'"><span>쪽지 내역</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer6'"><span>회원탈퇴</span></button>
     
     

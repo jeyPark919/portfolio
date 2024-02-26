@@ -7,8 +7,9 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.ChattingDAO;
+
 import com.itwillbs.domain.ChatDTO;
-import com.itwillbs.domain.MemberDTO;
+
 import com.itwillbs.domain.MessageDTO;
 @Service
 public class ChattingService {
@@ -49,6 +50,12 @@ public class ChattingService {
 	public ChatDTO getChat(String id) {
 		// TODO Auto-generated method stub
 		return chattingDAO.getChat(id);
+	}
+	
+	public void updateMatching(ChatDTO chatDTO) {
+		System.out.println("BoardService updateBoard()");
+		
+		chattingDAO.updateMatching(chatDTO);
 	}
 	
 	

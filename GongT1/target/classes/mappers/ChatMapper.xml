@@ -44,16 +44,17 @@
 			where c.cid = #{id} 
 		</select>
 
-		<insert id="insertmessage">
-			insert into message(id, c_content, c_num)
-			values(#{id}, #{c_content}, #{c_num})
-		
-		</insert>
-
+	
 			<select id="getChat" resultType="com.itwillbs.domain.ChatDTO">
 				select * from chat where fid = #{id} or cid = #{id}
 			</select>
 			
+			
+	<update id="updateMatching">
+		update chat
+		set c_matching = true
+		where c_num = #{c_num}
+	</update>
 	
 
 			

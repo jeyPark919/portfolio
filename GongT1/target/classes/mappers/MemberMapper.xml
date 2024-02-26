@@ -45,6 +45,8 @@ select * from member where phone = #{phone} </select>
 		select sum(matching) from member
 	</select>
 	
+	
+	
 		<select id="getMember" resultType="com.itwillbs.domain.MemberDTO">
 			select * from member
 			where id = #{id}

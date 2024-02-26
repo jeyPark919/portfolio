@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>notice</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 #border{
 	height: 1000px;
@@ -102,6 +103,30 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 	top : 5%;
 	left : 8%;
 }
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
 </style>
 </head>
 
@@ -126,26 +151,29 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <!-- <h2>자주 묻는 질문</h2> -->
 
 <div id="side1_c">
+<h3>기업 회원 </h3>
 <ul>
-<h3 >기업 회원 </h3>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li><br>
+
+<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
+<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
 
 </ul>
 </div>
 
 
+
 <div id="side2_c">
-<ul>
 <h3>프리랜서 회원 </h3>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li><br>
+<ul>
+
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
 </ul>
 </div>
 

@@ -100,6 +100,15 @@ body {
 
 <div id="messge">
 
+
+<!-- 		<input type="button" value="글수정" class="btn"  -->
+<%--   			onclick="location.href='${pageContext.request.contextPath}/board/update?num=${boardDTO.num}'"> --%>
+		
+	
+
+
+
+
 <c:if test="${ ChattingDTO.cid ne sessionScope.id}">
 <div class="container">
 

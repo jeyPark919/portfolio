@@ -7,7 +7,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 알림  -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +28,36 @@
 
 <!-- Template Stylesheet -->
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.notification {
+  background-color: #26d48c;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+</style>
         
 <!-- Spinner Start -->
 <div id="spinner"
@@ -65,17 +97,25 @@ ${sessionScope.id}님 반갑습니다.
 
 <c:if test="${sessionScope.type eq 0 }">
 <a href="${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer1" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">마이페이지</a>
+<a href="${pageContext.request.contextPath}/mypageFreelancer/mypageFreelancer5" class="notification">
+  <span>쪽지함</span>
+<!--   <span class="badge">3</span> -->
+</a>
 </c:if>
 
 <c:if test="${sessionScope.type eq 1 }">
 <a href="${pageContext.request.contextPath}/mypageCompany/mypageCompany1" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">마이페이지</a>
+<a href="${pageContext.request.contextPath}/mypageCompany/mypageCompany5" class="notification">
+  <span>쪽지함</span>
+<!--   <span class="badge">3</span> -->
+</a>
 </c:if>
 
 <c:if test="${sessionScope.id eq admin }">
 <a href="${pageContext.request.contextPath}/Adminpage/Adminmain" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">관리자페이지</a>
 </c:if>
 
-<button type="button">알림</button>
+
 </div>
 </c:if>
 </div>

@@ -228,7 +228,7 @@
         	<span onclick="location.href='#'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">1:1 채팅 신청</span>
+        	<span onclick="location.href='#'">쪽지 보내기</span>
         </button>
      
 

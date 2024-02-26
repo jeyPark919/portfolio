@@ -200,7 +200,7 @@
         	<span onclick="location.href='#'">찜하기</span>
         </button>
         <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">1:1 채팅 신청</span>
+        	<span onclick="location.href='#'">쪽지보내기</span>
         </button>
 <!--         <div class="buttons"> -->
 <!--             <button type="button" class="button button-print"><span>찜하기</span></button> -->

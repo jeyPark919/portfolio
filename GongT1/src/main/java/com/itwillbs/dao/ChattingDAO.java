@@ -60,4 +60,10 @@ public class ChattingDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".getChat", id);
 	}
+	
+	public void updateMatching(ChatDTO chatDTO) {
+		System.out.println("ChattingDAO updateMatching()");
+		
+		sqlSession.update(namespace+".updateMatching", chatDTO);
+	}
 }

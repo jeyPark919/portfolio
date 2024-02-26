@@ -10,11 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 import com.itwillbs.domain.ChatDTO;
-import com.itwillbs.domain.MemberDTO;
+
 import com.itwillbs.domain.MessageDTO;
 import com.itwillbs.service.ChattingService;
-import com.itwillbs.service.MemberService;
+
 
 @Controller
 public class ChattingController {
@@ -22,9 +23,7 @@ public class ChattingController {
 	@Inject
 	ChattingService chattingService;
 	
-	@Inject
-	private MemberService memberService;
-	
+
 	
 //	@GetMapping("/inc/chatting")
 //	public String chattingbang(HttpSession session, Model model, MemberDTO memberDTO) {
@@ -79,5 +78,27 @@ public class ChattingController {
 		chattingService.insertMessage(messageDTO);
 		return "redirect:/inc/chatting";
 	}
+	
+//	@PostMapping("/updateMatching")
+//	public String updateMatchingC(ChatDTO chatDTO) {
+//		System.out.println("BoardController updatePro()");
+//		System.out.println(chatDTO);
+//		
+//		chattingService.updateMatching(chatDTO);
+//		
+//		// /board/list 글목록으로 주소변경하면서 이동
+//		return "redirect:/mypageCompany/mypageCompany5";
+//	}
+//	
+//	@PostMapping("/updateMatching")
+//	public String updateMatchingF(ChatDTO chatDTO) {
+//		System.out.println("BoardController updatePro()");
+//		System.out.println(chatDTO);
+//		
+//		chattingService.updateMatching(chatDTO);
+//		
+//		// /board/list 글목록으로 주소변경하면서 이동
+//		return "redirect:/mypageFreelancer/mypageFreelancer5";
+//	}
 	
 }

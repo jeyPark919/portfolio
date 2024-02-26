@@ -10,6 +10,8 @@
 	<select id="getResumeCount" resultType="java.lang.Integer">
 		select count(*) from resume
 	</select>
+	
+	
 	<select id="getResumeMaxNum" resultType="java.lang.Integer"> select max(r_num) from resume </select>
 	
 <select id="getResume" resultType="com.itwillbs.domain.ResumeDTO"> select r.*, f.field, rg.region from resume r join field f on r.field_num = f.field_num join region rg on r.region_num = rg.region_num where r.r_num = #{r_num} </select>
