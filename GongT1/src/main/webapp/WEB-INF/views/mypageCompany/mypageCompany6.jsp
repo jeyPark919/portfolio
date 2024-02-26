@@ -20,7 +20,7 @@
     
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany1'"><span>회원정보 수정</span></button>
         <button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany2'"><span>나의 프로젝트</span></button>
-    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany3'"><span>프로젝트 등록</span></button>
+    	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/project/projectWrite'"><span>프로젝트 등록</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany4'"><span>관심 프리랜서(찜)</span></button>
     	<button type="button" class="button button-update" onclick="location.href='${pageContext.request.contextPath}/mypageCompany/mypageCompany5'"><span>1:1채팅 내역</span></button>
     	<button type="button" class="button button-update" style="background-color: #1842B6;"><span style="color: white;">회원탈퇴</span></button>
@@ -45,7 +45,7 @@
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
 <label>비밀번호</label><br>
 <input type="password" name="pw"  style="font-size:20px;"><br><br>
-<input type="submit" value="탈퇴하기" style="background-color: blue; width: 100px; color: white; font-size:20px;">
+<input type="submit" value="탈퇴하기" style="background-color: #1842B6; width: 100px; color: white; font-size:20px;">
 </fieldset>
 </form>
         

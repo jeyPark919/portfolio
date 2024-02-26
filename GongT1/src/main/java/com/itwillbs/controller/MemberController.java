@@ -15,14 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.itwillbs.domain.AdminDTO;
 import com.itwillbs.domain.ChatDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.ProjectDTO;
 import com.itwillbs.domain.ResumeDTO;
 import com.itwillbs.domain.Scrap_projectDTO;
 import com.itwillbs.domain.Scrap_resumeDTO;
-import com.itwillbs.service.AdminService;
 import com.itwillbs.service.ChattingService;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProjectService;
@@ -42,9 +40,6 @@ public class MemberController {
 	
 	@Inject
 	private ChattingService chattingService;
-	
-	@Inject
-	private AdminService adminService;
 	
 	@GetMapping("/main/login")
 	public String login() {
@@ -67,9 +62,6 @@ public class MemberController {
 			
 			return "redirect:/main/main";
 		} else {
-			
-			AdminDTO adminDTO = adminService.userCheck(memberDTO);
-			session.setAttribute("id", adminDTO.getAdmin_id());
 			return "main/msg";
 		}
 	}
@@ -307,9 +299,9 @@ public class MemberController {
 		
 //		model.addAttribute("ChattingDTOList",ChattingDTOList);
 		
-		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+		List<ChatDTO> ChattingDTOListC = chattingService.ChattingBangC(id);
 		
-		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+		model.addAttribute("ChattingDTOListC",ChattingDTOListC);
 		
 		return "mypageCompany/mypageCompany5";
 	}//mypageCompany5
@@ -386,9 +378,9 @@ public class MemberController {
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);
-		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+		List<ChatDTO> ChattingDTOListF = chattingService.ChattingBangF(id);
 		
-		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+		model.addAttribute("ChattingDTOListF",ChattingDTOListF);
 		
 		return "mypageFreelancer/mypageFreelancer5";
 	}//mypageFreelancer5

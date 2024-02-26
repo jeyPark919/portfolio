@@ -233,7 +233,7 @@
  <div>
 
 <tr>
-<th>${ProjectDTO.p_num} , ${ProjectDTO.id} </th>
+<th> ${ProjectDTO.id} </th>
 <th>${ProjectDTO.p_title}</th>
 <th>${ProjectDTO.p_content}</th>
 <th>${ProjectDTO.p_writedate}</th>

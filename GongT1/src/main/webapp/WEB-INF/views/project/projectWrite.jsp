@@ -31,7 +31,7 @@ width: 400px;
 }
 
 #button {
-background-color: blue;
+background-color: #1842B6;
 color: white;
 padding: 10px;
 border: none;

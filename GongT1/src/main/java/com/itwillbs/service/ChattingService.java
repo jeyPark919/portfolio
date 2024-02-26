@@ -16,16 +16,44 @@ public class ChattingService {
 	@Inject
 	private ChattingDAO chattingDAO;
 	
-	public List<ChatDTO> ChattingBang(String id) {
-		System.out.println("ChattingService ChattingBang()");
+	public List<ChatDTO> ChattingBangC(String id) {
+		System.out.println("ChattingService ChattingBangC()");
 		
-		return chattingDAO.ChattingBang(id);
+		return chattingDAO.ChattingBangC(id);
 	}//ChattingBang()
 	
+	public List<ChatDTO> ChattingBangF(String id) {
+		System.out.println("ChattingService ChattingBangF()");
+		
+		return chattingDAO.ChattingBangF(id);
+	}//ChattingBang()
+	
+	public List<ChatDTO> ChattingBangFF(int c_num) {
+		System.out.println("ChattingService ChattingBangFF()");
+		
+		return chattingDAO.ChattingBangFF(c_num);
+	}//ChattingBang()
+	
+	
+	public List<ChatDTO> ChattingBangCC(String id) {
+		System.out.println("ChattingService ChattingBangCC()");
+		
+		return chattingDAO.ChattingBangCC(id);
+	}//ChattingBang()
 	
 	public void insertMessage(MessageDTO messageDTO) {
 		System.out.println("MemberService insertMember()");
 		chattingDAO.insertMessage(messageDTO);
+	}
+
+	public ChatDTO getChat(int c_num) {
+		// TODO Auto-generated method stub
+		return chattingDAO.getChat(c_num);
+	}
+
+	public List<ChatDTO> getMessage(int c_num) {
+		// TODO Auto-generated method stub
+		return chattingDAO.getMessage(c_num);
 	}
 	
 	

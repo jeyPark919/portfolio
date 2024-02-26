@@ -31,7 +31,7 @@ width: 400px;
 }
 
 #button {
-background-color: blue;
+background-color: #1842B6;
 color: white;
 padding: 10px;
 border: none;
@@ -117,7 +117,7 @@ width: 100px;
 <textarea name="r_content" placeholder="내용" maxlength="1000" cols="50" rows="20" ></textarea>
 
 <center>
-<button type="submit" value="회원가입" id="button" class="submit">이력서 등록</button>
+<button type="submit" value="회원가입" id="button" class="submit">이력서등록</button>
 <button type="reset" value="취소" id="button" class="cancel" onclick="history.back()">돌아가기</button>
 </center>
 </fieldset>

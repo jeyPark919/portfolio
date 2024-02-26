@@ -98,43 +98,60 @@ body {
 
 <!-- </div> -->
 
-<div id="messge">
 
-<c:if test="${! ChattingDTO.sid eq sessionScope.id}}">
-<div class="container">
+<c:if test="${sessionScope.id eq chatDTO.fid}">
+	<c:forEach var="chattingDTO" items="${messageList}">
+		<c:if test="${sessionScope.id ne chattingDTO.id }">
+		<div class="container">
+			<p>${chattingDTO.id}님</p>
+  			<p>${chattingDTO.c_content}</p>
+  			<span class="time-left">${chattingDTO.c_time}</span><br>
+		</div>
+		</c:if>
 
-<c:forEach var="ChattingDTO" items="${ChattingDTOList2}">
-
-<p>${ChattingDTO.sid}님</p>
-  <p>${ChattingDTO.c_content}</p>
-  <span class="time-right">${ChattingDTO.c_time}</span>
-</c:forEach>
-</div>
-</c:if>
-
-
-
-
-
-<c:if test="${ChattingDTO.sid eq sessionScope.id}">
-<div class="container darker">
-<c:forEach var="ChattingDTO" items="${ChattingDTOList2}">
-<p >${ChattingDTO.sid}님</p>
-  <p >${ChattingDTO.c_content}</p>
-  <span class="time-left">${ChattingDTO.c_time}</span>
-  </c:forEach>
-</div>
+		<c:if test="${sessionScope.id eq chattingDTO.id}">
+		<div class="container darker">
+			<p style="text-align: right;">${chattingDTO.id}님</p>
+  			<p style="text-align: right;">${chattingDTO.c_content}</p>
+  			<span class="time-right">${chattingDTO.c_time}</span><br>
+		</div>
+		</c:if>
+	</c:forEach>
 </c:if> 
 
-<form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" method="post">
-<input type="text" name="id" class="id" value="${sessionScope.id}" readonly><br>
 
-<input type="text" name="c_content" maxlength="20" required><br>
-<button type="submit" value="보내기" class="submit">보내기</button>
+<c:if test="${sessionScope.id eq chatDTO.cid}">
+	<c:forEach var="chattingDTO" items="${messageList}">
+		<c:if test="${sessionScope.id ne chattingDTO.id }">
+		<div class="container">
+			<p>${chattingDTO.id}님</p>
+  			<p>${chattingDTO.c_content}</p>
+  			<span class="time-left">${chattingDTO.c_time}</span><br>
+		</div>
+		</c:if>
+
+		<c:if test="${sessionScope.id eq chattingDTO.id }">
+		<div class="container darker">
+			<p style="text-align: right;">${chattingDTO.id}님</p>
+  			<p style="text-align: right;">${chattingDTO.c_content}</p>
+  			<span class="time-right">${chattingDTO.c_time}</span><br>
+		</div>
+		</c:if>
+	</c:forEach>
+</c:if> 
+
+
+<form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" name="msg" method="post">
+	<input type="hidden" name="c_num" value="${chatDTO.c_num}" readonly>
+	<input type="hidden" name="id" class="id" value="${sessionScope.id}" readonly>
+	<input type="text" id="c_content" name="c_content" maxlength="1000" required style="width:320px;">
+	<button type="submit" value="보내기" class="submit" style="background-color: #1842B6; color: white;">보내기</button>
 </form>
-</div>
 
 
+<script>
+
+</script>
 
 
 </body>

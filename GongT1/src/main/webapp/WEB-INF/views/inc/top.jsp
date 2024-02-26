@@ -71,6 +71,9 @@ ${sessionScope.id}님 반갑습니다.
 <a href="${pageContext.request.contextPath}/mypageCompany/mypageCompany1" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">마이페이지</a>
 </c:if>
 
+<c:if test="${sessionScope.id eq admin }">
+<a href="${pageContext.request.contextPath}/Adminpage/Adminmain" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">관리자페이지</a>
+</c:if>
 
 <button type="button">알림</button>
 </div>

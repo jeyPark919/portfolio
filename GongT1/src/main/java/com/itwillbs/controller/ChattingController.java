@@ -3,6 +3,7 @@ package com.itwillbs.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -27,28 +28,51 @@ public class ChattingController {
 	
 	
 	@GetMapping("/inc/chatting")
-	public String chattingbang(HttpSession session, Model model, MemberDTO memberDTO) {
+	public String chattingbang(HttpServletRequest request, Model model) {
 		System.out.println("ChattingController chattingbang()");
+		int c_num = Integer.parseInt(request.getParameter("c_num"));
+		List<ChatDTO> messageList = chattingService.getMessage(c_num);
+		
+		model.addAttribute("chatDTO", chattingService.getChat(c_num));
+		model.addAttribute("messageList",messageList);
+		
+		return "/inc/chatting";
+	}//chattingbang()
+	
+	
+	@GetMapping("/inc/chattingc")
+	public String chattingc(HttpSession session, Model model) {
+		System.out.println("ChattingController chattingc()");
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);
-//		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
-//		
-		session.setAttribute("id",memberDTO.getId());
+		List<ChatDTO> ChattingDTOListCC = chattingService.ChattingBangCC(id);
 		
-		List<ChatDTO> ChattingDTOList2 = chattingService.ChattingBang(id);
+		model.addAttribute("ChattingDTOListCC",ChattingDTOListCC);
 		
+		return "/inc/chattingc";
+	}//
+	
+	
+	@GetMapping("/inc/chattingf")
+	public String chattingf(Model model, HttpServletRequest request) {
+		System.out.println("ChattingController chattingf()");
+		int c_num = Integer.parseInt(request.getParameter("c_num"));
+		List<ChatDTO> chattingDTOListFF = chattingService.ChattingBangFF(c_num);
 		
-		model.addAttribute("ChattingDTOList2",ChattingDTOList2);
+		model.addAttribute("chatDTO", chattingService.getChat(c_num));
+		model.addAttribute("chattingDTOListFF",chattingDTOListFF);
 		
-		return "/inc/chatting";
-	}
+		return "/inc/chattingf";
+	}//
+	
 	
 	@PostMapping("/inc/insertMessagePro")
 	public String insertMessagePro(MessageDTO messageDTO) {
-		System.out.println("chattingController insertMessagePro()");
+		System.out.println("ChattingController insertMessagePro()");
 		chattingService.insertMessage(messageDTO);
-		return "redirect:/inc/chatting";
-	}
+		return "redirect:/inc/chatting?c_num="+messageDTO.getC_num();
+	}//insertMessagePro
 	
-}
+	
+}//class ChattingController
