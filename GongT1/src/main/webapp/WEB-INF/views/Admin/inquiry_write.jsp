@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>notice</title>
+<link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <style>
 #border{
 	height: 1000px;
@@ -21,9 +22,9 @@
 #left {
 	height: 300px;
 	width: 15%;
-	border-style : groove;
+/* 	border-style : groove; */
 	float: left;
-	border-radius: 20px;
+/* 	border-radius: 20px; */
 	text-align: center;
 	margin-left: 10%;
 }
@@ -61,6 +62,18 @@ a {
   text-decoration-line: none;
 }
 
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
+
+.sidemenu {
+	width: 15%;
+	position: relative;
+	top : 5%;
+	left : 8%;
+}
+
 </style>
 </head>
 
@@ -72,13 +85,11 @@ a {
 </div>
 
 <div id="left">		
-<ul>
-<li> <a href="${pageContext.request.contextPath}/Admin/notice">공지사항</a></li>
-
-<li> <a href="${pageContext.request.contextPath}/Admin/FAQ">자주 묻는 질문</a></li>
-<li  style="font-weight: bold;"><a href="${pageContext.request.contextPath}/Admin/inquiry">1:1문의</a></li>
-
-</ul>
+<div class="sidemenu">
+        <button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" >공지사항</span></button>
+      	<button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/FAQ'" >자주 묻는 질문</span></button>
+        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'" style="color: white !important;">1:1문의</span></button>
+</div>
 </div>
 
 <div id="right">

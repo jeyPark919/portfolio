@@ -53,4 +53,8 @@
 			<select id="getChat" resultType="com.itwillbs.domain.ChatDTO">
 				select * from chat where fid = #{id} or cid = #{id}
 			</select>
+			
+	
+
+			
 </mapper>
