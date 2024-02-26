@@ -83,7 +83,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </head>
 
 <body>
-<jsp:include page="../inc//top.jsp" />
+<jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
 	<h1>문의하기</h1>
@@ -109,15 +109,8 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <th>작성일</th>
 </tr>
 <c:forEach var="irDTO" items="${inquiryList }">
-<%--     	<tr onclick="location.href='${pageContext.request.contextPath}/board/content?num=${boardDTO.num}'"> --%>
-<%--     		<td>${boardDTO.num}</td> --%>
-<%--     	    <td class="left">${boardDTO.subject}</td> --%>
-<%--     		<td>${boardDTO.name}</td> --%>
-<%--     		<td><fmt:formatDate value="${boardDTO.date}" pattern="yyyy.MM.dd"/> </td> --%>
-<%--     		<td>${boardDTO.readcount}</td> --%>
-<!--     	</tr> -->
-    	
-    	<tr><td>${irDTO.i_num}</td><td class="left">${irDTO.i_title}</td><td>${irDTO.admin_id}</td>
+<tr onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_content?i_num=${irDTO.i_num}'">
+<td>${irDTO.i_num}</td><td class="left">${irDTO.i_title}</td><td>${irDTO.admin_id}</td>
     	<td><fmt:formatDate value="${irDTO.i_date}" pattern="yyyy.MM.dd"/></td>
     	</tr>
     </c:forEach>
@@ -125,13 +118,14 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 				</table>
 				<div id="table_search">
-					
+					<c:if test="${sessionScope.id != 'admin'}">
 						<input type="button" value="글쓰기" class="btn" 
   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write'">
-<%-- 					<c:if test="${sessionScope.id != admin}"> --%>
-	
-<%-- </c:if> --%>
-				</div>
+			</c:if>
+			<c:if test="${sessionScope.id == 'admin'}">
+		<input type="button" value="답변 쓰기" class="btn" 
+  	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'">
+				</c:if></div>
 				<div class="clear"></div>
 <!-- 				<div id="page_control"> -->
 <!-- 					<a href="#">이전</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> -->
@@ -146,6 +140,6 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </div>
 
 </div>
-<jsp:include page="../inc//bottom.jsp" />
+<jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>

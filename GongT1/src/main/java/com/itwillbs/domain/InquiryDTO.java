@@ -11,17 +11,16 @@ public class InquiryDTO {
 	private String i_content;
 	private Timestamp i_date;
 	private String asw_title;
+	private String asw_content;
+	private Timestamp asw_date;
+	
+	
 	public int getI_num() {
 		return i_num;
 	}
 	public void setI_num(int i_num) {
 		this.i_num = i_num;
 	}
-	private String asw_content;
-	private Timestamp asw_date;
-	
-	
-
 	public String getAdmin_id() {
 		return admin_id;
 	}

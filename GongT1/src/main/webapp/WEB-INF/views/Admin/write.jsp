@@ -83,7 +83,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 </head>
 <body>
-<jsp:include page="../inc//top.jsp" />
+<jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
 	<h2>공지사항 글쓰기</h2>
@@ -138,6 +138,6 @@ onclick="location.href='${pageContext.request.contextPath}/Admin/notice'">
 </div>
 
 </div>
-<jsp:include page="../inc//bottom.jsp" />
+<jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>

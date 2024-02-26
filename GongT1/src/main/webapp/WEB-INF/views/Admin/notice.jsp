@@ -87,7 +87,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </head>
 
 <body>
-<jsp:include page="../inc//top.jsp" />
+<jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
 	<h1>공지사항</h1>
@@ -132,16 +132,16 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 				</table>
 				<div id="page_control">
-<c:if test="${noticeDTO.startPage > noticeDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${noticeDTO.startPage - noticeDTO.pageBlock}&search=${noticeDTO.search}">Prev</a>
+<c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
+	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${noticeDTO.search}">Prev</a>
 </c:if>
 
-<c:forEach var="i" begin="${noticeDTO.startPage}" end="${noticeDTO.endPage}" step="1">
-	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${i}&search=${noticeDTO.search}">${i}</a>
+<c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage}" step="1">
+	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${i}&search=${pageDTO.search}">${i}</a>
 </c:forEach>
 
-<c:if test="${noticeDTO.endPage < noticeDTO.pageCount}">
-	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${noticeDTO.startPage + noticeDTO.pageBlock}&search=${noticeDTO.search}">Next</a>
+<c:if test="${pageTO.endPage < pageDTO.pageCount}">
+	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${noticeDTO.search}">Next</a>
 </c:if>
 
 

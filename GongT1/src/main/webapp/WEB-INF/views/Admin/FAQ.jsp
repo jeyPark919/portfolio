@@ -108,7 +108,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 	top : 5%;
 	left : 8%;
 }
-<<<<<<< HEAD
+
 
 .accordion {
   background-color: #eee;
@@ -133,8 +133,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
   background-color: white;
   overflow: hidden;
 }
-=======
->>>>>>> refs/remotes/origin/brunch
+
 </style>
 </head>
 
@@ -177,11 +176,13 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <h3>프리랜서 회원 </h3>
 <ul>
 
+<!-- <h3>프리랜서 회원 </h3> -->
+<li id="side2"><a href="${pageContext.request.contextPath}/inc/intro">매칭 방법 안내1</a></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
+
 </ul>
 </div>
 
@@ -203,6 +204,6 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </div>
 
 </div>
-<jsp:include page="../inc//bottom.jsp" />
+<jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>

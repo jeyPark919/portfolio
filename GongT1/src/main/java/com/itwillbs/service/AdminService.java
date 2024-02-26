@@ -10,10 +10,8 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.AdminDAO;
 import com.itwillbs.domain.AdminDTO;
 import com.itwillbs.domain.InquiryDTO;
-import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
-import com.itwillbs.domain.ProjectDTO;
-import com.itwillbs.domain.ResumeDTO;
+import com.itwillbs.domain.PageDTO;
 
 @Service
 public class AdminService {
@@ -28,10 +26,10 @@ public class AdminService {
 		noticeDTO.setN_date(new Timestamp(System.currentTimeMillis()));
 		adminDAO.insertNotice(noticeDTO);
 	}
-	public List<NoticeDTO> getNoticeList(NoticeDTO noticeDTO){
-		System.out.println("NoticeService getNoticeList()");
-		int currentPage = noticeDTO.getCurrentPage();
-		int pageSize = noticeDTO.getPageSize();
+	public List<NoticeDTO> getNoticeList(PageDTO pageDTO){
+		System.out.println("AdminService getNoticeList()");
+		int currentPage = pageDTO.getCurrentPage();
+		int pageSize = pageDTO.getPageSize();
 		
 		int startRow = (currentPage-1) * pageSize + 1;
 		
@@ -40,79 +38,72 @@ public class AdminService {
 		
 		// pageDTO에 저장
 		// boardMapper => limit 시작행-1,개수
-		noticeDTO.setStartRow(startRow - 1);
-		noticeDTO.setEndRow(endRow);
+		pageDTO.setStartRow(startRow - 1);
+		pageDTO.setEndRow(endRow);
 		
-		return adminDAO.getNoticeList(noticeDTO);
+		return adminDAO.getNoticeList(pageDTO);
 		
 	}
-	public int getNoticeCount(NoticeDTO noticeDTO) {
-		System.out.println("NoticeService getNoticeCount()");
+	public void insertInquiry(InquiryDTO inquiryDTO) {
+		System.out.println("AdminService insertAdmin()");
+		inquiryDTO.setI_num(adminDAO.getMaxnum() + 1);
+		inquiryDTO.setI_date(new Timestamp(System.currentTimeMillis()));
+		adminDAO.insertInquiry(inquiryDTO);
+	}
+	public List<InquiryDTO> getInquiryList(PageDTO pageDTO){
+		System.out.println("AdminService getInquiryList()");
+		int currentPage = pageDTO.getCurrentPage();
+		int pageSize = pageDTO.getPageSize();
 		
-		return adminDAO.getNoticeCount(noticeDTO);
+		int startRow = (currentPage-1) * pageSize + 1;
+		
+		// 끝나는 행번호 구하기
+		int endRow = startRow + pageSize -1;
+		
+		// pageDTO에 저장
+		// boardMapper => limit 시작행-1,개수
+		pageDTO.setStartRow(startRow - 1);
+		pageDTO.setEndRow(endRow);
+		
+		return adminDAO.getInquiryList(pageDTO);
+		
+	}
+	public int getNoticeCount(PageDTO pageDTO) {
+		System.out.println("AdminService getNoticeCount()");
+		
+		return adminDAO.getNoticeCount(pageDTO);
+	}
+	public int getInquiryCount(PageDTO pageDTO) {
+		System.out.println("AdminService getNoticeCount()");
+		return adminDAO.getInquiryCount(pageDTO);
 	}
 	public NoticeDTO getNotice(NoticeDTO noticeDTO) {
-		System.out.println("NoticeService getNotice()");
+		System.out.println("AdminService getNotice()");
 		return adminDAO.getNotice(noticeDTO);
 	}
 	public void updateReadcount(NoticeDTO noticeDTO) {
-		System.out.println("NoticeService updateReadcount");
+		System.out.println("AdminService updateReadcount");
 		adminDAO.updateReadcount(noticeDTO);
 	}
 	public void updateNotice(NoticeDTO noticeDTO) {
-		System.out.println("BoardService updateBoard");
+		System.out.println("AdminService updateBoard");
 		adminDAO.updateNotice(noticeDTO);
 		
 	}
 
 	public void deleteNotice(NoticeDTO noticeDTO) {
-		System.out.println("BoardService deleteBoard");
+		System.out.println("AdminService deleteNotice");
 		adminDAO.deleteNotice(noticeDTO);
 		
 	}
-	
-	public List<MemberDTO> amember() {
-		System.out.println("AdminService admincom()");
-		
-		return adminDAO.amember();
+	public InquiryDTO getInquiry(InquiryDTO inquiryDTO) {
+		System.out.println("AdminService getInquiry()");
+		return adminDAO.getInquiry(inquiryDTO);
 	}
-	
-	public List<ProjectDTO> aproject() {
-		System.out.println("AdminService aproject()");
-		
-		return adminDAO.aproject();
-	}
-	
-	public List<ResumeDTO> aresume() {
-		System.out.println("AdminService aproject()");
-		
-		return adminDAO.aresume();
-	}
-	
-	public List<NoticeDTO> anotice() {
-		System.out.println("AdminService aproject()");
-		
-		return adminDAO.anotice();
-	}
-	
-	public List<InquiryDTO> ainquiry() {
-		System.out.println("AdminService aproject()");
-		
-		return adminDAO.ainquiry();
-	}
-	
-	public void deleteproject(ProjectDTO projcetDTO) {
-		System.out.println("AdminService deleteproject()");
-		
-		
-		adminDAO.deleteproject(projcetDTO);
+	public void deleteInquiry(InquiryDTO inquiryDTO) {
+		System.out.println("AdminService deleteInquiry");
+		adminDAO.deleteInquiry(inquiryDTO);
 	}
 	
 	
-	public void deleteresume(ResumeDTO resumeDTO) {
-		System.out.println("AdminService deleteresume()");
-		
-		
-		adminDAO.deleteresume(resumeDTO);
-	}
 }
