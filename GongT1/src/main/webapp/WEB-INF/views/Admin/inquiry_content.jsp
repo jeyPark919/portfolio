@@ -100,7 +100,7 @@ a {
   			onclick="location.href='${pageContext.request.contextPath}/Admin/delete?n_num=${inquiryDTO.i_num}'">
   			</c:if>
   			<c:if test="${sessionScope.id == 'admin'}">
-		<input type="button" value="답변 쓰기" class="btn" 
+		<input type="button" value="답변 쓰기" class="btn"  
   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${inquiryDTO.i_num}'">
 				</c:if>
 <input type="button" value="문의 목록" class="btn" 

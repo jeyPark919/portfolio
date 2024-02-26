@@ -128,7 +128,7 @@ public class AdminService {
 //	}
 	public void updateInquiry(InquiryDTO inquiryDTO) {
 		System.out.println("AdminService updateInquiry()");
-		adminDAO.updateInquiry(inquiryDTO);
+		adminDAO.updateInquiry(inquiryDTO); 
 	}
 	
 	

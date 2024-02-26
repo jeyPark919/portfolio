@@ -108,7 +108,7 @@ a {
 <!-- 		<input type="button" value="답변 쓰기" class="btn"  -->
 <%--   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'"> --%>
 <%-- 				</c:if> --%>
-				</div>
+				</div> 
 				<div class="clear"></div>
 <!-- 				<div id="page_control"> -->
 <!-- 					<a href="#">이전</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> -->

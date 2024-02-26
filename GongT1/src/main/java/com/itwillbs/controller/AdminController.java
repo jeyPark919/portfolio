@@ -226,7 +226,7 @@ public class AdminController {
 		System.out.println("AdminController inquiry_update()");
 		System.out.println(inquiryDTO);
 		inquiryDTO = adminService.getInquiry(inquiryDTO);
-		System.out.println(inquiryDTO);
+		System.out.println(inquiryDTO); 
 		model.addAttribute("inquiryDTO",inquiryDTO);
 		System.out.println("AdminController inquiry_update()");
 		return "Admin/inquiry_write";

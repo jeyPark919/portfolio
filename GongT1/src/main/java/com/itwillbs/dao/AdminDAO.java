@@ -85,5 +85,5 @@ public class AdminDAO {
 //		System.out.println(inquiryDTO);
 //		sqlSession.insert(namesapce+".insertInquiry2", inquiryDTO);
 //	}
-	
+	 
 }

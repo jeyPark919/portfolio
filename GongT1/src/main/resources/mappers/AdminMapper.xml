@@ -9,7 +9,7 @@
 
 <insert id="insertNotice"> insert into notice(admin_id,n_title,n_content,n_readcount,n_date) 
 		values(#{admin_id},#{n_title},#{n_content},#{n_readcount},#{n_date}) 
-		</insert>
+	</insert>
 <insert id="insertInquiry">
 		insert into inquiry(id,i_title,i_content) 
 		values(#{id},#{i_title},#{i_content})

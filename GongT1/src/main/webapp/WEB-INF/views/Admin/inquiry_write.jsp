@@ -129,7 +129,7 @@ onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
 </tr>
 <input type="submit" value="답변 쓰기" class="btn"   
 onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_update?num=${inquiryDTO.i_num }'">
-</c:if>
+</c:if> 
 
 </table>
 </div>
