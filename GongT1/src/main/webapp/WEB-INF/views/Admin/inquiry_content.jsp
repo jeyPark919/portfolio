@@ -91,6 +91,9 @@ a {
 <tr><td>문의 작성자</td><td>${inquiryDTO.id}</td></tr>  
 <tr><td>문의 내용</td><td>${inquiryDTO.i_content}</td></tr>
 <tr><td>문의 작성날짜</td><td>${inquiryDTO.i_date}</td></tr>
+<c:if test="${sessionScope.id != 'admin'}">
+
+</c:if>
 </table>
 <div id="table_search">
 		<c:if test="${sessionScope.id != 'admin'}">
@@ -98,11 +101,11 @@ a {
   			onclick="location.href='${pageContext.request.contextPath}/Admin/update?n_num=${inquiryDTO.i_num}'">
 		<input type="button" value="문의 삭제" class="btn" 
   			onclick="location.href='${pageContext.request.contextPath}/Admin/delete?n_num=${inquiryDTO.i_num}'">
-  			</c:if>
-  			<c:if test="${sessionScope.id == 'admin'}">
+  		</c:if>
+  		<c:if test="${sessionScope.id == 'admin'}">
 		<input type="button" value="답변 쓰기" class="btn"  
-  	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${inquiryDTO.i_num}'">
-				</c:if>
+  	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_update?i_num=${inquiryDTO.i_num}'">
+		</c:if>
 <input type="button" value="문의 목록" class="btn" 
   onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
 </div>

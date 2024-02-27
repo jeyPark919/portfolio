@@ -43,6 +43,7 @@ table {
 /* 	height: 200px; */
 	border-collapse: collapse;
 	margin-bottom: 20px;
+	padding-left:50px;
 }
 
 th, td {
@@ -82,17 +83,18 @@ a {
 </div>
 
 <div id="right">
-<!-- <form action="" id="join"> -->
+
 
 <h2>문의 하기</h2>
 
 <div>
 
-<form action="${pageContext.request.contextPath}/Admin/inquiry_writePro" method="post">
+
 
 <div>
 <table>
 <c:if test="${sessionScope.id ne 'admin'}">
+<form action="${pageContext.request.contextPath}/Admin/inquiry_writePro" method="post">
 <tr>
 	<td>문의 작성자</td>
 	<td><input type="text" name="id" id = "write" value="${sessionScope.id}" readonly></td>
@@ -105,11 +107,15 @@ a {
 	<td>문의 내용</td>
 	<td><textarea name="i_content" rows="20" cols="50" id = "write"></textarea></td>
 </tr>
-<input type="submit" value="글쓰기" class="btn"   
-onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
+<input type="submit" value="글쓰기" class="btn">
+</form>
 </c:if>
 
+</table>
+
+<table>
 <c:if test="${sessionScope.id == 'admin'}">
+<form action="${pageContext.request.contextPath}/Admin/inquiry_updatePro" method="post">
 <tr>
 	<td>답변 수신자</td>
 	<td><input type="text" name="id" id = "write" value="${inquiryDTO.id}" readonly></td>
@@ -125,17 +131,19 @@ onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
 <tr>
 <td>문의 답변내용</td>
 	<td><textarea name="asw_content" rows="20" cols="50" id = "write"></textarea></td>
+</tr><br>
 
-</tr>
-<input type="submit" value="답변 쓰기" class="btn"   
-onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_update?num=${inquiryDTO.i_num }'">
+<input type="hidden" name="i_num" value="${inquiryDTO.i_num}">
+
+</form><br>
+<input type="submit" value="답변 쓰기" class="btn">
 </c:if> 
 
 </table>
 </div>
 
 
-</form>
+
 </div>
 </div>			
 <div class="clear"></div>

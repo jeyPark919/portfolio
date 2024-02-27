@@ -80,7 +80,7 @@ public class AdminDAO {
 		System.out.println("AdminDAO getInquiryList2()");
 		return sqlSession.selectList(namesapce+ ".getInquiryList2",pageDTO);
 	}
-//	public void insertInquiry2(InquiryDTO inquiryDTO) {
+//		public void insertInquiry2(InquiryDTO inquiryDTO) {
 //		System.out.println("AdminDAO insertInquiry2()");
 //		System.out.println(inquiryDTO);
 //		sqlSession.insert(namesapce+".insertInquiry2", inquiryDTO);
