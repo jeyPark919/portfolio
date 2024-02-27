@@ -88,7 +88,10 @@ public class ResumeDAO {
 		
 	}
 
-
+	public void resumeDelete(ResumeDTO resumeDTO) {
+		System.out.println("ResumeDAO resumeDelete()");
+		sqlSession.delete(namespace+".resumeDelete", resumeDTO);
+	}
 
 	
 }

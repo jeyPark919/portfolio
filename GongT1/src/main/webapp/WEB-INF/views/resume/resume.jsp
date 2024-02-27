@@ -217,7 +217,7 @@
         	<span onclick="location.href='${pageContext.request.contextPath}/resume/resumeUpdate?r_num=${resumeDTO.r_num }'">이력서 수정</span>
         </button>
         <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">이력서 삭제</span>
+        	<span onclick="location.href='${pageContext.request.contextPath}/resume/resumeDelete?r_num=${resumeDTO.r_num }'">이력서 삭제</span>
         </button>
     
      </c:if>

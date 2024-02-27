@@ -173,7 +173,7 @@ public class ResumeController {
 	}
 	
 	@PostMapping("resume/resumeUpdatePro")
-	public String resumeUpdatePro(HttpSession session,HttpServletRequest request) {
+	public String resumeUpdatePro(HttpSession session,HttpServletRequest request, MultipartFile file) throws Exception{
 		System.out.println("ResumeController resumeUpdate()");
 		
 		String id = (String)session.getAttribute("id");
@@ -193,12 +193,34 @@ public class ResumeController {
 		resumeDTO.setR_content(request.getParameter("r_content"));
 		resumeDTO.setR_file(request.getParameter("file"));
 		
+		if(file.isEmpty()) {
+			System.out.println("첨부파일 없음");
+			resumeDTO.setR_file(request.getParameter("oldfile"));
+		} else {
+			System.out.println("첨부파일 있음");
+			UUID uuid = UUID.randomUUID();
+			String filename = uuid.toString() + "_" + file.getOriginalFilename();
+			System.out.println(filename);
+			
+			System.out.println(uploadPath);
+			FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
+			
+			resumeDTO.setR_file(filename);
+		}
+		
+		
 		System.out.println(resumeDTO);
 		resumeService.resumeUpdate(resumeDTO);
 		return "redirect:/board/searchFree";
 	}
 	
-	
+	@GetMapping("resume/resumeDelete")
+	public String resumeDelete(ResumeDTO resumeDTO, HttpServletRequest request) {
+		System.out.println("ResumeController resumeDelete()");
+		System.out.println(request.getParameter("r_num"));
+		resumeService.resumeDelete(resumeDTO);
+		return "redirect:/board/searchFree";
+	}
 	
 	
 	

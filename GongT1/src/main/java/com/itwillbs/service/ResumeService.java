@@ -97,12 +97,14 @@ public class ResumeService {
 
 	public void resumeUpdate(ResumeDTO resumeDTO) {
 		System.out.println("ResumeService resumeUpdate()");
-		
 		resumeDAO.resumeUpdate(resumeDTO);
 	}
 
 
-
+	public void resumeDelete(ResumeDTO resumeDTO) {
+		System.out.println("ResumeService resumeDelete()");
+		resumeDAO.resumeDelete(resumeDTO);
+	}
 
 	
 

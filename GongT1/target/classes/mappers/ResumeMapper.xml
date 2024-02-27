@@ -84,7 +84,10 @@ where r_num = #{r_num}
 
 </update>
 	
-
+<delete id="resumeDelete">
+delete from resume
+where r_num = #{r_num}
+</delete>
 	
 	
 </mapper>
