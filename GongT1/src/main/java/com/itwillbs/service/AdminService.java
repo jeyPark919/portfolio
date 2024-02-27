@@ -86,7 +86,7 @@ public class AdminService {
 		adminDAO.updateReadcount(noticeDTO);
 	}
 	public void updateNotice(NoticeDTO noticeDTO) {
-		System.out.println("AdminService updateBoard");
+		System.out.println("AdminService updateNotice");
 		adminDAO.updateNotice(noticeDTO);
 		
 	}
@@ -103,6 +103,32 @@ public class AdminService {
 	public void deleteInquiry(InquiryDTO inquiryDTO) {
 		System.out.println("AdminService deleteInquiry");
 		adminDAO.deleteInquiry(inquiryDTO);
+	}
+	public List<InquiryDTO> getInquiryList2(PageDTO pageDTO) {
+		System.out.println("AdminService getInquiryList2");
+		int currentPage = pageDTO.getCurrentPage();
+		int pageSize = pageDTO.getPageSize();
+		
+		int startRow = (currentPage-1) * pageSize + 1;
+		
+		// 끝나는 행번호 구하기
+		int endRow = startRow + pageSize -1;
+		
+		// pageDTO에 저장
+		// boardMapper => limit 시작행-1,개수
+		pageDTO.setStartRow(startRow - 1);
+		pageDTO.setEndRow(endRow);
+		return adminDAO.getInquiryList2(pageDTO);
+	}
+//	public void insertInquiry2(InquiryDTO inquiryDTO) {
+//		System.out.println("AdminService insertAdmin()");
+//		inquiryDTO.setI_num(adminDAO.getMaxnum() + 1);
+//		inquiryDTO.setI_date(new Timestamp(System.currentTimeMillis()));
+//		adminDAO.insertInquiry2(inquiryDTO);
+//	}
+	public void updateInquiry(InquiryDTO inquiryDTO) {
+		System.out.println("AdminService updateInquiry()");
+		adminDAO.updateInquiry(inquiryDTO); 
 	}
 	
 	

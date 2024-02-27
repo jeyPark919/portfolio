@@ -14,7 +14,7 @@
 
 <style>
 #border{
-	height: 1000px;
+	height: 1400px;
 }
 
 #up {
@@ -27,8 +27,8 @@
 }
 
 #left {
-	height: 300px;
-	width: 15%;
+	height: 400px;
+	width: 180px;
 /* 	border-style : groove; */
 	float: left;
 /* 	border-radius: 20px; */
@@ -37,11 +37,13 @@
 }
 
 #right {
- 	height: 50%; 
-	width: 60%;
+ 	height: 700px; 
+	width: 700px;
 	float: left;
 	text-align: center;
 	margin-right: 10%;
+		position: relative;
+		left : 8%;
 }
 
 
@@ -50,21 +52,22 @@ table {
 /* 	height: 200px; */
 	border-collapse: collapse;
 	margin-bottom: 20px;
+	padding-left:50px;
 }
 
-th, td {
-	border: 1px solid black;
-	text-align: center;
-	padding: 4px;
-	height: 1px;
-}
+/* th, td { */
+/* 	border: 1px solid black; */
+/* 	text-align: center; */
+/* 	padding: 4px; */
+/* 	height: 1px; */
+/* } */
 
-input {
-	width: 473px;
-	margin-bottom: 10px;
+/* input { */
+/* 	width: 473px; */
+/* 	margin-bottom: 10px; */
 	
 
-}
+/* } */
 a {
   text-decoration-line: none;
 }
@@ -81,6 +84,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 	left : 8%;
 }
 
+
 </style>
 </head>
 
@@ -88,7 +92,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <jsp:include page="../inc//top.jsp" />
 <div id="border">
 <div id="up">
-	<h1>커뮤니티</h1>
+<!-- 	<h1>커뮤니티</h1> -->
 </div>
 
 <div id="left">		
@@ -102,17 +106,20 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </div>
 
 <div id="right">
-<!-- <form action="" id="join"> -->
+
 
 <h2>문의 하기</h2>
 
-<div>
+
+
+
+
+
+
+<c:if test="${sessionScope.id ne 'admin'}">
 
 <form action="${pageContext.request.contextPath}/Admin/inquiry_writePro" method="post">
-
-<div>
 <table>
-<c:if test="${sessionScope.id ne 'admin'}">
 <tr>
 	<td>문의 작성자</td>
 	<td><input type="text" name="id" id = "write" value="${sessionScope.id}" readonly></td>
@@ -125,10 +132,27 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 	<td>문의 내용</td>
 	<td><textarea name="i_content" rows="20" cols="50" id = "write"></textarea></td>
 </tr>
-</c:if>
-<c:if test="${sessionScope.id == 'admin'}">
 <tr>
-<td>답변 작성자</td>
+<td></td>
+<td style="text-align: center;"><input type="submit" value="글쓰기" ></input></td>
+</tr>
+
+</table>
+</form>
+
+</c:if>
+
+
+
+<table>
+<c:if test="${sessionScope.id == 'admin'}">
+<form action="${pageContext.request.contextPath}/Admin/inquiry_updatePro" method="post">
+<tr>
+	<td>답변 수신자</td>
+	<td><input type="text" name="id" id = "write" value="${inquiryDTO.id}" readonly></td>
+	</tr>
+<tr>
+	<td>답변 작성자</td>
 	<td><input type="text" name="admin_id" id = "write" value="${sessionScope.id}" readonly></td>
 </tr>
 <tr>
@@ -138,19 +162,25 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <tr>
 <td>문의 답변내용</td>
 	<td><textarea name="asw_content" rows="20" cols="50" id = "write"></textarea></td>
-</tr>
-</c:if>
+</tr><br>
+
+<input type="hidden" name="i_num" value="${inquiryDTO.i_num}">
+
+</form><br>
+<input type="submit" value="답변 쓰기" class="btn">
+</c:if> 
+
 </table>
 </div>
-</form>
-<input type="submit" value="글쓰기" class="btn"   
-onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">
+
+
+
 </div>
-</div>			
+		
 <div class="clear"></div>
 
 
-</div>
+
 
 <jsp:include page="../inc/bottom.jsp" />
 </body>

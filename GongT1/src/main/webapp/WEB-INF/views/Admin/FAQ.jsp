@@ -179,15 +179,19 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
   <p>기업 : 프로젝트 등록 > 프리랜서의 확인(쪽지 면접) > 매칭완료(계약) 순서로 기업과 프리랜서가  직접소통하며 진행매칭완료 횟수가 증가합니다.</p>
 </div>
 
+
 <button class="accordion">공T 쪽지 안내</button>
 <div class="panel">
   <p>프로젝트 상세 페이지 및 이력서 상세페이지에서 보내실 수 있으시며, 쪽지함 또는 마이페이지에서 전체 쪽지를 확인 하실 수 있습니다</p>
+
 </div>
+
 
 
 <button class="accordion">등록 방법</button>
 <div class="panel">
   <p>프리랜서와 기업 둘다 동일하게 마이페이지에서 이력서 및 공고를 등록하실 수 있습니다.</p>
+
 </div>
 
 <button class="accordion">회원 정보 수정 및 탈퇴</button>

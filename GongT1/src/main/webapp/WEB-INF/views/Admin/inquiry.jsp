@@ -86,7 +86,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
-	<h1>문의하기</h1>
+<!-- 	<h1>문의하기</h1> -->
 </div>
 
 <div id="left">		
@@ -110,7 +110,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </tr>
 <c:forEach var="irDTO" items="${inquiryList }">
 <tr onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_content?i_num=${irDTO.i_num}'">
-<td>${irDTO.i_num}</td><td class="left">${irDTO.i_title}</td><td>${irDTO.admin_id}</td>
+<td>${irDTO.i_num}</td><td class="left">${irDTO.i_title}</td><td>${irDTO.id}</td>
     	<td><fmt:formatDate value="${irDTO.i_date}" pattern="yyyy.MM.dd"/></td>
     	</tr>
     </c:forEach>
@@ -119,18 +119,15 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 				</table>
 				<div id="table_search">
 					<c:if test="${sessionScope.id != 'admin'}">
-						<input type="button" value="글쓰기" class="btn" 
+						<input type="button" value="문의글 쓰기" class="btn" 
   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write'">
 			</c:if>
-			<c:if test="${sessionScope.id == 'admin'}">
-		<input type="button" value="답변 쓰기" class="btn" 
-  	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'">
-				</c:if></div>
+<%-- 			<c:if test="${sessionScope.id == 'admin'}"> --%>
+<!-- 		<input type="button" value="답변 쓰기" class="btn"  -->
+<%--   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'"> --%>
+<%-- 				</c:if> --%>
+				</div> 
 				<div class="clear"></div>
-<!-- 				<div id="page_control"> -->
-<!-- 					<a href="#">이전</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> -->
-<!-- 					<a href="#">4</a><a href="#">5</a><a href="#">6</a> <a href="#">7</a><a -->
-<!-- 						href="#">8</a><a href="#">9</a> <a href="#">10</a> <a href="#">다음</a> -->
 </fieldset>	
 
 </form>		
