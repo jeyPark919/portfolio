@@ -76,6 +76,23 @@ public class ProjectDAO {
 		sqlSession.insert(namespace+".insertScrap", scrap_projectDTO);
 
 	}
+
+	//글 삭제
+	public void projectDelete(ProjectDTO projectDTO) {
+		System.out.println("ProjectDAO projectDelete()");
+		sqlSession.delete(namespace+".projectDelete", projectDTO);
+	}
+
+	public void insertProject(ProjectDTO projectDTO) {
+		System.out.println("ProjectDAO insertProject()");
+		System.out.println("projectDTO" + projectDTO);
+		sqlSession.insert(namespace+".insertProject", projectDTO);
+	}
+
+	public void projectUpdate(ProjectDTO projectDTO) {
+		System.out.println("ProjectDAO projectUpdate()");
+		sqlSession.update(namespace+".projectUpdate", projectDTO);
+	}
 	
 	
 	

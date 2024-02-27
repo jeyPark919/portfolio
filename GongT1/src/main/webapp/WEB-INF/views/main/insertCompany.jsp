@@ -53,7 +53,6 @@ width: 100px;
 <div class="dupdivid"></div><br>
 <h3>비밀번호</h3>
 <input type="password" name="pw" maxlength="20" required><br>
-<sub>※비밀번호 6자이상 20자이하로 입력해주세요.</sub>
 <h3>비밀번호 확인</h3>
 <input type="password" name="pw2" maxlength="20" required><br>
 <sub>※비밀번호를 다시 작성해주세요.</sub>

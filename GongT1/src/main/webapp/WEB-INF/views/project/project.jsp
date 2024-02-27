@@ -11,16 +11,12 @@
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <style>
-
 </style>
-
 </head>
 
 <body>
-
-<!--	Navbar Start -->
     <jsp:include page="../inc/top.jsp"/>
-<!--	Navbar End -->
+
 <div id="border">
 	</div>
 	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
@@ -189,10 +185,10 @@
     <c:if test="${!empty sessionScope.id}">
     <c:if test="${sessionScope.id eq memberDTO.id}">
         <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">프로젝트 공고 수정</span>
+        	<span onclick="location.href='${pageContext.request.contextPath}/project/projectUpdate?p_num=${projectDTO.p_num }'">프로젝트 공고 수정</span>
         </button>
         <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">프로젝트 공고 삭제</span>
+        	<span onclick="location.href='${pageContext.request.contextPath}/project/projectDelete?p_num=${projectDTO.p_num }'">프로젝트 공고 삭제</span>
         </button>
      </c:if>
      </c:if>

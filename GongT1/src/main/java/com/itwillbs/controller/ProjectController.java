@@ -1,6 +1,11 @@
 package com.itwillbs.controller;
 
+import java.io.File;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -8,13 +13,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.ResumeDTO;
 import com.itwillbs.domain.Scrap_projectDTO;
 import com.itwillbs.domain.Scrap_resumeDTO;
 import com.itwillbs.service.MemberService;
@@ -28,6 +37,10 @@ public class ProjectController {
 	private ProjectService projectService;
 	@Inject
 	private MemberService memberService;
+	
+	@javax.annotation.Resource(name = "uploadPath")
+	private String uploadPath;
+	
 
 	@RequestMapping(value = "/project/project", method = RequestMethod.GET)
 	public String project1(HttpSession session, HttpServletRequest request, Model model) {
@@ -121,8 +134,128 @@ public class ProjectController {
 		return "redirect:/board/searchCom";
 	}
 	
+	//삭제
+	@GetMapping("project/projectDelete")
+	public String resumeDelete(ProjectDTO projectDTO, HttpServletRequest request) {
+		System.out.println("ProjectController projectDelete()");
+		System.out.println(request.getParameter("p_num"));
+		projectService.projectDelete(projectDTO);
+		return "redirect:/board/searchCom";
+	}
 	
-
+	//프로젝트 작성
+	@PostMapping("project/projectWritePro")
+	public String projectWritePro(HttpServletRequest request, MultipartFile file) throws Exception {
+		System.out.println("MemberController projectWritePro()");
+		System.out.println(request.getParameter("p_num"));
+		ProjectDTO projectDTO = new ProjectDTO();
+		if(projectDTO.getP_file() != null) {
+		//파일 업로드
+		UUID uuid = UUID.randomUUID();
+		String filename = uuid.toString()+"_"+file.getOriginalFilename();
+		System.out.println(filename);
+		System.out.println(uploadPath);
+		FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
+		projectDTO.setP_file(filename);
+		}
+//		projectDTO.setP_num(Integer.parseInt(request.getParameter("p_num")));
+		projectDTO.setId(request.getParameter("id"));
+		projectDTO.setRegion_num(Integer.parseInt(request.getParameter("region_num")));
+		projectDTO.setField_num(Integer.parseInt(request.getParameter("field_num")));
+		projectDTO.setP_member(Integer.parseInt(request.getParameter("p_member")));
+		projectDTO.setP_title(request.getParameter("p_title"));
+		projectDTO.setP_content(request.getParameter("p_content"));
+		projectDTO.setP_writedate(new Timestamp(System.currentTimeMillis()));
+		String p_start = request.getParameter("p_start");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date d1 = format.parse(p_start);
+		Timestamp jdate1 = new Timestamp(d1.getTime());
+		projectDTO.setP_start(jdate1);
+		String p_end = request.getParameter("p_end");
+		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+		Date d2 = format2.parse(p_end);
+		Timestamp jdate2 = new Timestamp(d2.getTime());
+		projectDTO.setP_end(jdate2);
+		String p_deadline = request.getParameter("p_deadline");
+		SimpleDateFormat format3 = new SimpleDateFormat("yyyy-MM-dd");
+		Date d3 = format3.parse(p_deadline);
+		Timestamp jdate3 = new Timestamp(d3.getTime());
+		projectDTO.setP_deadline(jdate3);
+		
+		System.out.println(projectDTO.toString());
+		projectService.insertProject(projectDTO);
+		return "redirect:/mypageCompany/mypageCompany2";
+	}
+	
+	//글 수정
+	@GetMapping("project/projectUpdate")
+	public String projectUpdate(ProjectDTO projectDTO, HttpServletRequest request, Model model) {
+		System.out.println("ProjectController projectUpdate()");
+		System.out.println(projectDTO);
+		int p_num = projectDTO.getP_num();
+		model.addAttribute("projectDTO", projectService.getMember(p_num));
+		System.out.println(projectService.getMember(p_num));
+		model.addAttribute("projectDTO", projectService.getProject(p_num));
+		System.out.println(projectService.getProject(p_num));
+		return "project/projectUpdate";
+	}
+	
+	
+	@PostMapping("project/projectUpdatePro")
+	public String projectUpdatePro(HttpSession session,HttpServletRequest request, MultipartFile file) throws Exception{
+		System.out.println("ProejctController projectUpdatePro()");
+		
+		String id = (String)session.getAttribute("id");
+		System.out.println(id);
+		ProjectDTO projectDTO = new ProjectDTO();
+		
+		projectDTO.setP_num(Integer.parseInt(request.getParameter("p_num")));
+		projectDTO.setId(request.getParameter("id"));
+		projectDTO.setRegion_num(Integer.parseInt(request.getParameter("region")));
+		projectDTO.setField_num(Integer.parseInt(request.getParameter("field")));
+		projectDTO.setP_member(Integer.parseInt(request.getParameter("p_member")));
+		projectDTO.setP_title(request.getParameter("p_title"));
+		projectDTO.setP_content(request.getParameter("p_content"));
+		projectDTO.setP_writedate(new Timestamp(System.currentTimeMillis()));
+		String p_start = request.getParameter("p_start");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date d1 = format.parse(p_start);
+		Timestamp jdate1 = new Timestamp(d1.getTime());
+		projectDTO.setP_start(jdate1);
+		String p_end = request.getParameter("p_end");
+		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+		Date d2 = format2.parse(p_end);
+		Timestamp jdate2 = new Timestamp(d2.getTime());
+		projectDTO.setP_end(jdate2);
+		String p_deadline = request.getParameter("p_deadline");
+		SimpleDateFormat format3 = new SimpleDateFormat("yyyy-MM-dd");
+		Date d3 = format3.parse(p_deadline);
+		Timestamp jdate3 = new Timestamp(d3.getTime());
+		projectDTO.setP_deadline(jdate3);
+		
+		if(file.isEmpty()) {
+			System.out.println("첨부파일 없음");
+			projectDTO.setP_file(request.getParameter("oldfile"));
+		} else {
+			System.out.println("첨부파일 있음");
+			UUID uuid = UUID.randomUUID();
+			String filename = uuid.toString() + "_" + file.getOriginalFilename();
+			System.out.println(filename);
+			
+			System.out.println(uploadPath);
+			FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
+			
+			projectDTO.setP_file(filename);
+		}
+		System.out.println(projectDTO);
+		projectService.projectUpdate(projectDTO);
+		return "redirect:/board/searchCom";
+	}
+	
+		
+		
+	
+	
 	
 	
 }

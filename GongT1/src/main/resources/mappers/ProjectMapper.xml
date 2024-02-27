@@ -23,11 +23,10 @@
 
 	
 	
-		<insert id="insertProject">
-			insert into project(p_title, p_content, p_deadline, p_start, p_end, p_member, region_num, field_num )
-			values (#{p_title},#{p_content}, #{p_deadline}, #{p_start}, #{p_end}, #{p_member}, #{region_num}, #{field_num})
-			where id = #{id}
-		</insert>
+<!-- 		<insert id="insertProject"> -->
+<!-- 			insert into project(p_title, p_content, p_deadline, p_start, p_end, p_member, region_num, field_num ) -->
+<!-- 			values (#{p_title},#{p_content}, #{p_deadline}, #{p_start}, #{p_end}, #{p_member}, #{region_num}, #{field_num}) -->
+<!-- 		</insert> -->
 		
 		
 		<select id="getProjectBoardList" resultType="com.itwillbs.domain.ProjectDTO">
@@ -69,6 +68,37 @@ select count(p.p_num) from project p join member m on p.id = m.id
 	insert into scrap_project
 	values (#{sp_num}, #{p_num}, #{id})
 </insert>	
-	
+
+<!-- 글 삭제 -->
+<delete id="projectDelete">
+delete from project
+where p_num = #{p_num}
+</delete>
+
+<!-- 프로젝트 작성 -->
+<insert id="insertProject">
+insert into project(id, p_title, p_member, field_num, region_num, p_start, p_end, p_deadline, p_file, p_content)
+values(#{id}, #{p_title}, #{p_member}, #{field_num}, #{region_num}, #{p_start}, #{p_end}, #{p_deadline}, #{p_file}, #{p_content})
+</insert>
+
+<update id="projectUpdate">
+update project
+set p_title = #{p_title},
+	p_member = #{p_member},
+	field_num = #{field_num},
+	region_num = #{region_num},
+	p_start = #{p_start},
+	p_end = #{p_end},
+	p_deadline = #{p_deadline},
+	p_file = #{p_file},
+	p_content = #{p_content}
+where p_num = #{p_num}
+</update>
+
+
+<!-- <select id="projectShow" resultType="com.itwillbs.domain.ProjectDTO"> -->
+<!-- select * from project -->
+<!-- where p_num = #{p_num} -->
+<!-- </select>	 -->
 		
 </mapper>
