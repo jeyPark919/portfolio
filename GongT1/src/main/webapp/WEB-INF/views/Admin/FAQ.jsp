@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <meta charset="UTF-8">
 
@@ -26,7 +27,7 @@
 }
 
 #left {
-	height: 300px;
+	height: 800px;
 	width: 15%;
 /* 	border-style : groove; */
 	float: left;
@@ -57,59 +58,6 @@ th, td {
 	padding: 4px;
 	height: 1px;
 }
-#side1 {
-	float:left;
-	margin-left:50px;
-	line-height: 100px;
-}
-#side2 {
-	float:right;
-	margin-right:50px;
-	line-height: 100px;
-}
- #side1_c{  
-/*  	border:1px solid black;  */
- 	width:340px;
-	float:left	;	
- 	margin-left:50px; 
- 	padding-left:30px;
- 	
-} #side2_c{  
-/*  border:1px solid black;  */
-	width:340px; 
-	float:right	;	
- 	margin-right:30px; 
- 	padding-right:30px;
-/*  	hight:541px; */
-} 
-a {
-  text-decoration-line: none;
-}
-.clear{
-	clear:both;
-}
-fieldset {
-	width:1000px;
-}
-#table_search {
-
-padding-right:60px;
-}
-
-
-button{
-padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
-vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
-}
-
-.sidemenu {
-	width: 15%;
-	position: relative;
-	top : 5%;
-	left : 8%;
-}
-
-
 .accordion {
   background-color: #eee;
   color: #444;
@@ -133,6 +81,79 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
   background-color: white;
   overflow: hidden;
 }
+ #side1_c{  
+/*  	border:1px solid black;  */
+ 	width:450px;
+	float:left	;	
+ 	margin-left:50px; 
+ 	padding-left:30px;
+ 	height: 700px;
+ 	
+} #side2_c{  
+/*  border:1px solid black;  */
+	width:450px; 
+	float:right	;	
+ 	margin-right:30px; 
+ 	padding-right:30px;
+/*  	hight:541px; */
+	height: 700px;
+} 
+a {
+  text-decoration-line: none;
+}
+.clear{
+	clear:both;
+}
+fieldset {
+	width:1000px;
+	height: 800px;
+}
+#table_search {
+text-align: center;
+padding-right:60px;
+}
+
+
+button1{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
+
+.sidemenu {
+	width: 15%;
+	position: relative;
+	top : 5%;
+	left : 8%;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 30%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  	position: relative;
+
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+    width: 60%;
+}
+
+
 
 </style>
 </head>
@@ -146,54 +167,51 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 <div id="left">		
 <div class="sidemenu">
-        <button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" >공지사항</span></button>
-      	<button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/FAQ'" style="color: white !important;">자주 묻는 질문</span></button>
-        <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">1:1문의</span></button>
+        <button type="button" class="button1 button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" >공지사항</span></button>
+      	<button type="button" class="button1 button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/FAQ'" style="color: white !important;">자주 묻는 질문</span></button>
+        <button type="button" class="button1 button-update"><span onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">1:1문의</span></button>
 </div>
 </div>
 
-<div id="right">
-<form action="" id="join">
-<fieldset>
-<!-- <h2>자주 묻는 질문</h2> -->
+<button class="accordion">공T 서비스 이용 방법</button>
+<div class="panel">
+  <p>프리랜서 : 이력서 등록 > 기업의 확인(쪽지 면접) > 매칭완료(계약) 순서로 기업과 프리랜서가  직접소통하며 진행하여 매칭완료 횟수가 증가합니다.</p>
+  <p>기업 : 프로젝트 등록 > 프리랜서의 확인(쪽지 면접) > 매칭완료(계약) 순서로 기업과 프리랜서가  직접소통하며 진행매칭완료 횟수가 증가합니다.</p>
+</div>
 
-<div id="side1_c">
-<h3>기업 회원 </h3>
-<ul>
-
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
-<li id="side1"><a href="intro.html">매칭 방법 안내</a></li>
-
-</ul>
+<button class="accordion">공T 쪽지 안내</button>
+<div class="panel">
+  <p>프로젝트 상세 페이지 및 이력서 상세페이지에서 보내실 수 있으시며, 쪽지함 또는 마이페이지에서 전체 쪽지를 확인 하실 수 있습니다</p>
 </div>
 
 
-
-<div id="side2_c">
-<h3>프리랜서 회원 </h3>
-<ul>
-
-<!-- <h3>프리랜서 회원 </h3> -->
-<li id="side2"><a href="${pageContext.request.contextPath}/inc/intro">매칭 방법 안내1</a></li>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a></li>
-
-</ul>
+<button class="accordion">등록 방법</button>
+<div class="panel">
+  <p>프리랜서와 기업 둘다 동일하게 마이페이지에서 이력서 및 공고를 등록하실 수 있습니다.</p>
 </div>
 
+<button class="accordion">회원 정보 수정 및 탈퇴</button>
+<div class="panel">
+  <p>두가지 모두 마이페이지에서 비밀번호 확인 후 가능합니다.</p>
+</div>
+
+<button class="accordion">변경 불가 안내</button>
+<div class="panel">
+  <p>아이디와 이름(회사명), 사업자번호 변경 불가합니다</p>
+</div>
 				
-
+<button class="accordion">계약시 주의사항</button>
+<div class="panel">
+  <p>서로의 계약시 개발 범위와 급여, 계약 종료 시점을 명확히 해두셔야 합니다.
+  그 부분이 명확하지 않으면 나중에 곤란한 일이 발생할 수 있습니다. 
+  계약중 궁금한 점이 있다면 문의 요청 부탁드리며, 공T매니저와 확인 하지 않은 사항에 대해 불이익 발생할 경우 책임지지 않습니다.</p>
+</div>
+				
 <!-- 				<div id="page_control"> -->
 <!-- 					<a href="#">이전</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> -->
 <!-- 					<a href="#">4</a><a href="#">5</a><a href="#">6</a> <a href="#">7</a><a -->
 <!-- 						href="#">8</a><a href="#">9</a> <a href="#">10</a> <a href="#">다음</a> -->
-</fieldset>	
-</form>			
+	
 <div class="clear"></div>	
 <div id="table_search">
 	
@@ -203,7 +221,23 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 				<div class="clear"></div>
 </div>
 
-</div>
+
 <jsp:include page="../inc/bottom.jsp" />
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 </html>

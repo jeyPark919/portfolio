@@ -15,8 +15,7 @@ public class ResumeDTO {
 	private int r_salary;
 	private String r_exp;
 	private String r_content;
-	private int r_head;
-	private int r_io;
+
 	private String r_file;
 	private String name; //회원 이름
 	private int matching; //회원 매칭
@@ -111,18 +110,7 @@ public class ResumeDTO {
 	public void setR_content(String r_content) {
 		this.r_content = r_content;
 	}
-	public int getR_head() {
-		return r_head;
-	}
-	public void setR_head(int r_head) {
-		this.r_head = r_head;
-	}
-	public int getR_io() {
-		return r_io;
-	}
-	public void setR_io(int r_io) {
-		this.r_io = r_io;
-	}
+
 	public String getR_file() {
 		return r_file;
 	}
