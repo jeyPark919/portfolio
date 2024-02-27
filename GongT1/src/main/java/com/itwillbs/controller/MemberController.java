@@ -47,6 +47,13 @@ public class MemberController {
 		return "main/login";
 	}
 	
+	//개인정보 처리지침
+	@GetMapping("/main/privacyPolicy")
+	public String privacy() {
+		System.out.println("MemberController privacyPolicy()");
+		return "main/privacyPolicy";
+	}
+	
 	@PostMapping("/main/loginPro")
 	public String loginPro(MemberDTO memberDTO, HttpSession session) {
 		System.out.println("MemberController loginPro()");
@@ -425,13 +432,7 @@ public class MemberController {
 			return "mypageCompany/msg";
 		}
 	}//updatePro()
-	
-	//개인정보처리방침
-	@GetMapping("/main/privacyPolicy")
-	public String privacyPolicy() {
-		System.out.println("MemberController privacyPolicy()");
-		return "main/privacyPolicy";
-	}
+
 	
 	
 }

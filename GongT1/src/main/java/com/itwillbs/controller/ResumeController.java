@@ -49,6 +49,7 @@ public class ResumeController {
 		//검색어 가져오기(notice submit에서 name = "search")
 		String search = request.getParameter("search");
 		String select = request.getParameter("select");
+		String sort = request.getParameter("sort");
 
 		// 한화면에 보여줄 글개수 설정
 		int pageSize = 5;
@@ -68,6 +69,8 @@ public class ResumeController {
 		pageDTO.setSearch(search);
 		//select 추가
 		pageDTO.setSelect(select);
+		//sort 추가
+		pageDTO.setSort(sort);
 		
 		List<ResumeDTO> resumeBoardList = resumeService.getResumeBoardList(pageDTO);
 		

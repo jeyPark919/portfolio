@@ -25,7 +25,7 @@ public class AdminController {
 	@Inject
 	private AdminService adminService;
 	
-	
+	//공지사항
 	@RequestMapping(value="/Admin/notice" ,method=RequestMethod.GET)
 	public String notice(HttpServletRequest request, PageDTO pageDTO, Model model) {
 		System.out.println("NoticeController notice()");
@@ -68,6 +68,7 @@ public class AdminController {
 		return "Admin/notice";
 	}
 	
+	//공지사항 작성
 	@RequestMapping(value="/Admin/write" ,method=RequestMethod.GET)
 	public String write() {
 		System.out.println("AdminController write()");
@@ -75,6 +76,7 @@ public class AdminController {
 		return "Admin/write";
 	}//write()
 	
+	//공지사항 작성 pro
 	@RequestMapping(value="/Admin/writePro" ,method=RequestMethod.POST)
 	public String writePro(NoticeDTO noticeDTO) {
 		System.out.println("AdminController writePro()");
@@ -82,6 +84,8 @@ public class AdminController {
 		adminService.insertNotice(noticeDTO);
 		return "redirect:/Admin/notice";
 	}//writePro()
+	
+	//공지사항 상세
 	@RequestMapping(value="/Admin/content" ,method=RequestMethod.GET)
 	public String content(NoticeDTO noticeDTO,Model model) {
 		System.out.println("AdminController content()");
@@ -96,6 +100,7 @@ public class AdminController {
 		return "Admin/content";
 	}
 	
+	//자주묻는 질문
 	@RequestMapping(value="/Admin/FAQ" ,method=RequestMethod.GET)
 	public String FAQ(NoticeDTO noticeDTO) {
 		System.out.println("AdminController FAQ()");
@@ -105,6 +110,7 @@ public class AdminController {
 		return "Admin/FAQ";
 	}
 	
+	//문의
 	@RequestMapping(value="/Admin/inquiry" ,method=RequestMethod.GET)
 	public String list(HttpServletRequest request, PageDTO pageDTO, Model model, HttpSession session) {
 		System.out.println("AdminController list()");
@@ -168,6 +174,7 @@ public class AdminController {
 		return "Admin/inquiry";
 	}
 	
+	//문의 상세
 	@RequestMapping(value="/Admin/inquiry_content" ,method=RequestMethod.GET)
 	public String inquiey_content(InquiryDTO inquiryDTO,Model model) {
 		System.out.println("AdminController inquiry_content()");
@@ -180,12 +187,16 @@ public class AdminController {
 		
 		return "Admin/inquiry_content";
 	}
+	
+	//문의 작성
 	@RequestMapping(value="/Admin/inquiry_write" ,method=RequestMethod.GET)
 	public String inquiry_write() {
 		System.out.println("AdminController inquiry_write()");
 		
 		return "Admin/inquiry_write";
 	}	
+	
+	//문의 작성 pro
 	@RequestMapping(value="/Admin/inquiry_writePro" ,method=RequestMethod.POST)
 	public String inquiry_writePro(InquiryDTO inquiryDTO) {
 		System.out.println("AdminController inquiry_writePro()");
@@ -195,6 +206,7 @@ public class AdminController {
 //		adminService.insertInquiry2(inquiryDTO);
 		return "redirect:/Admin/inquiry";
 }
+	//공지 수정
 	@RequestMapping(value="/Admin/update" ,method=RequestMethod.GET)
 	public String update(NoticeDTO noticeDTO,Model model) {
 		System.out.println("AdminController update()");
@@ -204,6 +216,8 @@ public class AdminController {
 		model.addAttribute("noticeDTO",noticeDTO);
 		return "Admin/update";
 	}	
+	
+	//공지 수정 pro
 	@RequestMapping(value="/Admin/updatePro" ,method=RequestMethod.POST)
 	public String updatePro(NoticeDTO noticeDTO) {
 		System.out.println("AdminController updatePro()");
@@ -214,13 +228,17 @@ public class AdminController {
 		// /board/list 글목록으로 주소변경하면서 이동
 		return "redirect:/Admin/notice";
 	}
+	
+	//공지 삭제
 	@RequestMapping(value="/Admin/delete" ,method=RequestMethod.GET)
 	public String delete(NoticeDTO noticeDTO) {
 		System.out.println("AdminController delete()");
 		System.out.println(noticeDTO);
 		adminService.deleteNotice(noticeDTO);
 		return "redirect:/Admin/notice";
-	}///////
+	}
+	
+	//문의 수정
 	@RequestMapping(value="/Admin/inquiry_update" ,method=RequestMethod.GET)
 	public String update(InquiryDTO inquiryDTO, Model model) {
 		System.out.println("AdminController inquiry_update()");
@@ -231,6 +249,8 @@ public class AdminController {
 		System.out.println("AdminController inquiry_update()");
 		return "Admin/inquiry_write";
 	}	
+	
+	//문의 수정 pro
 	@RequestMapping(value="/Admin/inquiry_updatePro" ,method=RequestMethod.POST)
 	public String inquiry_updatePro(InquiryDTO inquiryDTO) {
 		System.out.println("AdminController inquiry_updatePro()");
@@ -241,6 +261,8 @@ public class AdminController {
 		// /board/list 글목록으로 주소변경하면서 이동
 		return "redirect:/Admin/inquiry";
 	}
+	
+	//문의 삭제
 	@RequestMapping(value="/Admin/inquiry_delete" ,method=RequestMethod.GET)
 	public String delete(InquiryDTO inquiryDTO) {
 		System.out.println("AdminController delete()");

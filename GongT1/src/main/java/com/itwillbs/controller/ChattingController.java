@@ -45,7 +45,7 @@ public class ChattingController {
 //	}
 	
 	
-
+	//채팅 방
 	@GetMapping("/inc/chatting")
 	public String chattingbang(HttpServletRequest request, Model model) {
 		System.out.println("ChattingController chattingbang()");
@@ -59,7 +59,7 @@ public class ChattingController {
 	}//chattingbang()
 
 	
-	
+	//채팅 메세지
 	@PostMapping("/inc/insertMessagePro")
 	public String insertMessagePro(MessageDTO messageDTO) {
 		System.out.println("ChattingController insertMessagePro()");
@@ -70,7 +70,7 @@ public class ChattingController {
 	
 
 	
-	
+	//채팅방 pro
 	@PostMapping("/inc/insertChatPro")
 	public String insertChattingPro(ChatDTO chatDTO) {
 		System.out.println("ChattingController insertChatPro()");
@@ -79,6 +79,7 @@ public class ChattingController {
 	}//insertChattingPro()
 	
 
+	//매칭 완료
 	@PostMapping("/inc/updateMatching")
 	public String updateMatching(ChatDTO chatDTO) {
 		System.out.println("BoardController updatePro()");
@@ -90,7 +91,7 @@ public class ChattingController {
 		return "redirect:/inc/close";
 	}
 	
-	
+	//창닫기
 	@GetMapping("/inc/close")
 	public String close() {
 		System.out.println("close()");

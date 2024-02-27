@@ -37,8 +37,16 @@ select p.*, m.name, m.matching from project p join member m on p.id = m.id
 <if test="select == 'p_content'"> where p_content like CONCAT('%',#{search},'%') </if>
 <if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
 </if>
-order by p.p_num desc limit #{startRow},#{pageSize}
+<if test="sort == '' or sort == null">
+order by p.p_num desc
+</if>
+<if test="sort == 'sortM'"> order by m.matching desc, p.p_num desc </if>
+		<if test="sort == 'sortR'"> order by p.p_readcount desc </if>
+ limit #{startRow},#{pageSize}
 </select>
+
+
+
 <select id="getProjectBoardCount" resultType="java.lang.Integer">
 select count(p.p_num) from project p join member m on p.id = m.id
 <if test="search != null">
