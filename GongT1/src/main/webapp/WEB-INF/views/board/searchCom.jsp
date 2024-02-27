@@ -124,19 +124,17 @@ h5{
         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
 </div><br>
 
+<form action="${pageContext.request.contextPath}/board/searchCom" method="get">
 <div id="left2">
 <h5>직종(분야)</h5>
-<form>
-<label><input type="checkbox" name="projectField" value="1" checked>개발자</label><br>
-<label><input type="checkbox" name="projectField" value="2">퍼블리셔</label><br>
-<label><input type="checkbox" name="projectField" value="3">디자이너</label><br>
-<label><input type="checkbox" name="projectField" value="4">기타</label><br>
-</form>
+<label><input type="checkbox" name="field" value="1" checked>개발자</label><br>
+<label><input type="checkbox" name="field" value="2">퍼블리셔</label><br>
+<label><input type="checkbox" name="field" value="3">디자이너</label><br>
+<label><input type="checkbox" name="field" value="4">기타</label><br>
 </div><br>
 
 <div id="left3">
 <h5>지역</h5>
-<form>
 <label><input type="checkbox" name="region" value="1" checked>전체</label><br>
 <label><input type="checkbox" name="region" value="2">서울특별시</label><br>
 <label><input type="checkbox" name="region" value="3">부산광역시</label><br>
@@ -155,18 +153,17 @@ h5{
 <label><input type="checkbox" name="region" value="16">전라북도</label><br>
 <label><input type="checkbox" name="region" value="17">전라남도</label><br>
 <label><input type="checkbox" name="region" value="18">제주특별자치도</label><br>
-</form>
 </div>
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
-<form action="${pageContext.request.contextPath}/board/searchCom" method="get">
 <input type="hidden" name="search" value="${pageDTO.search}">
 <input type="hidden" name="select" value="${pageDTO.select}">
   <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
   <button name="sort" value="sortR" type="submit" class="btn btn-primary" id="sortReadcount" style="background-color: #1842B6 !important;">조회순</button></label>
-</form>
+
 </div>
+</form>
 	<table class="table">
   <thead>
     <tr>
