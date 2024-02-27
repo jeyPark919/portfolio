@@ -170,7 +170,7 @@
             <div class="content">
             	<div class="content-header">
                 	<div class="name">
-                		<a href="${pageContext.request.contextPath}/resources/upload/${resumeDTO.r_file}" download>${resumeDTO.r_file}
+                		<a href="${pageContext.request.contextPath}/resources/upload/${resumeDTO.r_file}"  download>${resumeDTO.r_file}
                 		</a>
                 	</div>
                     <div class="agency"></div>
@@ -242,13 +242,19 @@
 <%--         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span> --%>
         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span>
         </button>
-        <button type="button" class="button button-update">
-
-        	<span onclick="location.href='#'">쪽지 보내기</span>
+     	</c:if>
+     	</c:if>
+        
+        <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post">
+        <input type="hidden" name="fid" value="${memberDTO.id}">
+        <input type="hidden" name="cid" value="${sessionScope.id}">
+        <button type="submit" class="button button-update">
+        	<span>공T 쪽지 보내기</span>
 
         </button>
-     	</c:if>
-     	</c:if>
+
+        </form>
+
 
         <div class="nav" role="navigation">
             <ul>
@@ -262,10 +268,10 @@
         <button type="button" class="button button-to-top" onclick="location.href='#top'">위로</button>
     </div>
 </div>
-</div>
+
 
 <script>
-<<<<<<< HEAD
+
 // let now = new Date();
 // let current = now.toLocaleString();
 // document.querySelector("#updateDate").innerHTML = current;
@@ -293,8 +299,7 @@
 function scrap() {
 	alert('해당 글을 찜하였습니다.');
 }
-=======
->>>>>>> refs/remotes/origin/brunch
+
 
 </script>
     <jsp:include page="../inc/bottom.jsp"/>

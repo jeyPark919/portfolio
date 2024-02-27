@@ -7,9 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 #chat{
 width : 40%;
@@ -75,53 +74,10 @@ body {
   float: left;
   color: #999;
 }
-
-
-.button {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-
-
-.button2 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #1842B6;
-}
-
-.button2:hover {
-  background-color: #1842B6;
-  color: white;
-}
-
-.good{
-	
-
-  border: 2px solid black;
-  outline: #1E90FF solid 10px;
-  margin: auto;  
-  padding: 20px;
-  text-align: center;
- font-size:  25px;
-
-}
-
-
-
 </style>
 </head>
 <body>
-
+<h2>공T 쪽지</h2>
 
 <!-- <div id="chat"> -->
 <!-- <table> -->
@@ -141,26 +97,24 @@ body {
 <!-- </table> -->
 
 <!-- </div> -->
-<form action="${pageContext.request.contextPath}/inc/updateMatching" method="post">
-<h2>공T 쪽지</h2>
-<c:if test="${chatDTO.c_matching eq 0}">
-	<c:if test="${chatDTO.cid eq sessionScope.id}">
-	<input type="hidden" name="c_num" value="${chatDTO.c_num}" readonly>
-	<input type="hidden" name="cid"  value="${chatDTO.cid}" >
-	<input type="hidden" name="fid" value="${chatDTO.fid}" >
-	<button class="button button2"  type="submit" value="매칭완료" class="submit" >매칭완료</button>
-	</c:if>
-</c:if>
-<c:if test="${chatDTO.c_matching eq 1}">
-	<div>
-<p class="good">매칭 완료</p>
-	</div>
-</c:if>
-</form>
+<%-- <p>${sessionScope.id}</p> --%>
+<!-- <div id="messge"> -->
+
+<%-- <c:if test="${sessionScope.id ne ChatDTO.id}"> --%>
+<!-- <div class="container"> -->
+
+<%-- <c:forEach var="ChattingDTO" items="${ChattingDTOListFF}"> --%>
+
+<%-- <p>${ChattingDTO.id}님</p> --%>
+<%--   <p>${ChattingDTO.c_content}</p> --%>
+<%--   <span class="time-right">${ChattingDTO.c_time}</span><br> --%>
+<%-- </c:forEach> --%>
+<!-- </div> -->
+<%-- </c:if> --%>
 
 
 <c:if test="${sessionScope.id eq chatDTO.fid}">
-	<c:forEach var="chattingDTO" items="${messageList}">
+	<c:forEach var="chattingDTO" items="${chattingDTOListFF}">
 		<c:if test="${sessionScope.id ne chattingDTO.id }">
 		<div class="container">
 			<p>${chattingDTO.id}님</p>
@@ -179,42 +133,14 @@ body {
 	</c:forEach>
 </c:if> 
 
-
-<c:if test="${sessionScope.id eq chatDTO.cid}">
-	<c:forEach var="chattingDTO" items="${messageList}">
-		<c:if test="${sessionScope.id ne chattingDTO.id }">
-		<div class="container">
-			<p>${chattingDTO.id}님</p>
-  			<p>${chattingDTO.c_content}</p>
-  			<span class="time-left">${chattingDTO.c_time}</span><br>
-		</div>
-		</c:if>
-
-		<c:if test="${sessionScope.id eq chattingDTO.id }">
-		<div class="container darker">
-			<p style="text-align: right;">${chattingDTO.id}님</p>
-  			<p style="text-align: right;">${chattingDTO.c_content}</p>
-  			<span class="time-right">${chattingDTO.c_time}</span><br>
-		</div>
-		</c:if>
-	</c:forEach>
-</c:if> 
-
-
-<form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" name="msg" method="post">
+<form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" method="post">
 	<input type="hidden" name="c_num" value="${chatDTO.c_num}" readonly>
 	<input type="hidden" name="id" class="id" value="${sessionScope.id}" readonly>
-	<input type="text" id="c_content" name="c_content" maxlength="1000" required style="width:320px;">
+	<input type="text" name="c_content" maxlength="1000" required style="width:320px;">
 	<button type="submit" value="보내기" class="submit" style="background-color: #1842B6; color: white;">보내기</button>
 </form>
+<!-- </div> -->
 
-
-
-<script>
-function cls(){
-	window.close();
-}
-</script>
 
 
 

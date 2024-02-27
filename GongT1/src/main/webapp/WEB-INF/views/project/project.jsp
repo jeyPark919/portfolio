@@ -201,13 +201,19 @@
      	<button type="button" class="button button-update" class="scrap" onclick="scrap()">
         	<span onclick="location.href='${pageContext.request.contextPath}/project/scrap?p_num=${projectDTO.p_num}'">찜하기</span>
         </button>
-        <button type="button" class="button button-update">
-
-        	<span onclick="location.href='#'">쪽지보내기</span>
+        </c:if>
+        </c:if>
+        
+        <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post">
+        <input type="hidden" name="fid" value="${sessionScope.id}">
+        <input type="hidden" name="cid" value="${memberDTO.id}">
+        <button type="submit" class="button button-update">
+        	<span>공T쪽지 보내기</span>
 
         </button>
-        </c:if>
-        </c:if>
+
+        </form>
+
 <!--         <div class="buttons"> -->
 <!--             <button type="button" class="button button-print"><span>찜하기</span></button> -->
 <!--             <button type="button" class="button button-send-email"><span>1:1 채팅 신청</span></button> -->

@@ -74,20 +74,20 @@ tr:hover {background-color: coral;}
     <th style=" font-size:25px !important; color: black;">시간</th>
     <th style=" font-size:25px !important; color: black;">매칭 여부</th>
   </tr>
- <c:forEach var="ChattingDTO" items="${ChattingDTOListC}">
+ <c:forEach var="chattingDTO" items="${ChattingDTOListC}">
  <tr>
 
-    <th>${ChattingDTO.fid}</th>
-    <th>${ChattingDTO.c_content}</th>
-    <th>${ChattingDTO.c_time}</th>
+    <th>${chattingDTO.fid}</th>
+    <th>${chattingDTO.c_content}</th>
+    <th>${chattingDTO.c_time}</th>
 
-<c:if test="${ChattingDTO.c_matching eq 0}">
+<c:if test="${chattingDTO.c_matching eq 0}">
 <th>미 매칭</th>
 </c:if>
-<c:if test="${ChattingDTO.c_matching eq 1}">
+<c:if test="${chattingDTO.c_matching eq 1}">
 <th>매칭 완료</th>
 </c:if>
-<th><button onclick="popUp();">전체 쪽지</button></th>
+<th><button onclick="popUp(${chattingDTO.c_num});">전체 쪽지</button></th>
 
   </tr>
   	</c:forEach>

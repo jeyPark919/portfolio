@@ -30,14 +30,10 @@ public class ChattingService {
 	}//ChattingBang()
 	
 
-	
-	
-
-	
 	public void insertMessage(MessageDTO messageDTO) {
-		System.out.println("MemberService insertMember()");
+		System.out.println("ChattingService insertMessage()");
 		chattingDAO.insertMessage(messageDTO);
-	}
+	}//insertMessage()
 
 
 	public void updateMatching(ChatDTO chatDTO) {
@@ -47,15 +43,22 @@ public class ChattingService {
 	}
 	
 	public ChatDTO getChat(int c_num) {
-		// TODO Auto-generated method stub
+		System.out.println("ChattingService getChat()");
 		return chattingDAO.getChat(c_num);
-	}
+	}//getChat()
 
+	
 	public List<ChatDTO> getMessage(int c_num) {
-		// TODO Auto-generated method stub
+		System.out.println("ChattingService getMessage()");
 		return chattingDAO.getMessage(c_num);
 
-	}
+	}//getMessage()
+
+	public int insertChat(ChatDTO chatDTO) {
+		System.out.println("ChattingService insertChat()");
+		return chattingDAO.insertChat(chatDTO);
+	}//insertChat()
+
 	
 	
 }

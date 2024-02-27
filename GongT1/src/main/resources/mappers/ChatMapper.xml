@@ -35,8 +35,7 @@
 		
 <!-- 		쪽지 방 -->
 
-
-		<insert id="insertmessage">
+		<insert id="insertMessage">
 			insert into message(c_num, id, c_content)
 			values(#{c_num}, #{id}, #{c_content})
 		</insert>
@@ -73,6 +72,20 @@
 			on c.c_num = m.c_num
 			where c.c_num = #{c_num} 
 		</select>
+
+		
+		
+<!-- 	채팅 시작 -->
+		<insert id="insertChat">
+			insert into chat(fid, cid)
+			values(#{fid}, #{cid})
+		</insert>
+		
+		<select id="getChatDTO" resultType="com.itwillbs.domain.ChatDTO">
+			select * from chat
+			where fid = #{fid} and cid = #{cid}
+		</select>
+		
 
 			
 </mapper>

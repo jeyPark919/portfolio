@@ -195,15 +195,15 @@ h5{
 	
 	<div id="page_control">
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath}/board/project?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[이전]</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage}" step="1">
-<a href="${pageContext.request.contextPath}/board/project?pageNum=${i}&search=${pageDTO.search}">${i}</a>
+<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${i}&search=${pageDTO.search}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.pageCount > pageDTO.endPage}">
-	<a href="${pageContext.request.contextPath}/board/project?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}">[다음]</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}">[다음]</a>
 </c:if>
 	</div>
 </div>

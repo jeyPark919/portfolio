@@ -13,7 +13,9 @@
 
 	function popUp(num){
 		// open("경로", "이름", "옵션")
+
 		window.open("${pageContext.request.contextPath}/inc/chatting?c_num="+num, "", "width=800px, height=700, left=600px, top=150px");
+
 	}
 	
 </script>
