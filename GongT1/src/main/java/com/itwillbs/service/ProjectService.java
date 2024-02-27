@@ -95,6 +95,11 @@ public class ProjectService {
 		projectDAO.insertProject(projectDTO);
 	}
 
+	public void projectUpdate(ProjectDTO projectDTO) {
+		System.out.println("ProjectService projectUpdate()");
+		projectDAO.projectUpdate(projectDTO);
+	}
+
 	
 	
 	

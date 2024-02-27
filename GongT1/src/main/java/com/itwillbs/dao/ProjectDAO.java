@@ -88,6 +88,11 @@ public class ProjectDAO {
 		System.out.println("projectDTO" + projectDTO);
 		sqlSession.insert(namespace+".insertProject", projectDTO);
 	}
+
+	public void projectUpdate(ProjectDTO projectDTO) {
+		System.out.println("ProjectDAO projectUpdate()");
+		sqlSession.update(namespace+".projectUpdate", projectDTO);
+	}
 	
 	
 	

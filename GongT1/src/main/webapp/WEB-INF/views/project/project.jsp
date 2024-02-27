@@ -186,7 +186,7 @@
     <c:if test="${!empty sessionScope.id}">
     <c:if test="${sessionScope.id eq memberDTO.id}">
         <button type="button" class="button button-update">
-        	<span onclick="location.href='${pageContext.request.contextPath}/project/projectUpdate?p_num=${projectDTO.p_num }">프로젝트 공고 수정</span>
+        	<span onclick="location.href='${pageContext.request.contextPath}/project/projectUpdate?p_num=${projectDTO.p_num }'">프로젝트 공고 수정</span>
         </button>
         <button type="button" class="button button-update">
         	<span onclick="location.href='${pageContext.request.contextPath}/project/projectDelete?p_num=${projectDTO.p_num }'">프로젝트 공고 삭제</span>
