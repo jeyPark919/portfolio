@@ -3,6 +3,7 @@ package com.itwillbs.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
@@ -284,7 +285,7 @@ public class MemberController {
 	@GetMapping("/mypageCompany/mypageCompany4")
 	public String mypageCompany4(HttpSession session, Model model) {
 		System.out.println("MemberController mypageCompany4()");
-	
+		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);
 		List<Scrap_resumeDTO> Scrap_resumeDTOList = memberService.resumeScrap(id);
@@ -379,7 +380,7 @@ public class MemberController {
 	@GetMapping("/mypageFreelancer/mypageFreelancer4")
 	public String mypageFreelancer4(HttpSession session, Model model) {
 		System.out.println("MemberController mypageFreelancer4()");
-	
+		
 		String id = (String)session.getAttribute("id");
 	
 		List<Scrap_projectDTO> Scrap_projectDTOList = memberService.projectScrap(id);

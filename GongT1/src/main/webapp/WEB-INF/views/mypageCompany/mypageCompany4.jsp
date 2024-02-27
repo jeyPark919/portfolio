@@ -72,7 +72,7 @@ tr:hover {background-color: #748dd3;}
 
   </tr>
   	<c:forEach var="Scrap_resumeDTO" items="${Scrap_resumeDTOList}">
-  <tr>
+  <tr onclick="location.href='${pageContext.request.contextPath}/resume/resume?r_num=${Scrap_resumeDTO.r_num }'">
     <td style="text-align: center !important; font-size:20px !important;">${Scrap_resumeDTO.name}</td>
    	<td style="text-align: center !important; font-size:20px !important;">${Scrap_resumeDTO.r_name}</td>
   

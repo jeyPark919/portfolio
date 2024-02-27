@@ -174,7 +174,7 @@ public class ProjectController {
 		Timestamp jdate2 = new Timestamp(d2.getTime());
 		projectDTO.setP_end(jdate2);
 		String p_deadline = request.getParameter("p_deadline");
-		SimpleDateFormat format3 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		SimpleDateFormat format3 = new SimpleDateFormat("yyyy-MM-dd");
 		Date d3 = format3.parse(p_deadline);
 		Timestamp jdate3 = new Timestamp(d3.getTime());
 		projectDTO.setP_deadline(jdate3);

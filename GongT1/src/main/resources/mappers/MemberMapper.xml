@@ -61,7 +61,7 @@ select * from member where phone = #{phone} </select>
 		</select>
 		
 		<select id="resumeScrap" resultType="com.itwillbs.domain.Scrap_resumeDTO">
-			select fm.name, r.r_name
+			select fm.name, r.r_name, r.r_num
 			from scrap_resume s join member m
 			on s.id = m.id 
 			join resume r
@@ -72,7 +72,7 @@ select * from member where phone = #{phone} </select>
 		</select>
 	
 			<select id="projectScrap" resultType="com.itwillbs.domain.Scrap_projectDTO">
-			select fm.name, p.p_title
+			select fm.name, p.p_title, p.p_num
 			from scrap_project s join  member m
 			on s.id = m.id 
 			join project p
