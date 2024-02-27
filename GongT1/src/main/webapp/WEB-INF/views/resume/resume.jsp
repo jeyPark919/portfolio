@@ -227,9 +227,14 @@
      	<button type="button" class="button button-update">
         	<span onclick="location.href='#'">찜하기</span>
         </button>
-        <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">1:1 채팅 신청</span>
+        
+        <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post">
+        <input type="hidden" name="fid" value="${memberDTO.id}">
+        <input type="hidden" name="cid" value="${sessionScope.id}">
+        <button type="submit" class="button button-update">
+        	<span>1:1 채팅 신청</span>
         </button>
+        </form>
      
 
         <div class="nav" role="navigation">

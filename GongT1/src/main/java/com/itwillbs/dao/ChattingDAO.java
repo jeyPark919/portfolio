@@ -33,39 +33,33 @@ public class ChattingDAO {
 	
 	}//ChattingCheck()
 	
-	public List<ChatDTO> ChattingBangFF(int c_num) {
-		System.out.println("ChattingDAO ChattingBangFF()");
-		
-		return sqlSession.selectList(namespace + ".ChattingBangFF", c_num);
-	
-	}//ChattingCheck()
-	
-	public List<ChatDTO> ChattingBangCC(String id) {
-		System.out.println("ChattingDAO ChattingBangCC()");
-		
-		return sqlSession.selectList(namespace + ".ChattingBangCC", id);
-	
-	}//ChattingCheck()
-	
 	
 	public void insertMessage(MessageDTO messageDTO) {
-		System.out.println("MemberDAO insertMember()");
+		System.out.println("ChattingDAO insertMember()");
 		System.out.println(messageDTO.getId());
 	
-		sqlSession.insert(namespace+".insertmessage",messageDTO);
+		sqlSession.insert(namespace+".insertMessage",messageDTO);
 	}//insertMessage()
 
 	
 	public ChatDTO getChat(int c_num) {
-		// TODO Auto-generated method stub
+		System.out.println("ChattingDAO getChat()");
 		return sqlSession.selectOne(namespace+".getChat", c_num);
 	}//getChat()
 
 	
 	public List<ChatDTO> getMessage(int c_num) {
-		// TODO Auto-generated method stub
+		System.out.println("ChattingDAO getMessage()");
 		return sqlSession.selectList(namespace+".getMessage", c_num);
 	}//getMessage()
+
+	
+	public int insertChat(ChatDTO chatDTO) {
+		System.out.println("ChattingDAO insertChat()");
+		sqlSession.insert(namespace+".insertChat", chatDTO);
+		ChatDTO chatDTO2 = sqlSession.selectOne(namespace+".getChatDTO", chatDTO);
+		return chatDTO2.getC_num();
+	}//insertChat()
 	
 	
-}
+}//class ChattingDAO

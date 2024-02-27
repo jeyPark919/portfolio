@@ -198,9 +198,14 @@
      	<button type="button" class="button button-update">
         	<span onclick="location.href='#'">찜하기</span>
         </button>
-        <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">1:1 채팅 신청</span>
+        
+        <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post">
+        <input type="hidden" name="fid" value="${sessionScope.id}">
+        <input type="hidden" name="cid" value="${memberDTO.id}">
+        <button type="submit" class="button button-update">
+        	<span>1:1 채팅 신청</span>
         </button>
+        </form>
 <!--         <div class="buttons"> -->
 <!--             <button type="button" class="button button-print"><span>찜하기</span></button> -->
 <!--             <button type="button" class="button button-send-email"><span>1:1 채팅 신청</span></button> -->

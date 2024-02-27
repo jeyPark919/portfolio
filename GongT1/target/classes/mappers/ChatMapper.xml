@@ -30,21 +30,8 @@
 		
 		
 <!-- 		쪽지 방 -->
-		<select id="ChattingBangFF" resultType="com.itwillbs.domain.ChatDTO">
-			select c.c_num, c.cid, c.fid, c.c_matching, m.c_content, m.c_time , m.id
-			from chat c join message m 
-			on c.c_num = m.c_num
-			where c.c_num = #{c_num} 
-		</select>
-		
-		<select id="ChattingBangCC" resultType="com.itwillbs.domain.ChatDTO">
-			select c.c_num, c.cid, c.fid, c.c_matching, m.c_content, m.c_time , m.id
-			from chat c join message m 
-			on c.c_num = m.c_num
-			where c.c_num = #{c_num} 
-		</select>
 
-		<insert id="insertmessage">
+		<insert id="insertMessage">
 			insert into message(c_num, id, c_content)
 			values(#{c_num}, #{id}, #{c_content})
 		
@@ -59,6 +46,18 @@
 			from chat c join message m 
 			on c.c_num = m.c_num
 			where c.c_num = #{c_num} 
+		</select>
+		
+		
+<!-- 	채팅 시작 -->
+		<insert id="insertChat">
+			insert into chat(fid, cid)
+			values(#{fid}, #{cid})
+		</insert>
+		
+		<select id="getChatDTO" resultType="com.itwillbs.domain.ChatDTO">
+			select * from chat
+			where fid = #{fid} and cid = #{cid}
 		</select>
 		
 			
