@@ -277,7 +277,7 @@ public class MemberController {
 	public String mypageCompany3(HttpSession session, Model model) {
 		System.out.println("MemberController mypageCompany3()");
 		
-		return "resume/projectWrite";
+		return "project/projectWrite";
 	}
 	
 	

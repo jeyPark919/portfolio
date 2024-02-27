@@ -83,7 +83,8 @@ set region_num = #{region_num},
 where r_num = #{r_num}
 
 </update>
-	
+
+<!-- 글 삭제 -->
 <delete id="resumeDelete">
 delete from resume
 where r_num = #{r_num}

@@ -82,7 +82,30 @@ public class ProjectService {
 		System.out.println("ProjectService insertScrap()");
 		projectDAO.insertScrap(scrap_projectDTO);
 	}
+	
+	//글 삭제
+	public void projectDelete(ProjectDTO projectDTO) {
+		System.out.println("ProjectService insertScrap()");
+		projectDAO.projectDelete(projectDTO);
+	}
 
+	public void insertProject(ProjectDTO projectDTO) {
+		System.out.println("ProjectService insertProject()");
+		projectDTO.setP_num(projectDAO.getProjectMaxNum()+1);
+		projectDAO.insertProject(projectDTO);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 }

@@ -174,7 +174,7 @@ public class ResumeController {
 	
 	@PostMapping("resume/resumeUpdatePro")
 	public String resumeUpdatePro(HttpSession session,HttpServletRequest request, MultipartFile file) throws Exception{
-		System.out.println("ResumeController resumeUpdate()");
+		System.out.println("ResumeController resumeUpdatePro()");
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);

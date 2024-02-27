@@ -4,6 +4,14 @@ import java.sql.Timestamp;
 
 public class ProjectDTO {
 
+	@Override
+	public String toString() {
+		return "ProjectDTO [p_num=" + p_num + ", id=" + id + ", region_num=" + region_num + ", region=" + region
+				+ ", field_num=" + field_num + ", field=" + field + ", p_title=" + p_title + ", p_content=" + p_content
+				+ ", p_writedate=" + p_writedate + ", p_deadline=" + p_deadline + ", p_readcount=" + p_readcount
+				+ ", p_start=" + p_start + ", p_end=" + p_end + ", p_member=" + p_member + ", p_file=" + p_file
+				+ ", matching=" + matching + ", name=" + name + "]";
+	}
 	private int p_num;
 	private String id;
 	private int region_num;
