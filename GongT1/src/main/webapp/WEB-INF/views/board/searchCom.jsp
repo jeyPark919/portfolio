@@ -126,37 +126,43 @@ h5{
 
 <div id="left2">
 <h5>직종(분야)</h5>
-<label><input type="checkbox" name="projectField" id="projf1" checked>개발자</label><br>
-<label><input type="checkbox" name="projectField" id="projf2">퍼블리셔</label><br>
-<label><input type="checkbox" name="projectField" id="projf3">디자이너</label><br>
-<label><input type="checkbox" name="projectField" id="projf4">기타</label><br>
+<form>
+<label><input type="checkbox" name="projectField" value="1" checked>개발자</label><br>
+<label><input type="checkbox" name="projectField" value="2">퍼블리셔</label><br>
+<label><input type="checkbox" name="projectField" value="3">디자이너</label><br>
+<label><input type="checkbox" name="projectField" value="4">기타</label><br>
+</form>
 </div><br>
 
 <div id="left3">
 <h5>지역</h5>
-<label><input type="checkbox" name="region" id="regionA" checked>전체</label><br>
-<label><input type="checkbox" name="region" id="region1">서울특별시</label><br>
-<label><input type="checkbox" name="region" id="region2">부산광역시</label><br>
-<label><input type="checkbox" name="region" id="region3">인천광역시</label><br>
-<label><input type="checkbox" name="region" id="region4">대전광역시</label><br>
-<label><input type="checkbox" name="region" id="region5">대구광역시</label><br>
-<label><input type="checkbox" name="region" id="region6">울산광역시</label><br>
-<label><input type="checkbox" name="region" id="region7">광주광역시</label><br>
-<label><input type="checkbox" name="region" id="region8">세종특별자치시</label><br>
-<label><input type="checkbox" name="region" id="region9">경기도</label><br>
-<label><input type="checkbox" name="region" id="region10">강원도</label><br>
-<label><input type="checkbox" name="region" id="region11">충청북도</label><br>
-<label><input type="checkbox" name="region" id="region12">충청남도</label><br>
-<label><input type="checkbox" name="region" id="region13">경상북도</label><br>
-<label><input type="checkbox" name="region" id="region14">경상남도</label><br>
-<label><input type="checkbox" name="region" id="region15">전라북도</label><br>
-<label><input type="checkbox" name="region" id="region16">전라남도</label><br>
-<label><input type="checkbox" name="region" id="region17">제주특별자치도</label><br>
+<form>
+<label><input type="checkbox" name="region" value="1" checked>전체</label><br>
+<label><input type="checkbox" name="region" value="2">서울특별시</label><br>
+<label><input type="checkbox" name="region" value="3">부산광역시</label><br>
+<label><input type="checkbox" name="region" value="4">인천광역시</label><br>
+<label><input type="checkbox" name="region" value="5">대전광역시</label><br>
+<label><input type="checkbox" name="region" value="6">대구광역시</label><br>
+<label><input type="checkbox" name="region" value="7">울산광역시</label><br>
+<label><input type="checkbox" name="region" value="8">광주광역시</label><br>
+<label><input type="checkbox" name="region" value="9">세종특별자치시</label><br>
+<label><input type="checkbox" name="region" value="10">경기도</label><br>
+<label><input type="checkbox" name="region" value="11">강원도</label><br>
+<label><input type="checkbox" name="region" value="12">충청북도</label><br>
+<label><input type="checkbox" name="region" value="13">충청남도</label><br>
+<label><input type="checkbox" name="region" value="14">경상북도</label><br>
+<label><input type="checkbox" name="region" value="15">경상남도</label><br>
+<label><input type="checkbox" name="region" value="16">전라북도</label><br>
+<label><input type="checkbox" name="region" value="17">전라남도</label><br>
+<label><input type="checkbox" name="region" value="18">제주특별자치도</label><br>
+</form>
 </div>
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
 <form action="${pageContext.request.contextPath}/board/searchCom" method="get">
+<input type="hidden" name="search" value="${pageDTO.search}">
+<input type="hidden" name="select" value="${pageDTO.select}">
   <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
   <button name="sort" value="sortR" type="submit" class="btn btn-primary" id="sortReadcount" style="background-color: #1842B6 !important;">조회순</button></label>
 </form>
@@ -197,15 +203,15 @@ h5{
 	
 <div id="page_control">
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}">[이전]</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}&select=${pageDTO.select}">[이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage}" step="1">
-	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${i}&search=${pageDTO.search}&sort=${pageDTO.sort}">${i}</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${i}&search=${pageDTO.search}&sort=${pageDTO.sort}&select=${pageDTO.select}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.pageCount > pageDTO.endPage}">
-	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}">[다음]</a>
+	<a href="${pageContext.request.contextPath}/board/searchCom?pageNum=${pageDTO.startPage + pageDTO.pageBlock}&search=${pageDTO.search}&sort=${pageDTO.sort}&select=${pageDTO.select}">[다음]</a>
 </c:if>
 </div>
 </div>

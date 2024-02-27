@@ -30,11 +30,12 @@
 			<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
 			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
 			</if>
-			<if test="sort == null">
-			order by r.r_num desc limit #{startRow},#{pageSize}
+			<if test="sort == '' or sort == null">
+			order by r.r_num desc
 			</if>
-			<if test="sort == 'sortM'"> order by m.matching desc, r.r_num desc limit #{startRow},#{pageSize}</if>
-			<if test="sort == 'sortS'"> order by r.r_salary desc limit #{startRow},#{pageSize}</if>
+			<if test="sort == 'sortM'"> order by m.matching desc, r.r_num desc</if>
+			<if test="sort == 'sortS'"> order by r.r_salary desc</if>
+			limit #{startRow},#{pageSize}
 	</select>
 
 	<select id="getResumeBoardCount" resultType="java.lang.Integer">
