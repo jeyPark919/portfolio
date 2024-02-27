@@ -97,6 +97,13 @@ public class ProjectController {
 	
 	} //project()
 	
+	
+	@GetMapping("/project/projectUpdate")
+	public String updateProject(HttpServletRequest request, Model model) {
+		int p_num = Integer.parseInt(request.getParameter("p_num"));
+		model.addAttribute("projectDTO", projectService.getProject(p_num));
+		return "project/projectUpdate";
+	} //updateProejct()
 
 	
-}
+} // class ProjectController

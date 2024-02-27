@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로젝트 공고 작성</title>
+<title>프로젝트 공고 수정</title>
 <!-- <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" /> -->
 <!-- <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" /> -->
 <style>
@@ -51,14 +51,14 @@ width: 100px;
 <br><br><br>
 <div class="wrappe">
 <div class="conten">
-<h1>프로젝트 공고 작성</h1>
-<p>프로젝트 공고를 등록하고 프리랜서들의 신청을 받아보세요!</p>
+<h1>프로젝트 공고 수정</h1>
+<p>변경해야 할 정보가 있다면 수정하세요.</p>
 
-<form action="${pageContext.request.contextPath}/main/insertProjectPro" id="join" method="post" enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath}/main/updateProjectPro" id="join" method="post" enctype="multipart/form-data">
 <fieldset>
-<legend><h5>정해진 양식에 맞게 작성해주십시오.</h5></legend>
+<legend><h5>정해진 양식에 맞게 수정해주십시오.</h5></legend>
 <h3>프로젝트 공고 제목</h3>
-<input type="text" width="300" name="p_name" class="id" maxlength="50" required autofocus>
+<input type="text" width="300" name="p_name" class="id" maxlength="50" value="${projectDTO.p_name}" required autofocus>
 
 <h3>필요 인원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 직종 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 지역</h3>
 <input type="number" name="p_member" placeholder="1" min="1" style="font-size:120%; width: 60px; height: 30px;" required>명
