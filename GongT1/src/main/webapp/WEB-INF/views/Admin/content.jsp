@@ -64,7 +64,9 @@ a {
     position: relative; 
     transform: translatY(100%);
 }
-
+#table_search{
+	margin-right:150px;
+}
 </style>
 </head>
 <body>
@@ -94,12 +96,12 @@ a {
 </table>
 <div id="table_search">
 	<c:if test="${sessionScope.id == 'admin'}">
-		<input type="button" value="글수정" class="btn" 
+		<input type="button" value="글수정" class="btn btn-primary"
   			onclick="location.href='${pageContext.request.contextPath}/Admin/update?n_num=${noticeDTO.n_num}'">
-		<input type="button" value="글삭제" class="btn" 
+		<input type="button" value="글삭제" class="btn btn-primary"
   			onclick="location.href='${pageContext.request.contextPath}/Admin/delete?n_num=${noticeDTO.n_num}'">
   			</c:if>
-<input type="button" value="글목록" class="btn" 
+<input type="button" value="글목록" class="btn btn-primary"
   onclick="location.href='${pageContext.request.contextPath}/Admin/notice'">
 </div>
 </fieldset>

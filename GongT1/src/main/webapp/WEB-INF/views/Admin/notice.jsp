@@ -6,7 +6,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>notice</title>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+        
 <style>
 #border{
 	height: 1000px;
@@ -59,7 +62,9 @@ a {
     position: relative; 
     transform: translatY(100%);
 }
-
+#table_search{
+	margin-left:100px;
+}
 
 </style>
 </head>
@@ -82,9 +87,7 @@ a {
 </div>
 
 <div id="right">
-<form action="" id="join">
 
-<!-- <h2>공지사항</h2> -->
 <table>
 <tr>
 <th>번호</th>
@@ -118,31 +121,30 @@ a {
 
 
 </div>
+
 	<div id="table_search">			
-	<c:if test="${sessionScope.id == 'admin'}">
-		<input type="button" value="글쓰기" class="btn" 
+<form action="${pageContext.request.contextPath}/Admin/notice" method="get">
+<select name="select">
+	<option value="p_title" selected>제목</option>
+	<option value="p_content">내용</option>
+</select>
+	<input type="text" name="search" class="input_box">
+	<input type="submit" value="검색" class="btn btn-primary">
+	<input type="button" value="글목록" class="btn btn-primary"
+ 	 onclick="location.href='${pageContext.request.contextPath}/Admin/notice'">
+	
+							
+<c:if test="${sessionScope.id == 'admin'}">
+		<input type="button" value="글쓰기" class="btn btn-primary" 
   	onclick="location.href='${pageContext.request.contextPath}/Admin/write?n_num=${nDTO.n_num}'">
-<!-- 		<input type="button" value="글수정" class="btn"  -->
-<%--   			onclick="location.href='${pageContext.request.contextPath}/Admin/update?n_num=${nDTO.n_num}'"> --%>
-<!-- 		<input type="button" value="글삭제" class="btn"  -->
-<%--   			onclick="location.href='${pageContext.request.contextPath}/Admin/delete?n_num=${nDTO.n_num}'"> --%>
-</c:if>
-<form action="${pageContext.request.contextPath}/board/list" method="get">
-<input type="text" name="search" class="input_box">
-<input type="submit" value="검색" class="btn">
-</form>
-
-<input type="button" value="글목록" class="btn" 
-  onclick="location.href='${pageContext.request.contextPath}/Admin/notice'">
-	</div>				
-				
-
-</form>
-				</div>
-				<div class="clear"></div>
-</div>
+  </c:if>
+	</form>
+		</div>	
+	</div>
+	<div class="clear"></div>
+	</div>
 
 
-<jsp:include page="../inc//bottom.jsp" />
+<jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>

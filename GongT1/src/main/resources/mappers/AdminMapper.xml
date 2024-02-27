@@ -16,7 +16,7 @@
 	</insert>
 <update id="updateInquiry">
 		update inquiry 
-		set admin_id = #{admin_id}, asw_title = #{asw_title}, asw_content = #{asw_content} 
+		set admin_id = #{admin_id}, asw_title = #{asw_title}, asw_content = #{asw_content}, asw_date = #{asw_date}
 		where i_num = #{i_num} 
 	</update>
 	<select id="getMaxNum" resultType="java.lang.Integer"> select max(n_num) from notice </select>
@@ -58,7 +58,11 @@ select count(*) from notice
 update notice set n_title = #{n_title}, n_content = #{n_content} where n_num = #{n_num} 
 </update>
 <delete id="deleteNotice"> delete from notice where n_num = #{n_num} </delete>
-<delete id="deleteInquiry"> delete from inquiry where i_num = #{i_num} </delete>
+<update id="deleteInquiry">
+		update inquiry 
+		set admin_id = null, asw_title = null, asw_content = null, asw_date = null 
+		where i_num = #{i_num} 
+	</update>
 <select id="amember" resultType="com.itwillbs.domain.MemberDTO"> 
 		select * from member 
 	</select>

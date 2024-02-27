@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>notice</title>
+<link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <style>
 #border{
 	height: 1000px;
@@ -133,7 +134,7 @@ padding-right:60px;
 <li id="side2"><a href="${pageContext.request.contextPath}/Support/intro.jsp">매칭 방법 안내1</a><br></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
-<li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
+<li id="side2"><a href="intro1.html">매칭 방법 안내1</a><b	r></li>
 <li id="side2"><a href="intro1.html">매칭 방법 안내1</a><br></li>
 </ul>
 </div>
@@ -147,12 +148,6 @@ padding-right:60px;
 </fieldset>	
 </form>			
 <div class="clear"></div>	
-<div id="table_search">
-	
-						<input type="text" name="search" class="input_box"> 
-						<input id="btn"type="button" value="검색" class="btn">
-				</div>
-				<div class="clear"></div>
 </div>
 
 </div>

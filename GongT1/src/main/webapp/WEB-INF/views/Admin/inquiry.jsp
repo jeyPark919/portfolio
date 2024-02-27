@@ -6,11 +6,19 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+
 <title>notice</title>
+<link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
+
+
+
+
+
 <style>
 #border{
 	height: 1000px;
 }
+
 #up {
 	margin-top : 75px;
 	text-align: center;
@@ -23,9 +31,9 @@
 #left {
 	height: 300px;
 	width: 15%;
-	border-style : groove;
+/* 	border-style : groove; */
 	float: left;
-	border-radius: 20px;
+/* 	border-radius: 20px; */
 	text-align: center;
 	margin-left: 10%;
 }
@@ -59,6 +67,18 @@ a {
     position: relative; 
     transform: translatY(100%);
 }
+
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
+
+.sidemenu {
+	width: 15%;
+	position: relative;
+	top : 5%;
+	left : 8%;
+}
 </style>
 </head>
 
@@ -66,21 +86,19 @@ a {
 <jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
-	<h1>문의하기</h1>
+<!-- 	<h1>문의하기</h1> -->
 </div>
 
 <div id="left">		
-<ul>
-<li ><a href="${pageContext.request.contextPath}/Admin/notice">공지사항</a></li>
-
-<li><a href="${pageContext.request.contextPath}/Admin/FAQ">자주 묻는 질문</a></li>
-<li style="font-weight: bold;"><a href="${pageContext.request.contextPath}/Admin/inquiry">1:1문의</a></li>
-
-</ul>
+<div class="sidemenu">
+        <button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" >공지사항</span></button>
+      	<button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/FAQ'" >자주 묻는 질문</span></button>
+        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'" style="color: white !important;">1:1문의</span></button>
+</div>
 </div>
 
 <div id="right">
-<form action="" id="join">
+
 <fieldset>
 <h2>내문의 내역</h2>
 <table>
@@ -101,18 +119,15 @@ a {
 				</table>
 				<div id="table_search">
 					<c:if test="${sessionScope.id != 'admin'}">
-						<input type="button" value="문의글 쓰기" class="btn" 
+						<input type="button" value="문의글 쓰기" class="btn btn-primary"
   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write'">
 			</c:if>
-<%-- 			<c:if test="${sessionScope.id == 'admin'}"> --%>
-<!-- 		<input type="button" value="답변 쓰기" class="btn"  -->
-<%--   	onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_write?i_num=${irDTO.i_num}'"> --%>
-<%-- 				</c:if> --%>
+
 				</div> 
 				<div class="clear"></div>
 </fieldset>	
 
-</form>		
+	
 	
 
 	

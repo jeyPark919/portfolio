@@ -128,6 +128,7 @@ public class AdminService {
 //	}
 	public void updateInquiry(InquiryDTO inquiryDTO) {
 		System.out.println("AdminService updateInquiry()");
+		inquiryDTO.setAsw_date(new Timestamp(System.currentTimeMillis()));
 		adminDAO.updateInquiry(inquiryDTO); 
 	}
 	
