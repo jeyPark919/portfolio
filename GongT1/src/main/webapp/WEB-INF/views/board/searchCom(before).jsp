@@ -1,45 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html lang="ko">
-<jsp:include page="../inc/top.jsp" />
-<head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>공T 프로젝트 찾기</title>
-<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+        
+        
+<!-- ★★★★★★★★★★★★★★ 스타일 태그 여기에 넣으시면 됩니다 ★★★★★★★★★★★★★★ -->
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
-<style>
+    	<style>
 button{
 padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
 vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 }
-
-table {
-  border-collapse: collapse;
-  width: 100%;
+    	
+#up {
+	margin-top : 50px !important;
+	text-align: center;
+	width: 100%;
+/* 	background-color: lightgray; */
+	height: 60px;
+	line-height: 60px;
 }
 
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+h2{
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
 }
 
-tr:hover {background-color: #748dd3;}
+
+.sidemenu {
+	width: 15%;
+	position: relative;
+	top : 5%;
+	left : 8%;
+}
 
 #left2 {
 	height: 150px;
 	width: 160px;
 	border-style : groove;
-/* 	float: inherit; */
+	float: inherit;
 	border-radius: 20px;
 	text-align: left;
-/* 	margin-left: 5%; */
+	margin-left: 5%;
 	
 }
 
@@ -47,19 +58,72 @@ tr:hover {background-color: #748dd3;}
 	height: 500px;
 	width: 160px;
 	border-style : groove;
-/* 	float: inherit; */
+	float: inherit;
 	border-radius: 20px;
 	text-align: left;
-/* 	margin-left: 5%; */
+	margin-left: 5%;
 }
-</style>
-</head>
-<body>
 
+#right {
+	clear: inherit;
+	text-align: center;
+	margin-right: 0px;
+	position: absolute;
+	top : 30%;
+	left : 35%;
+	}
 
-<div id="border">
-<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 90px;">
-    <div class="sidemenu">
+table {
+ 	width: 1000px !important;
+/* 	height: 200px; */
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+th, td {
+	border: 1px solid black;
+	text-align: center !important;
+	font-size: 20px !important;
+}
+
+h5{
+	text-align: center; background-color: #1842B6;
+	color : white !important;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+}
+
+.btn-group{
+	margin-left: 800px !important;
+	margin-bottom: 5px !important;
+}
+
+		</style>
+
+    </head>
+
+    <body>
+    
+<!--	Navbar Start -->
+    <jsp:include page="../inc/top.jsp"/>
+<!--	Navbar End -->
+
+<div class="container-fluid project py-5 my-5" style="height:100%;
+						margin-top: 0px !important;	padding: 0px !important;">
+	<div class="container py-5" style="padding: 0px !important;">
+
+                
+<!-- ★★★★★★★★★★★★★★ 본문 여기에 넣으시면 됩니다 ★★★★★★★★★★★★★★ -->
+
+<div id="up" style="margin-top: 50px !important;">
+	<h2>프로젝트 찾기</h2>	
+</div>
+
+<div class="sidemenu">
+        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'" style="color: white !important;">프로젝트 찾기</span></button>
+        <button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'">프리랜서 찾기</span></button>
+</div><br>
+
 <form action="${pageContext.request.contextPath}/board/searchCom" method="get">
 <div id="left2">
 
@@ -94,25 +158,8 @@ tr:hover {background-color: #748dd3;}
 <label><input type="checkbox" name="region" value="18">제주특별자치도</label><br>
 
 </div>
-   </div>
-</div>
-    <div class="modal modal-spinner" role="dialog" aria-hidden="true" style="display:none;"></div>
-    <div class="resume-view-page">
-        <div class="resumeHeader">
-            
-        </div>
-        <div class="resume-view-wrapper" >
-        <br><br>
-            <div class="resume-view-container" style="height: 700px !important">
-                <div class="resume-subject" style="text-align: center !important;">프로젝트 찾기</div>
 
-
-<div class="summary col-4"></div>
-<div class="list list-education"></div>
-<br>
-
-<fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
-
+<div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
 <input type="hidden" name="search" value="${pageDTO.search}">
 <input type="hidden" name="select" value="${pageDTO.select}">
@@ -123,24 +170,24 @@ tr:hover {background-color: #748dd3;}
 </form>
 	<table class="table">
   <thead>
-    <tr style="background-color: transparent !important;">
-<th scope="col" style=" font-size:20px !important; color: black;">글번호</th>
-<th scope="col" style=" font-size:20px !important; color: black;">제목</th>
-<th scope="col" style=" font-size:20px !important; color: black;">회사명</th>
-<th scope="col" style=" font-size:20px !important; color: black;">등록일</th>
-<th scope="col" style=" font-size:20px !important; color: black;">매칭횟수</th>
-<th scope="col" style=" font-size:20px !important; color: black;">조회수</th>
+    <tr>
+<th scope="col">글번호</th>
+<th scope="col">제목</th>
+<th scope="col">회사명</th>
+<th scope="col">등록일</th>
+<th scope="col">매칭횟수</th>
+<th scope="col">조회수</th>
 </tr>
 </thead>
 
     <c:forEach var="projectDTO" items="${projectBoardList }">
     	<tr onclick="location.href='${pageContext.request.contextPath}/project/project?p_num=${projectDTO.p_num }'">
-    		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.p_num}</td>
-    	    <td style="text-align: center !important; font-size:15px !important;">${projectDTO.p_title}</td>
-    		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.name}</td>
-    		<td style="text-align: center !important; font-size:15px !important;"><fmt:formatDate value="${projectDTO.p_writedate}" pattern="yyyy.MM.dd"/></td>
-    		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.matching }</td>
-    		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.p_readcount}</td>
+    		<td>${projectDTO.p_num}</td>
+    	    <td class="left">${projectDTO.p_title}</td>
+    		<td>${projectDTO.name}</td>
+    		<td><fmt:formatDate value="${projectDTO.p_writedate}" pattern="yyyy.MM.dd"/></td>
+    		<td>${projectDTO.matching }</td>
+    		<td>${projectDTO.p_readcount}</td>
     	</tr>
     </c:forEach>
 
@@ -174,15 +221,29 @@ tr:hover {background-color: #748dd3;}
 
 </c:if>
 </div>
+</div>
+
 	</div>
 </div>
 
-</fieldset>
- 			</div>
-        </div>
-    </div>
- 
- <br><br><br><br><br>
-<jsp:include page="../inc/bottom.jsp" />
-</body>
+<!--	Footer Start -->
+    <jsp:include page="../inc/bottom.jsp"/>
+<!--	Footer End -->
+
+<script type="text/javascript">
+// $(function(){
+// 	$('#sortMatching').click(function(){
+// 		var arr1 = [${projectDTO.matching }];
+// 		arr1.sort().reverse();
+// 	});
+// });
+// $(function(){
+// 	$('#sortReadcount').click(function(){
+// 		var arr2 = [${projectDTO.p_readcount }];
+// 		arr2.sort().reverse();
+// 	});
+// });
+</script>
+    </body>
+
 </html>

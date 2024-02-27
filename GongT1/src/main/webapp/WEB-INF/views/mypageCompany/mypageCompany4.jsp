@@ -65,16 +65,16 @@ tr:hover {background-color: #748dd3;}
 <%-- <label>${Scrap_resumeDTO.r_name}</label><br><br> --%>
 <!-- </div> -->
 <%-- </c:forEach> --%>
-<table>
+<table class="table">
   <tr style="background-color: transparent !important;">
-    <th style=" font-size:25px !important; color: black;">프리랜서 이름</th>
-    <th style=" font-size:25px !important; color: black;">이력서 제목</th>
+    <th style=" font-size:20px !important; color: black;">프리랜서 이름</th>
+    <th style=" font-size:20px !important; color: black;">이력서 제목</th>
 
   </tr>
   	<c:forEach var="Scrap_resumeDTO" items="${Scrap_resumeDTOList}">
   <tr>
-    <td style="text-align: center !important; font-size:20px !important;">${Scrap_resumeDTO.name}</td>
-   	<td style="text-align: center !important; font-size:20px !important;">${Scrap_resumeDTO.r_name}</td>
+    <td style="text-align: center !important; font-size:15px !important; color: black;">${Scrap_resumeDTO.name}</td>
+   	<td style="text-align: center !important; font-size:15px !important; color: black;">${Scrap_resumeDTO.r_name}</td>
   
    
   </tr>

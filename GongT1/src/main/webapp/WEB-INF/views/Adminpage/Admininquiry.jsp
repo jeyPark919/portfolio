@@ -240,7 +240,7 @@
 <th>${InquiryDTO.asw_title}</th>
 <th>${InquiryDTO.asw_content}</th>
 </tr>
-<br><br>
+
 </div>
 	</c:forEach>
 	

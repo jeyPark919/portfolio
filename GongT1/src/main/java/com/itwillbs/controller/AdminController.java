@@ -23,7 +23,7 @@ import com.itwillbs.domain.ResumeDTO;
 import com.itwillbs.service.AdminService;
 
 @Controller
-@RequestMapping("/Admin/*")
+
 public class AdminController {
 	@Inject
 	private AdminService adminService;

@@ -95,8 +95,8 @@ class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex 
 </c:if>
 <c:if test="${!empty sessionScope.id }">
 <div>
-${sessionScope.id}님 반갑습니다.<br>
-나의 매칭 횟수 : ${sessionScope.matching} 회
+${sessionScope.id}님 <br>
+공T 매칭 : ${sessionScope.matching} 회
 <a href="${pageContext.request.contextPath}/main/logout" class="nav-item nav-link" style="font-size:15px; display: inline; color: white">로그아웃</a>
 
 <c:if test="${sessionScope.type eq 0 }">

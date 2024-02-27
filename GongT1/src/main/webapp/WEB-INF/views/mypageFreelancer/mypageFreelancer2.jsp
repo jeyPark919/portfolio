@@ -10,6 +10,7 @@
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 <style>
 table {
@@ -58,16 +59,16 @@ tr:hover {background-color: #748dd3;}
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
 
 
-<table>
+<table class="table">
   <tr style="background-color: transparent !important;">
-    <th style=" font-size:25px !important; color: black;">제목</th>
-    <th style=" font-size:25px !important; color: black;">내용</th>
+    <th  scope="col" style=" font-size:20px !important; color: black;">제목</th>
+    <th  scope="col" style=" font-size:20px !important; color: black;">내용</th>
 
   </tr>
   	<c:forEach var="ResumeDTO" items="${ResumeDTOList}">
   <tr>
-    <td style="text-align: center !important; font-size:20px !important;">${ResumeDTO.r_name}</td>
-   <td style="text-align: center !important; font-size:20px !important;">${ResumeDTO.r_content}</td>
+    <td style="text-align: center !important; font-size:15px !important; color: black;">${ResumeDTO.r_name}</td>
+   <td style="text-align: center !important; font-size:15px !important; color: black;">${ResumeDTO.r_content}</td>
   </tr>
   </c:forEach>
 

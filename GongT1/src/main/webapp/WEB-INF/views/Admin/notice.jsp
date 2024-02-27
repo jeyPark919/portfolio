@@ -1,136 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html lang="ko">
+<jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
-
-<title>notice</title>
+<title>공지사항</title>
+<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-
-
-
 <style>
-#border{
-	height: 1000px;
-}
-#up {
-	margin-top : 75px;
-	text-align: center;
-	width: 100%;
-/* 	background-color: lightgray; */
-	height: 100px;
-	line-height: 100px;
-}
-
-#left {
-	height: 300px;
-	width: 15%;
-/* 	border-style : groove; */
-	float: left;
-/* 	border-radius: 20px; */
-	text-align: center;
-	margin-left: 10%;
-}
-
-#right {
- 	height: 50%; 
-	width: 60%;
-	float: left;
-	text-align: center;
-	margin-right: 10%;
-}
-
-
 table {
-	width: 100%;
-/* 	height: 200px; */
-	border-collapse: collapse;
-	margin-bottom: 20px;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 th, td {
-	border: 1px solid black;
-	text-align: center;
-	padding: 4px;
-	height: 1px;
-
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
-a {
-  text-decoration-line: none;
-}
-#footer {
-    position: relative; 
-    transform: translatY(100%);
-}
-
 
 tr:hover {background-color: #748dd3;}
-
-button{
-padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
-vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
-}
-
-.sidemenu {
-	width: 15%;
-	position: relative;
-	top : 5%;
-	left : 8%;
-}
-
 </style>
 </head>
-
 <body>
-<jsp:include page="../inc/top.jsp" />
+
+
 <div id="border">
-<div id="up">
-	<h1>공지사항</h1>
-</div>
-
-<div id="left">		
-<!-- <ul> -->
-<%-- <li style="font-weight: bold;"><a href="${pageContext.request.contextPath}/Admin/notice">공지사항</a></li> --%>
-
-<%-- <li><a href="${pageContext.request.contextPath}/Admin/FAQ">자주 묻는 질문</a></li> --%>
-<%-- <li><a href="${pageContext.request.contextPath}/Admin/inquiry">1:1문의</a></li> --%>
-
-<!-- </ul> -->
-
-<div class="sidemenu">
-        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" style="color: white !important;">공지사항</span></button>
+	</div>
+	<div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 195px;">
+    <div class="sidemenu">
+    
+       <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" style="color: white !important;">공지사항</span></button>
       	<button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/Admin/FAQ'">자주 묻는 질문</span></button>
         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'">1:1문의</span></button>
+   
+    </div>
 </div>
-</div>
+    <div class="modal modal-spinner" role="dialog" aria-hidden="true" style="display:none;"></div>
+    <div class="resume-view-page">
+        <div class="resumeHeader">
+            
+        </div>
+        <div class="resume-view-wrapper" >
+        <br><br>
+            <div class="resume-view-container" style="height: 700px !important">
+                <div class="resume-subject" style="text-align: center !important;">공지사항</div>
 
-<div id="right">
-<form action="" id="join">
 
-<!-- <h2>공지사항</h2> -->
-<table>
-<tr style="background-color: transparent !important;">
-<th>번호</th>
-<th>제목</th>
-<th>작성자</th>
-<th>작성일</th>
-<th>조회수</th>
-</tr>
-<c:forEach var="nDTO" items="${noticeList }">
-    	
-    	<tr onclick="location.href='${pageContext.request.contextPath}/Admin/content?n_num=${nDTO.n_num}'">
-    	<td>${nDTO.n_num}</td><td class="left">${nDTO.n_title}</td><td>${nDTO.admin_id}</td>
-    	<td><fmt:formatDate value="${nDTO.n_date}" pattern="yyyy.MM.dd"/></td>
-    	<td>${nDTO.n_readcount}</td></tr>
+<div class="summary col-4"></div>
+<div class="list list-education"></div>
+
+
+
+<fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
+
+	<table class="table">
+  <tr style="background-color: transparent !important;">
+    <th style=" font-size:20px !important; color: black;">번호</th>
+    <th style=" font-size:20px !important; color: black;">제목</th>
+    <th style=" font-size:20px !important; color: black;">작성자</th>
+    <th style=" font-size:20px !important; color: black;">작성일</th>
+    <th style=" font-size:20px !important; color: black;">조회수</th>
+  </tr>
+  <c:forEach var="nDTO" items="${noticeList }">
+  <tr onclick="location.href='${pageContext.request.contextPath}/Admin/content?n_num=${nDTO.n_num}'">
+    	<td style="text-align: center !important; font-size:15px !important; color: black;">${nDTO.n_num}</td>
+    	<td class="left" style="text-align: center !important; font-size:15px !important; color: black;">${nDTO.n_title}</td>
+    	<td style="text-align: center !important; font-size:15px !important; color: black;">${nDTO.admin_id}</td>
+    	<td style="text-align: center !important; font-size:15px !important; color: black;"><fmt:formatDate value="${nDTO.n_date}" pattern="yyyy.MM.dd"/></td>
+    	<td style="text-align: center !important; font-size:15px !important; color: black;">${nDTO.n_readcount}</td></tr>
     </c:forEach>
-
-
-				</table>
+    
+ </table>
 				<div id="page_control">
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
 	<a href="${pageContext.request.contextPath}/Admin/notice?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${noticeDTO.search}">Prev</a>
@@ -165,12 +109,13 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 	</div>				
 				
 
-</form>
-				</div>
-				<div class="clear"></div>
-</div>
 
-
-<jsp:include page="../inc//bottom.jsp" />
+</fieldset>
+ 			</div>
+        </div>
+    </div>
+ 
+ <br><br><br><br><br>
+<jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>

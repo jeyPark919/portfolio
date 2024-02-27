@@ -66,28 +66,28 @@ tr:hover {background-color: coral;}
 <div class="list list-education"></div>
 
 <fieldset style="text-align: center; font-size: 20px; width: 100%;">
-<table>
+<table class="table">
   <tr style="background-color: transparent !important;">
-    <th style=" font-size:25px !important; color: black;">보낸사람</th>
+    <th style=" font-size:20px !important; color: black; text-align: center !important;">보낸사람</th>
 
-    <th style=" font-size:25px !important; color: black;">내용</th>
-    <th style=" font-size:25px !important; color: black;">시간</th>
-    <th style=" font-size:25px !important; color: black;">매칭 여부</th>
+    <th style=" font-size:20px !important; color: black; text-align: center !important;">내용</th>
+    <th style=" font-size:20px !important; color: black; text-align: center !important;">시간</th>
+    <th style=" font-size:20px !important; color: black; text-align: center !important;">매칭 여부</th>
   </tr>
  <c:forEach var="chattingDTO" items="${ChattingDTOListC}">
  <tr>
 
-    <th>${chattingDTO.fid}</th>
-    <th>${chattingDTO.c_content}</th>
-    <th>${chattingDTO.c_time}</th>
+    <td style="text-align: center !important;" >${chattingDTO.fid}</td>
+    <td style="text-align: center !important;">${chattingDTO.c_content}</td>
+    <td style="text-align: center !important;">${chattingDTO.c_time}</td>
 
 <c:if test="${chattingDTO.c_matching eq 0}">
-<th>미 매칭</th>
+<td style="text-align: center !important;">미 매칭</td>
 </c:if>
 <c:if test="${chattingDTO.c_matching eq 1}">
-<th>매칭 완료</th>
+<td style="text-align: center !important;">매칭 완료</td>
 </c:if>
-<th><button onclick="popUp(${chattingDTO.c_num});">전체 쪽지</button></th>
+<td style="text-align: center !important;"><button onclick="popUp(${chattingDTO.c_num});">전체 쪽지</button></td>
 
   </tr>
   	</c:forEach>

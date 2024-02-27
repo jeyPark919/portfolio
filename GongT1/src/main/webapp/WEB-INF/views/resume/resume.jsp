@@ -242,10 +242,8 @@
 <%--         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span> --%>
         	<span onclick="location.href='${pageContext.request.contextPath}/resume/scrap?r_num=${resumeDTO.r_num}'">찜하기</span>
         </button>
-     	</c:if>
-     	</c:if>
-        
-        <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post">
+     	
+     	    <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post">
         <input type="hidden" name="fid" value="${memberDTO.id}">
         <input type="hidden" name="cid" value="${sessionScope.id}">
         <button type="submit" class="button button-update">
@@ -254,6 +252,19 @@
         </button>
 
         </form>
+     	
+     	</c:if>
+     	</c:if>
+        
+<%--         <form action="${pageContext.request.contextPath}/inc/insertChatPro" method="post"> --%>
+<%--         <input type="hidden" name="fid" value="${memberDTO.id}"> --%>
+<%--         <input type="hidden" name="cid" value="${sessionScope.id}"> --%>
+<!--         <button type="submit" class="button button-update"> -->
+<!--         	<span>공T 쪽지 보내기</span> -->
+
+<!--         </button> -->
+
+<!--         </form> -->
 
 
         <div class="nav" role="navigation">

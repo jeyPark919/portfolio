@@ -6,10 +6,12 @@
 <jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>공T 마이페이지</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <style>
 table {
   border-collapse: collapse;
@@ -104,17 +106,17 @@ tr:hover {background-color: #748dd3;}
 
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
 
-<table>
+<table class="table">
   <tr style="background-color: transparent !important;">
-    <th style=" font-size:25px !important; color: black;">프로젝트 제목</th>
-    <th style=" font-size:25px !important; color: black;">작성일</th>
-    <th style=" font-size:25px !important; color: black;">필요인원</th>
+    <th style=" font-size:20px !important; color: black;">프로젝트 제목</th>
+    <th style=" font-size:20px !important; color: black;">작성일</th>
+    <th style=" font-size:20px !important; color: black;">필요인원</th>
   </tr>
   	<c:forEach var="ProjectDTO" items="${ProjectDTOList}">
   <tr>
-    <td style="text-align: center !important; font-size:20px !important;">${ProjectDTO.p_title}</td>
-   	<td style="text-align: center !important; font-size:20px !important;">${ProjectDTO.p_writedate}</td>
-   	<td style="text-align: center !important; font-size:20px !important;">${ProjectDTO.p_member}</td>
+    <td style="text-align: center !important; font-size:15px !important; color: black;" >${ProjectDTO.p_title}</td>
+   	<td style="text-align: center !important; font-size:15px !important; color: black;">${ProjectDTO.p_writedate}</td>
+   	<td style="text-align: center !important; font-size:15px !important; color: black;">${ProjectDTO.p_member}</td>
    
   </tr>
   </c:forEach>

@@ -36,7 +36,7 @@
         <div class="resume-view-wrapper" >
         <br><br>
             <div class="resume-view-container" style="height: 700px !important">
-                <div class="resume-subject" style="text-align: center !important;">마이 페이지(프리랜서))</div>
+                <div class="resume-subject" style="text-align: center !important;">마이 페이지(프리랜서)</div>
 
 
 <div class="summary col-4"></div>
