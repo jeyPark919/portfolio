@@ -75,6 +75,12 @@ public class ResumeDAO {
 		sqlSession.insert(namespace+".insertScrap", scrap_resumeDTO);
 	}
 
+	public void insertResume(ResumeDTO resumeDTO) {
+		System.out.println("ResumeDAO insertResume()");
+		System.out.println("ResumeDTO" + resumeDTO);
+		sqlSession.insert(namespace+".insertResume", resumeDTO);
+	}
+
 
 	
 }

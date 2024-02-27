@@ -3,8 +3,11 @@ package com.itwillbs.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.itwillbs.dao.ResumeDAO;
 
@@ -81,6 +84,14 @@ public class ResumeService {
 	public void insertScrap(Scrap_resumeDTO scrap_resumeDTO) {
 		System.out.println("ResumeService insertScrap()");
 		resumeDAO.insertScrap(scrap_resumeDTO);
+	}
+
+
+	public void insertResume(ResumeDTO resumeDTO) {
+		System.out.println("ResumeService insertResume()");
+		resumeDTO.setR_num(resumeDAO.getResumeMaxNum()+1);
+		
+		resumeDAO.insertResume(resumeDTO);
 	}
 
 

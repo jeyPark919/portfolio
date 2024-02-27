@@ -2,6 +2,7 @@ package com.itwillbs.domain;
 
 public class ResumeDTO {
 
+	
 	private int r_num;
 	private String id;
 	private int region_num;
@@ -20,6 +21,16 @@ public class ResumeDTO {
 	private String r_file;
 	private String name; //회원 이름
 	private int matching; //회원 매칭
+	
+	@Override
+	public String toString() {
+		return "ResumeDTO [r_num=" + r_num + ", id=" + id + ", region_num=" + region_num + ", region=" + region
+				+ ", field_num=" + field_num + ", field=" + field + ", r_name=" + r_name + ", r_career=" + r_career
+				+ ", r_tech=" + r_tech + ", r_form=" + r_form + ", r_salary=" + r_salary + ", r_exp=" + r_exp
+				+ ", r_content=" + r_content + ", r_head=" + r_head + ", r_io=" + r_io + ", r_file=" + r_file
+				+ ", name=" + name + ", matching=" + matching + "]";
+	}
+	
 	
 	public String getName() {
 		return name;

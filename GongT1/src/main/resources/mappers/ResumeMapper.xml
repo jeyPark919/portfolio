@@ -61,6 +61,17 @@ select r.*, m.name, m.matching from resume r join member m on r.id = m.id
 	values (#{sr_num}, #{r_num}, #{id})
 </insert>
 
+<!-- 이력서 작성 -->
+<insert id="insertResume">
+	insert into resume(r_num, id, region_num, field_num, r_name, r_career, r_tech, r_form, r_salary, r_exp, r_content, r_file)
+	values(#{r_num}, #{id}, #{region_num}, #{field_num}, #{r_name}, #{r_career}, #{r_tech}, #{r_form}, #{r_salary}, #{r_exp}, #{r_content}, #{r_file})
+</insert>
+	
+	
+	
+	
+	
+	
 	
 	
 	
