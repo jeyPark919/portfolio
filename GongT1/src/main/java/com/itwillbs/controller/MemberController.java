@@ -66,6 +66,7 @@ public class MemberController {
 			session.setAttribute("name",memberDTO2.getName());
 			session.setAttribute("email",memberDTO2.getEmail());
 			session.setAttribute("phone",memberDTO2.getPhone());
+			session.setAttribute("matching",memberDTO2.getMatching());
 			
 			return "redirect:/main/main";
 		} else {

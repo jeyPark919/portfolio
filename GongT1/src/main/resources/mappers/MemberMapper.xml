@@ -90,7 +90,7 @@ select * from member where phone = #{phone} </select>
 		</delete>
 	
 	<select id="resumeCheck" resultType="com.itwillbs.domain.ResumeDTO">
-			select r_name, r_io, r_head from resume
+			select r_name, r_content from resume
 			where id = #{id}
 		</select>
 		
