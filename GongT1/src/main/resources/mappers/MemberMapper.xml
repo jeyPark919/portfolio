@@ -86,17 +86,14 @@ select * from member where phone = #{phone} </select>
 			delete from member 
 			where id = #{id}
 		</delete>
-	
+
+<!-- 삭제	 -->
 	<select id="resumeCheck" resultType="com.itwillbs.domain.ResumeDTO">
-			select r_name, r_io, r_head from resume
+			select r_name from resume
 			where id = #{id}
 		</select>
 		
-<!-- 		<select id="ChattingCheck" resultType="com.itwillbs.domain.ChatDTO"> -->
-<!-- 			select c_title, id, c_date, c_matching from chatting -->
-<!-- 			where id = #{id} -->
-<!-- 		</select> -->
-	
+
 	
 		
 		

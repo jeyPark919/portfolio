@@ -16,8 +16,6 @@ public class ResumeDTO {
 	private int r_salary;
 	private String r_exp;
 	private String r_content;
-	private int r_head;
-	private int r_io;
 	private String r_file;
 	private String name; //회원 이름
 	private int matching; //회원 매칭
@@ -27,7 +25,7 @@ public class ResumeDTO {
 		return "ResumeDTO [r_num=" + r_num + ", id=" + id + ", region_num=" + region_num + ", region=" + region
 				+ ", field_num=" + field_num + ", field=" + field + ", r_name=" + r_name + ", r_career=" + r_career
 				+ ", r_tech=" + r_tech + ", r_form=" + r_form + ", r_salary=" + r_salary + ", r_exp=" + r_exp
-				+ ", r_content=" + r_content + ", r_head=" + r_head + ", r_io=" + r_io + ", r_file=" + r_file
+				+ ", r_content=" + r_content +", r_file=" + r_file
 				+ ", name=" + name + ", matching=" + matching + "]";
 	}
 	
@@ -122,18 +120,7 @@ public class ResumeDTO {
 	public void setR_content(String r_content) {
 		this.r_content = r_content;
 	}
-	public int getR_head() {
-		return r_head;
-	}
-	public void setR_head(int r_head) {
-		this.r_head = r_head;
-	}
-	public int getR_io() {
-		return r_io;
-	}
-	public void setR_io(int r_io) {
-		this.r_io = r_io;
-	}
+
 	public String getR_file() {
 		return r_file;
 	}

@@ -214,18 +214,12 @@
     <c:if test="${!empty sessionScope.id}">
     <c:if test="${sessionScope.id eq memberDTO.id}">
         <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">이력서 수정</span>
+        	<span onclick="location.href='${pageContext.request.contextPath}/resume/resumeUpdate?r_num=${resumeDTO.r_num }'">이력서 수정</span>
         </button>
         <button type="button" class="button button-update">
         	<span onclick="location.href='#'">이력서 삭제</span>
         </button>
     
-    	<button type="button" class="button button-update">
-        	<span onclick="location.href='#'">대표이력서 선정</span>
-        </button>
-        <button type="button" class="button button-update">
-        	<span onclick="location.href='#'">이력서 공개</span>
-        </button>
      </c:if>
      </c:if>
      	<c:if test="${!empty sessionScope.id }">

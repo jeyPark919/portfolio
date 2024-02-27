@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ResumeDTO;
 import com.itwillbs.domain.Scrap_resumeDTO;
@@ -152,8 +153,54 @@ public class ResumeController {
 		
 		System.out.println(resumeDTO.toString());
 		resumeService.insertResume(resumeDTO);
-		return "mypageFreelancer/mypageFreelancer2";
+		return "redirect:/mypageFreelancer/mypageFreelancer2";
 	}
+	
+	@GetMapping("resume/resumeUpdate")
+	public String resumeUpdate(ResumeDTO resumeDTO, HttpServletRequest request, Model model) {
+		System.out.println("ResumeController resumeUpdate()");
+		System.out.println(resumeDTO);
+		int r_num = resumeDTO.getR_num();
+		model.addAttribute("memberDTO", resumeService.getMember(r_num));
+		System.out.println(resumeService.getMember(r_num));
+		model.addAttribute("resumeDTO", resumeService.getResume(r_num));
+		System.out.println(resumeService.getResume(r_num));
+
+		
+		
+		
+		return "resume/resumeUpdate";
+	}
+	
+	@PostMapping("resume/resumeUpdatePro")
+	public String resumeUpdatePro(HttpSession session,HttpServletRequest request) {
+		System.out.println("ResumeController resumeUpdate()");
+		
+		String id = (String)session.getAttribute("id");
+		System.out.println(id);
+		ResumeDTO resumeDTO = new ResumeDTO();
+		
+		resumeDTO.setId(request.getParameter("id"));
+		resumeDTO.setR_num(Integer.parseInt(request.getParameter("r_num")));
+		resumeDTO.setR_name(request.getParameter("r_name"));
+		resumeDTO.setRegion_num(Integer.parseInt(request.getParameter("region_num")));
+		resumeDTO.setField_num(Integer.parseInt(request.getParameter("field_num")));
+		resumeDTO.setR_career(Integer.parseInt(request.getParameter("r_career")));
+		resumeDTO.setR_tech(request.getParameter("r_tech"));
+		resumeDTO.setR_form(request.getParameter("r_form"));
+		resumeDTO.setR_salary(Integer.parseInt(request.getParameter("r_salary")));
+		resumeDTO.setR_exp(request.getParameter("r_exp"));
+		resumeDTO.setR_content(request.getParameter("r_content"));
+		resumeDTO.setR_file(request.getParameter("file"));
+		
+		System.out.println(resumeDTO);
+		resumeService.resumeUpdate(resumeDTO);
+		return "redirect:/board/searchFree";
+	}
+	
+	
+	
+	
 	
 	
 	

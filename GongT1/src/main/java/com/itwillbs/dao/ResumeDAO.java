@@ -82,5 +82,13 @@ public class ResumeDAO {
 	}
 
 
+	public void resumeUpdate(ResumeDTO resumeDTO) {
+		System.out.println("ResumeDAO resumeUpdate()");
+		sqlSession.update(namespace+".resumeUpdate", resumeDTO);
+		
+	}
+
+
+
 	
 }

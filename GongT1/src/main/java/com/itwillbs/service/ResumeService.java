@@ -95,7 +95,15 @@ public class ResumeService {
 	}
 
 
-	
+	public void resumeUpdate(ResumeDTO resumeDTO) {
+		System.out.println("ResumeService resumeUpdate()");
+		
+		resumeDAO.resumeUpdate(resumeDTO);
+	}
+
+
+
+
 	
 
 	

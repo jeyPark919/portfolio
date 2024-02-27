@@ -2,6 +2,11 @@ package com.itwillbs.domain;
 
 public class MemberDTO {
 
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", phone=" + phone + ", email=" + email
+				+ ", comnum=" + comnum + ", matching=" + matching + ", type=" + type + "]";
+	}
 	private String id;
 	private String pw;
 	private String name;
@@ -10,6 +15,8 @@ public class MemberDTO {
 	private String comnum;
 	private int matching;
 	private int type;
+	
+	
 	
 	public String getId() {
 		return id;

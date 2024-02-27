@@ -61,24 +61,10 @@ tr:hover {background-color: #748dd3;}
 <table>
   <tr style="background-color: transparent !important;">
     <th style=" font-size:25px !important; color: black;">이력서 제목</th>
-    <th style=" font-size:25px !important; color: black;">공개여부</th>
-    <th style=" font-size:25px !important; color: black;">대표 이력서</th>
   </tr>
   	<c:forEach var="ResumeDTO" items="${ResumeDTOList}">
   <tr>
     <td style="text-align: center !important; font-size:20px !important;">${ResumeDTO.r_name}</td>
-    <c:if test="${ResumeDTO.r_io eq 0}">
-    <td style="text-align: center !important; font-size:20px !important;">비공개</td>
-    </c:if>
-    <c:if test="${ResumeDTO.r_io eq 1}">
-    <td style="text-align: center !important; font-size:20px !important;">공개</td>
-    </c:if>
-    <c:if test="${ResumeDTO.r_head eq 0}">
-    <br>
-    </c:if>
-    <c:if test="${ResumeDTO.r_head eq 1}">
-    <td style="text-align: center !important; font-size:25px !important;">대표이력서</td>
-    </c:if>
   </tr>
   </c:forEach>
 

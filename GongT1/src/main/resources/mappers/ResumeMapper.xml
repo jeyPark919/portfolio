@@ -67,12 +67,24 @@ select r.*, m.name, m.matching from resume r join member m on r.id = m.id
 	values(#{r_num}, #{id}, #{region_num}, #{field_num}, #{r_name}, #{r_career}, #{r_tech}, #{r_form}, #{r_salary}, #{r_exp}, #{r_content}, #{r_file})
 </insert>
 	
+<!-- 이력서 수정 -->
+<update id="resumeUpdate">
+update resume
+set region_num = #{region_num}, 
+	field_num = #{field_num}, 
+	r_name = #{r_name},
+	r_career = #{r_career}, 
+	r_tech = #{r_tech},
+	r_form = #{r_form},
+	r_salary = #{r_salary},
+	r_exp = #{r_exp},
+	r_content = #{r_content},
+	r_file = #{r_file}
+where r_num = #{r_num}
+
+</update>
 	
-	
-	
-	
-	
-	
+
 	
 	
 </mapper>
