@@ -8,8 +8,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.InquiryDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.ResumeDTO;
 
 @Repository
 public class AdminDAO {
@@ -80,10 +83,46 @@ public class AdminDAO {
 		System.out.println("AdminDAO getInquiryList2()");
 		return sqlSession.selectList(namesapce+ ".getInquiryList2",pageDTO);
 	}
-//		public void insertInquiry2(InquiryDTO inquiryDTO) {
-//		System.out.println("AdminDAO insertInquiry2()");
-//		System.out.println(inquiryDTO);
-//		sqlSession.insert(namesapce+".insertInquiry2", inquiryDTO);
-//	}
+	public List<MemberDTO> amember() {
+		System.out.println("AdminDAO amember()");
+		
+		return sqlSession.selectList(namesapce + ".amember" );
+	}
+	
+	public List<ProjectDTO> aproject() {
+		System.out.println("AdminDAO aproject()");
+		
+		return sqlSession.selectList(namesapce + ".aproject" );
+	}
+	
+	public List<ResumeDTO> aresume() {
+		System.out.println("AdminDAO aproject()");
+		
+		return sqlSession.selectList(namesapce + ".aresume" );
+	}
+	
+	public List<NoticeDTO> anotice() {
+		System.out.println("AdminDAO aproject()");
+		
+		return sqlSession.selectList(namesapce + ".anotice" );
+	}
+	
+	public List<InquiryDTO> ainquiry() {
+		System.out.println("AdminDAO aproject()");
+		
+		return sqlSession.selectList(namesapce + ".ainquiry" );
+	}
+	
+	public void deleteproject(ProjectDTO projectDTO) {
+		System.out.println("AdminDAO deleteproject()");
+		
+		sqlSession.delete(namesapce+".deleteproject" , projectDTO);
+	}
+	
+	public void deleteresume(ResumeDTO resumeDTO) {
+		System.out.println("AdminDAO deleteresume()");
+		
+		sqlSession.delete(namesapce+".deleteresume" , resumeDTO);
+	}
 	 
 }

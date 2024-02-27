@@ -59,6 +59,13 @@ update notice set n_title = #{n_title}, n_content = #{n_content} where n_num = #
 </update>
 <delete id="deleteNotice"> delete from notice where n_num = #{n_num} </delete>
 <delete id="deleteInquiry"> delete from inquiry where i_num = #{i_num} </delete>
+
+
+
+
+
+
+<!-- 관리자 페이지 -->
 <select id="amember" resultType="com.itwillbs.domain.MemberDTO"> 
 		select * from member 
 	</select>

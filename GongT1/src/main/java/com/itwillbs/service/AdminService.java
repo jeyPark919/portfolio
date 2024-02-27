@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.AdminDAO;
 import com.itwillbs.domain.AdminDTO;
 import com.itwillbs.domain.InquiryDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.ResumeDTO;
 
 @Service
 public class AdminService {
@@ -131,5 +134,49 @@ public class AdminService {
 		adminDAO.updateInquiry(inquiryDTO); 
 	}
 	
+	public List<MemberDTO> amember() {
+		System.out.println("AdminService admincom()");
+		
+		return adminDAO.amember();
+	}
+	
+	public List<ProjectDTO> aproject() {
+		System.out.println("AdminService aproject()");
+		
+		return adminDAO.aproject();
+	}
+	
+	public List<ResumeDTO> aresume() {
+		System.out.println("AdminService aproject()");
+		
+		return adminDAO.aresume();
+	}
+	
+	public List<NoticeDTO> anotice() {
+		System.out.println("AdminService aproject()");
+		
+		return adminDAO.anotice();
+	}
+	
+	public List<InquiryDTO> ainquiry() {
+		System.out.println("AdminService aproject()");
+		
+		return adminDAO.ainquiry();
+	}
+	
+	public void deleteproject(ProjectDTO projcetDTO) {
+		System.out.println("AdminService deleteproject()");
+		
+		
+		adminDAO.deleteproject(projcetDTO);
+	}
+	
+	
+	public void deleteresume(ResumeDTO resumeDTO) {
+		System.out.println("AdminService deleteresume()");
+		
+		
+		adminDAO.deleteresume(resumeDTO);
+	}
 	
 }

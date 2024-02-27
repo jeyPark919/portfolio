@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import com.itwillbs.domain.InquiryDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ProjectDTO;
+import com.itwillbs.domain.ResumeDTO;
 import com.itwillbs.service.AdminService;
 
 @Controller
@@ -269,5 +272,100 @@ public class AdminController {
 		System.out.println(inquiryDTO);
 		adminService.deleteInquiry(inquiryDTO);
 		return "redirect:/Admin/inquiry";
+	}
+	
+	
+	
+	@RequestMapping(value="/Adminpage/Adminmain" ,method=RequestMethod.GET)
+	public String Adminmain(HttpSession session, Model model) {
+		System.out.println("MemberController Adminmain()");
+		
+//		String id = (String)session.getAttribute("id");
+//		System.out.println(id);
+
+		List<MemberDTO>MemberDTOList = adminService.amember();
+		System.out.println(MemberDTOList.size());
+		model.addAttribute("MemberDTOList",MemberDTOList);
+		
+		return "/Adminpage/Adminmain";
+	}
+	
+	@RequestMapping(value="/Adminpage/Adminpro" ,method=RequestMethod.GET)
+	public String Adminpro(HttpSession session, Model model) {
+		System.out.println("AdminController Adminpro()");
+		
+		List<ProjectDTO>ProjectDTOList = adminService.aproject();
+		
+		
+//		int p_num = (int)session.getAttribute("p_num");
+//		System.out.println(p_num);
+		
+		model.addAttribute("ProjectDTOList",ProjectDTOList);
+		
+		return "/Adminpage/Adminpro";
+	}
+	
+	@GetMapping("/Adminpage/AdeletePro")
+	public String AdeletePro(ProjectDTO projectDTO) {
+
+		System.out.println("AdminController AdeletePro()");
+		System.out.println(projectDTO); 
+
+
+		
+		adminService.deleteproject(projectDTO);
+
+		
+		return "redirect:/Adminpage/Adminpro";
+	}
+
+	@RequestMapping(value="/Adminpage/Adminresume" ,method=RequestMethod.GET)
+	public String Adminre(HttpSession session, Model model) {
+		System.out.println("MemberController Adminre()");
+		
+		List<ResumeDTO>ResumeDTOList = adminService.aresume();
+		
+		model.addAttribute("ResumeDTOList",ResumeDTOList);
+		
+		return "/Adminpage/Adminresume";
+	}
+	
+	@GetMapping("/Adminpage/AdeleteRe")
+	public String AdeleteRe(ResumeDTO resumeDTO) {
+
+		System.out.println("AdminController AdeleteRe()");
+		System.out.println(resumeDTO); 
+
+
+		
+		adminService.deleteresume(resumeDTO);
+
+		
+		return "redirect:/Adminpage/Adminresume";
+	}
+
+	
+	
+	
+	
+	@RequestMapping(value="/Adminpage/Adminnotice" ,method=RequestMethod.GET)
+	public String Adminno(HttpSession session, Model model) {
+		System.out.println("MemberController Adminno()");
+		
+		List<NoticeDTO>NoticeDTOList = adminService.anotice();
+		
+		model.addAttribute("NoticeDTOList",NoticeDTOList);
+		
+		return "/Adminpage/Adminnotice";
+	}
+	@RequestMapping(value="/Adminpage/Admininquiry" ,method=RequestMethod.GET)
+	public String Adminin(HttpSession session, Model model) {
+		System.out.println("MemberController Adminin()");
+		
+		List<InquiryDTO>InquiryDTOList = adminService.ainquiry();
+		
+		model.addAttribute("InquiryDTOList",InquiryDTOList);
+		
+		return "/Adminpage/Admininquiry";
 	}
 }
