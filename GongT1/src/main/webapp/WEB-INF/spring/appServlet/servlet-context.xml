@@ -28,6 +28,7 @@
 	<context:component-scan base-package="com.itwillbs.service" />
 	<context:component-scan base-package="com.itwillbs.dao" />
 	
+
 	<!-- 파일업로드 객체생성 , 업로드 파일 크기 10M 지정(1byte*1024*1024*10) -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10485760"></beans:property>
@@ -41,12 +42,24 @@
      D:\\Shared\\WEB\\workspace_sts\\funweb\\src\\main\\webapp\\resources\\upload
      -->
 <!--      서버 업로드 하면 경로 value="/usr/local/tomcat/webapps/GongT1/resources/upload" 식으로 바꿔줘야 함 -->
-     <beans:bean id="uploadPath" class="java.lang.String">
-     	<beans:constructor-arg value="/usr/local/tomcat/webapps/GongT1/resources/upload">
-     	</beans:constructor-arg>
-     </beans:bean>
+<!--      <beans:bean id="uploadPath" class="java.lang.String"> -->
+<!--      	<beans:constructor-arg value="/usr/local/tomcat/webapps/GongT1/resources/upload"> -->
+<!--      	</beans:constructor-arg> -->
+<!--      </beans:bean> -->
 	
 <!-- 	채팅 -->
+
+	
+<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\\Users\\ITWILL\\git\\GonT0223\\GongT1\\src\\main\\webapp\\resources\\upload"></beans:constructor-arg>
+	</beans:bean>
+<!-- MobaXterm에서 pwd했을 때 경로 -->
+<!-- <beans:bean id="uploadPath" class="java.lang.String"> -->
+<!-- 		<beans:constructor-arg value="/usr/local/tomcat/webapps/upload"></beans:constructor-arg> -->
+<!-- 	</beans:bean> -->
+
+
+
 
 	
 </beans:beans>

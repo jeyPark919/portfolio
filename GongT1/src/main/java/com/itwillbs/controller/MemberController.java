@@ -376,7 +376,11 @@ public class MemberController {
 	@GetMapping("/mypageFreelancer/mypageFreelancer3")
 	public String mypageFreelancer3(HttpSession session, Model model) {
 		System.out.println("MemberController mypageFreelancer3()");
-		
+		//추가
+		String id = (String)session.getAttribute("id");
+		System.out.println(id);
+		MemberDTO memberDTO = new MemberDTO();
+		model.addAttribute("memberDTO", memberDTO);
 		return "resume/resumeWrite";
 	}
 	

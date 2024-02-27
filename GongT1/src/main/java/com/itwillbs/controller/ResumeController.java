@@ -1,18 +1,21 @@
 package com.itwillbs.controller;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -30,6 +33,10 @@ public class ResumeController {
 	private ResumeService resumeService;
 	@Inject
 	private MemberService memberService;
+	
+	@javax.annotation.Resource(name = "uploadPath")
+	private String uploadPath;
+	
 
 	@RequestMapping(value = "/resume/resume", method = RequestMethod.GET)
 	public String resume1(HttpServletRequest request, Model model) {
@@ -105,6 +112,7 @@ public class ResumeController {
 	
 	} //resume()
 	
+	//찜하기
 	@GetMapping("/resume/scrap")
 	public String scrap(Scrap_resumeDTO scrap_resumeDTO, HttpSession session, HttpServletRequest request) {
 		System.out.println("ResumeController scrap()");
@@ -118,6 +126,102 @@ public class ResumeController {
 			result = "scrapOk";
 			resumeService.insertScrap(scrap_resumeDTO);
 		}
+		return "redirect:/board/searchFree";
+	}
+	
+	//이력서 작성(myPageFreelancer3)
+	@PostMapping("resume/resumeWritePro")
+	public String resumeWritePro(HttpServletRequest request, MultipartFile file) throws Exception {
+		System.out.println("MemberController resumeWritePro()");
+		ResumeDTO resumeDTO = new ResumeDTO();
+		
+		if(resumeDTO.getR_file() != null) {
+		//파일 업로드
+		UUID uuid = UUID.randomUUID();
+		String filename = uuid.toString()+"_"+file.getOriginalFilename();
+		System.out.println(filename);
+		System.out.println(uploadPath);
+		FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
+		resumeDTO.setR_file(filename);
+		}
+		resumeDTO.setId(request.getParameter("id"));
+		resumeDTO.setRegion_num(Integer.parseInt(request.getParameter("region_num")));
+		resumeDTO.setField_num(Integer.parseInt(request.getParameter("field_num")));
+		resumeDTO.setR_name(request.getParameter("r_name"));
+		resumeDTO.setR_career(Integer.parseInt(request.getParameter("r_career")));
+		resumeDTO.setR_tech(request.getParameter("r_tech"));
+		resumeDTO.setR_form(request.getParameter("r_form"));
+		resumeDTO.setR_exp(request.getParameter("r_exp"));
+		resumeDTO.setR_content(request.getParameter("r_content"));	
+		
+		System.out.println(resumeDTO.toString());
+		resumeService.insertResume(resumeDTO);
+		return "redirect:/mypageFreelancer/mypageFreelancer2";
+	}
+	
+	@GetMapping("resume/resumeUpdate")
+	public String resumeUpdate(ResumeDTO resumeDTO, HttpServletRequest request, Model model) {
+		System.out.println("ResumeController resumeUpdate()");
+		System.out.println(resumeDTO);
+		int r_num = resumeDTO.getR_num();
+		model.addAttribute("memberDTO", resumeService.getMember(r_num));
+		System.out.println(resumeService.getMember(r_num));
+		model.addAttribute("resumeDTO", resumeService.getResume(r_num));
+		System.out.println(resumeService.getResume(r_num));
+
+		
+		
+		
+		return "resume/resumeUpdate";
+	}
+	
+	@PostMapping("resume/resumeUpdatePro")
+	public String resumeUpdatePro(HttpSession session,HttpServletRequest request, MultipartFile file) throws Exception{
+		System.out.println("ResumeController resumeUpdate()");
+		
+		String id = (String)session.getAttribute("id");
+		System.out.println(id);
+		ResumeDTO resumeDTO = new ResumeDTO();
+		
+		resumeDTO.setId(request.getParameter("id"));
+		resumeDTO.setR_num(Integer.parseInt(request.getParameter("r_num")));
+		resumeDTO.setR_name(request.getParameter("r_name"));
+		resumeDTO.setRegion_num(Integer.parseInt(request.getParameter("region_num")));
+		resumeDTO.setField_num(Integer.parseInt(request.getParameter("field_num")));
+		resumeDTO.setR_career(Integer.parseInt(request.getParameter("r_career")));
+		resumeDTO.setR_tech(request.getParameter("r_tech"));
+		resumeDTO.setR_form(request.getParameter("r_form"));
+		resumeDTO.setR_salary(Integer.parseInt(request.getParameter("r_salary")));
+		resumeDTO.setR_exp(request.getParameter("r_exp"));
+		resumeDTO.setR_content(request.getParameter("r_content"));
+		resumeDTO.setR_file(request.getParameter("file"));
+		
+		if(file.isEmpty()) {
+			System.out.println("첨부파일 없음");
+			resumeDTO.setR_file(request.getParameter("oldfile"));
+		} else {
+			System.out.println("첨부파일 있음");
+			UUID uuid = UUID.randomUUID();
+			String filename = uuid.toString() + "_" + file.getOriginalFilename();
+			System.out.println(filename);
+			
+			System.out.println(uploadPath);
+			FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
+			
+			resumeDTO.setR_file(filename);
+		}
+		
+		
+		System.out.println(resumeDTO);
+		resumeService.resumeUpdate(resumeDTO);
+		return "redirect:/board/searchFree";
+	}
+	
+	@GetMapping("resume/resumeDelete")
+	public String resumeDelete(ResumeDTO resumeDTO, HttpServletRequest request) {
+		System.out.println("ResumeController resumeDelete()");
+		System.out.println(request.getParameter("r_num"));
+		resumeService.resumeDelete(resumeDTO);
 		return "redirect:/board/searchFree";
 	}
 	

@@ -61,14 +61,18 @@ tr:hover {background-color: #748dd3;}
 
 <table class="table">
   <tr style="background-color: transparent !important;">
+
     <th  scope="col" style=" font-size:20px !important; color: black;">제목</th>
     <th  scope="col" style=" font-size:20px !important; color: black;">내용</th>
+
 
   </tr>
   	<c:forEach var="ResumeDTO" items="${ResumeDTOList}">
   <tr>
+
     <td style="text-align: center !important; font-size:15px !important; color: black;">${ResumeDTO.r_name}</td>
    <td style="text-align: center !important; font-size:15px !important; color: black;">${ResumeDTO.r_content}</td>
+
   </tr>
   </c:forEach>
 

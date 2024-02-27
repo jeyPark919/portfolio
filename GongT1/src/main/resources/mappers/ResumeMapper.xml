@@ -78,11 +78,35 @@
 	values (#{sr_num}, #{r_num}, #{id})
 </insert>
 
-<!-- 찜삭제 -->
-<!-- 	<delete id="deleteScrap"> -->
-<!-- 			delete from scrap_resume  -->
-<!-- 			where id = #{id} -->
-<!-- 		</delete> -->
+
+<!-- 이력서 작성 -->
+<insert id="insertResume">
+	insert into resume(r_num, id, region_num, field_num, r_name, r_career, r_tech, r_form, r_salary, r_exp, r_content, r_file)
+	values(#{r_num}, #{id}, #{region_num}, #{field_num}, #{r_name}, #{r_career}, #{r_tech}, #{r_form}, #{r_salary}, #{r_exp}, #{r_content}, #{r_file})
+</insert>
+	
+<!-- 이력서 수정 -->
+<update id="resumeUpdate">
+update resume
+set region_num = #{region_num}, 
+	field_num = #{field_num}, 
+	r_name = #{r_name},
+	r_career = #{r_career}, 
+	r_tech = #{r_tech},
+	r_form = #{r_form},
+	r_salary = #{r_salary},
+	r_exp = #{r_exp},
+	r_content = #{r_content},
+	r_file = #{r_file}
+where r_num = #{r_num}
+
+</update>
+	
+<delete id="resumeDelete">
+delete from resume
+where r_num = #{r_num}
+</delete>
+
 	
 	
 </mapper>

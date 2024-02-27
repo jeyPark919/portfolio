@@ -75,11 +75,25 @@ public class ResumeDAO {
 		sqlSession.insert(namespace+".insertScrap", scrap_resumeDTO);
 	}
 
-//	//찜 삭제
-//	public void deleteScrap(Scrap_resumeDTO scrap_resumeDTO) {
-//		System.out.println("ResumeDAO deleteScrap()");
-//		
-//		sqlSession.delete(namespace+".deleteScrap" , scrap_resumeDTO);
-//	}
+
+	public void insertResume(ResumeDTO resumeDTO) {
+		System.out.println("ResumeDAO insertResume()");
+		System.out.println("ResumeDTO" + resumeDTO);
+		sqlSession.insert(namespace+".insertResume", resumeDTO);
+	}
+
+
+	public void resumeUpdate(ResumeDTO resumeDTO) {
+		System.out.println("ResumeDAO resumeUpdate()");
+		sqlSession.update(namespace+".resumeUpdate", resumeDTO);
+		
+	}
+
+	public void resumeDelete(ResumeDTO resumeDTO) {
+		System.out.println("ResumeDAO resumeDelete()");
+		sqlSession.delete(namespace+".resumeDelete", resumeDTO);
+	}
+
+
 	
 }
