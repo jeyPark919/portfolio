@@ -40,20 +40,22 @@ body {
   margin: 0 auto;
   max-width: 800px;
   padding: 0 20px;
+  
 }
 
 .container {
-  border: 2px solid #dedede;
   background-color: #fff0c4;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
+  text-align: left;
+  font-weight: bolder;
 }
 
 .darker {
   border-color: #ccc;
   background-color: #BBDEFB;
-
+  text-align: right;
 }
 
 .container::after {
@@ -63,7 +65,9 @@ body {
 
 }
 
-
+p {
+	color: black;
+}
 
 
 .time-right {
@@ -123,6 +127,10 @@ body {
 <body>
 
 
+
+<jsp:include page="top_chat.jsp"/>
+
+
 <!-- <div id="chat"> -->
 <!-- <table> -->
 <!--   <tr style="background-color: transparent !important;"> -->
@@ -142,7 +150,7 @@ body {
 
 <!-- </div> -->
 <form action="${pageContext.request.contextPath}/inc/updateMatching" method="post">
-<h2>공T 쪽지</h2>
+
 <c:if test="${chatDTO.c_matching eq 0}">
 	<c:if test="${chatDTO.cid eq sessionScope.id}">
 	<input type="hidden" name="c_num" value="${chatDTO.c_num}" readonly>
@@ -204,8 +212,8 @@ body {
 <form action="${pageContext.request.contextPath}/inc/insertMessagePro" id="join" name="msg" method="post">
 	<input type="hidden" name="c_num" value="${chatDTO.c_num}" readonly>
 	<input type="hidden" name="id" class="id" value="${sessionScope.id}" readonly>
-	<input type="text" id="c_content" name="c_content" maxlength="1000" required style="width:320px;">
-	<button type="submit" value="보내기" class="submit" style="background-color: #1842B6; color: white;">보내기</button>
+	<input type="text" id="c_content" name="c_content" maxlength="1000" required style="width:400px; margin-left: 20%;">
+	<button type="submit" value="보내기" class="submit" style="background-color: #1842B6; color: white; border-radius: 20%;">전송</button>
 </form>
 
 

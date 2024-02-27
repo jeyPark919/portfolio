@@ -17,11 +17,14 @@
 	</select>
 	
 	<select id="getProject" resultType="com.itwillbs.domain.ProjectDTO">
-		select p.*, f.field, rg.region from project p join field f on p.field_num = f.field_num
-		join region rg on p.region_num = rg.region_num where p.p_num = #{p_num}
+		select p.*, f.*, rg.*
+		from project p join field f
+		on p.field_num = f.field_num
+		join region rg
+		on p.region_num = rg.region_num
+		where p.p_num = #{p_num}
 	</select>
 
-	
 	
 <!-- 		<insert id="insertProject"> -->
 <!-- 			insert into project(p_title, p_content, p_deadline, p_start, p_end, p_member, region_num, field_num ) -->
@@ -56,6 +59,9 @@ select count(p.p_num) from project p join member m on p.id = m.id
 </select>
 <select id="getProjectBoard" resultType="com.itwillbs.domain.ProjectDTO"> select * from project where p_num = #{p_num} </select>
 <update id="updateProjectReadcount"> update project set p_readcount = p_readcount + 1 where p_num = #{p_num} </update>
+
+	
+	
 		
 <!-- 찜 확인 -->
 <select id="scrap" resultType="com.itwillbs.domain.Scrap_projectDTO">

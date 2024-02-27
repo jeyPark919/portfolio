@@ -60,7 +60,10 @@ width: 100px;
 <fieldset>
 <legend><h5>정해진 양식에 맞게 작성해주십시오.</h5></legend>
 <h3>프로젝트 공고 제목</h3>
+
 <input type="text" width="300" name="p_title" class="id" maxlength="50" required autofocus><br><br>
+
+
 
 <h3>필요 인원</h3>
 <input type="number" name="p_member" placeholder="1" min="1" style="font-size:120%; width: 60px; height: 30px;" required>명<br><br>

@@ -116,7 +116,7 @@ public class ProjectController {
 	
 	} //project()
 	
-	
+
 	//찜하기
 	@GetMapping("/project/scrap")
 	public String scrap(Scrap_projectDTO scrap_projectDTO, HttpSession session, HttpServletRequest request) {
@@ -257,5 +257,6 @@ public class ProjectController {
 	
 	
 	
+
 	
-}
+} // class ProjectController
