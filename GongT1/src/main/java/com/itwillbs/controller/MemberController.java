@@ -131,7 +131,7 @@ public class MemberController {
 		return "/main/searchID";
 	}
 	
-	@PostMapping("/searchIDPro")
+	@PostMapping("/main/searchIDPro")
 	public String searchIDPro(MemberDTO memberDTO, Model model) {
 		System.out.println("MemberController searchIDPro()");
 		MemberDTO memberDTO2 = new MemberDTO();
