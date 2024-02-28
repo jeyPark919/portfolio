@@ -231,23 +231,26 @@
   					<th>필요 인원</th>
   				</tr>
   			
-  	<c:forEach var="ProjectDTO" items="${ProjectDTOList}">
- <div>
-
-<tr>
+  <c:forEach var="ProjectDTO" items="${ProjectDTOList}">
+  <div>
+ <tr >
 <th> ${ProjectDTO.id} </th>
-<th>${ProjectDTO.p_title}</th>
-<th>${ProjectDTO.p_content}</th>
-<th>${ProjectDTO.p_writedate}</th>
+<th onclick="location.href='${pageContext.request.contextPath}/project/project?p_num=${ProjectDTO.p_num }'">${ProjectDTO.p_title}</th>
+<th onclick="location.href='${pageContext.request.contextPath}/project/project?p_num=${ProjectDTO.p_num }'">${ProjectDTO.p_content}</th>
+<th >${ProjectDTO.p_writedate}</th>
 <th>${ProjectDTO.p_deadline}</th>
 <th>${ProjectDTO.p_member}</th>
-<th><input type="button" value="글삭제" style="font-size:8px;" 
+<th><input type="button" value="글삭제" style="font-size:8px;"
 onclick="location.href='${pageContext.request.contextPath}/Adminpage/AdeletePro?p_num=${ProjectDTO.p_num}'"></th>
 </tr>
 
-<br><br>
+
+
+
+
 </div>
 	</c:forEach>
+
 	
 	
   			</table>

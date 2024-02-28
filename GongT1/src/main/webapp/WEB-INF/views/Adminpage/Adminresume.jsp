@@ -232,20 +232,18 @@
   				</tr>
   			
   	<c:forEach var="ResumeDTO" items="${ResumeDTOList}">
-<div>
-<tr>
+  	<div>
+<tr >
 <th>${ResumeDTO.id} </th>
-<th>${ResumeDTO.r_name}</th>
-<th>${ResumeDTO.r_content}</th>
+<th onclick="location.href='${pageContext.request.contextPath}/resume/resume?r_num=${ResumeDTO.r_num }'">${ResumeDTO.r_name}</th>
+<th onclick="location.href='${pageContext.request.contextPath}/resume/resume?r_num=${ResumeDTO.r_num }'">${ResumeDTO.r_content}</th>
 <th>${ResumeDTO.r_form}</th>
 <th>${ResumeDTO.r_career}</th>
-<th><input type="button" value="글삭제" style="font-size:8px;" 
+<th><input type="button" value="글삭제" style="font-size:8px;"
 onclick="location.href='${pageContext.request.contextPath}/Adminpage/AdeleteRe?r_num=${ResumeDTO.r_num}'"></th>
-
 </tr>
-<br><br>
 </div>
-	</c:forEach>
+</c:forEach>
 	
 	
   			</table>

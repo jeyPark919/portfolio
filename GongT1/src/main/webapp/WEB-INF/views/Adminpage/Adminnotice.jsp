@@ -231,19 +231,17 @@
   				
   				</tr>
   			
-  	<c:forEach var="NoticeDTO" items="${NoticeDTOList}">
-<div>
-<tr>
+	<c:forEach var="NoticeDTO" items="${NoticeDTOList}">
+	<div>
+<tr onclick="location.href='${pageContext.request.contextPath}/Admin/content?n_num=${NoticeDTO.n_num}'">
 <th>${NoticeDTO.n_num} </th>
 <th>${NoticeDTO.n_title}</th>
 <th>${NoticeDTO.n_content}</th>
 <th>${NoticeDTO.n_date}</th>
-
 </tr>
-
-</div>
-	</c:forEach>
+	</div>
 	
+		</c:forEach>
 	
   			</table>
   		</div>

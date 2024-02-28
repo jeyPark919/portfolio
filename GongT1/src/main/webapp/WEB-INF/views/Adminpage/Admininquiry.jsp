@@ -232,9 +232,9 @@
   					
   				</tr>
   			
-  	<c:forEach var="InquiryDTO" items="${InquiryDTOList}">
+<c:forEach var="InquiryDTO" items="${InquiryDTOList}">
 <div>
-<tr>
+<tr onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_content?i_num=${InquiryDTO.i_num}'">
 <th>${InquiryDTO.id} </th>
 <th>${InquiryDTO.i_title}</th>
 <th>${InquiryDTO.i_content}</th>
