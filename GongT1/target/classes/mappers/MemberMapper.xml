@@ -56,8 +56,9 @@ select * from member where phone = #{phone} </select>
 		</update>
 	
 		<select id="projectCheck" resultType="com.itwillbs.domain.ProjectDTO">
-			select p_title, p_writedate, p_member from project
+			select p_title, p_writedate, p_member, p_num from project
 			where id = #{id}
+			order by p_num desc
 		</select>
 		
 		<select id="resumeScrap" resultType="com.itwillbs.domain.Scrap_resumeDTO">
@@ -89,8 +90,9 @@ select * from member where phone = #{phone} </select>
 
 <!-- 삭제	 -->
 	<select id="resumeCheck" resultType="com.itwillbs.domain.ResumeDTO">
-			select r_name from resume
+			select r_name, r_salary, r_num from resume
 			where id = #{id}
+			order by r_num desc
 		</select>
 		
 

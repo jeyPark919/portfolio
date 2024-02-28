@@ -111,7 +111,7 @@ tr:hover {background-color: #748dd3;}
     <th style=" font-size:25px !important; color: black;">필요인원</th>
   </tr>
   	<c:forEach var="ProjectDTO" items="${ProjectDTOList}">
-  <tr>
+  <tr onclick="location.href='${pageContext.request.contextPath}/project/project?p_num=${ProjectDTO.p_num }'">
     <td style="text-align: center !important; font-size:20px !important;">${ProjectDTO.p_title}</td>
    	<td style="text-align: center !important; font-size:20px !important;">${ProjectDTO.p_writedate}</td>
    	<td style="text-align: center !important; font-size:20px !important;">${ProjectDTO.p_member}</td>
