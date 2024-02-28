@@ -25,10 +25,14 @@
 
 	<select id="getResumeBoardList" resultType="com.itwillbs.domain.ResumeDTO">
 		select r.*, m.name, m.matching from resume r join member m on r.id = m.id
+		join field f on r.field_num = f.field_num
+		join region rg on r.region_num = rg.region_num
 			<if test="search != null">
 			<if test="select == 'r_name'"> where r_name like CONCAT('%',#{search},'%') </if>
 			<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
 			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'field'"> where f.field like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'region'"> where rg.region like CONCAT('%',#{search},'%') </if>
 			</if>
 			<if test="sort == '' or sort == null">
 			order by r.r_num desc
@@ -40,10 +44,14 @@
 
 	<select id="getResumeBoardCount" resultType="java.lang.Integer">
 		select count(r.r_num) from resume r join member m on r.id = m.id
+		join field f on r.field_num = f.field_num
+		join region rg on r.region_num = rg.region_num
 			<if test="search != null">
 			<if test="select == 'r_name'"> where r_name like CONCAT('%',#{search},'%') </if>
 			<if test="select == 'r_content'"> where r_content like CONCAT('%',#{search},'%') </if>
 			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'field'"> where f.field like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'region'"> where rg.region like CONCAT('%',#{search},'%') </if>
 			</if>
 	</select>
 

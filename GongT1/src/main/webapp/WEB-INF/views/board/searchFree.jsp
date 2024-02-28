@@ -43,28 +43,6 @@ h2{
 	left : 8%;
 }
 
-#left2 {
-	height: 150px;
-	width: 160px;
-	border-style : groove;
-	float: inherit;
-	border-radius: 20px;
-	text-align: left;
-	margin-left: 5%;
-	
-}
-
-#left3 {
-	height: 500px;
-	width: 160px;
-	border-style : groove;
-	float: inherit;
-	border-radius: 20px;
-	text-align: left;
-	margin-left: 5%;
-}
-
-
 #right {
 	clear: inherit;
 	text-align: center;
@@ -123,52 +101,24 @@ h5{
 
 <div class="sidemenu">
         <button type="button" class="button button-update"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'">프로젝트 찾기</span></button>
-        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/board/searchCom'" style="color: white !important;">프리랜서 찾기</span></button>
+        <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/board/searchFree'" style="color: white !important;">프리랜서 찾기</span></button>
 </div><br>
 
-<div id="left2">
-<h5>직종(분야)</h5>
-<form>
-<label><input type="checkbox" name="projectField" value="1" checked>개발자</label><br>
-<label><input type="checkbox" name="projectField" value="2">퍼블리셔</label><br>
-<label><input type="checkbox" name="projectField" value="3">디자이너</label><br>
-<label><input type="checkbox" name="projectField" value="4">기타</label><br>
-</form>
-</div><br>
-
-<div id="left3">
-<h5>지역</h5>
-<form>
-<label><input type="checkbox" name="region" value="1" checked>전체</label><br>
-<label><input type="checkbox" name="region" value="2">서울특별시</label><br>
-<label><input type="checkbox" name="region" value="3">부산광역시</label><br>
-<label><input type="checkbox" name="region" value="4">인천광역시</label><br>
-<label><input type="checkbox" name="region" value="5">대전광역시</label><br>
-<label><input type="checkbox" name="region" value="6">대구광역시</label><br>
-<label><input type="checkbox" name="region" value="7">울산광역시</label><br>
-<label><input type="checkbox" name="region" value="8">광주광역시</label><br>
-<label><input type="checkbox" name="region" value="9">세종특별자치시</label><br>
-<label><input type="checkbox" name="region" value="10">경기도</label><br>
-<label><input type="checkbox" name="region" value="11">강원도</label><br>
-<label><input type="checkbox" name="region" value="12">충청북도</label><br>
-<label><input type="checkbox" name="region" value="13">충청남도</label><br>
-<label><input type="checkbox" name="region" value="14">경상북도</label><br>
-<label><input type="checkbox" name="region" value="15">경상남도</label><br>
-<label><input type="checkbox" name="region" value="16">전라북도</label><br>
-<label><input type="checkbox" name="region" value="17">전라남도</label><br>
-<label><input type="checkbox" name="region" value="18">제주특별자치도</label><br>
-</form>
-</div>
+<form action="${pageContext.request.contextPath}/board/searchFree" method="get">
 
 <div id="right">
 <div class="btn-group" role="group" aria-label="Basic example">
-<form action="${pageContext.request.contextPath}/board/searchFree" method="get">
-<input type="hidden" name="search" value="${pageDTO.search}">
-<input type="hidden" name="select" value="${pageDTO.select}">
+<input type="hidden" name="search" value="${pageDTO.search }">
+<input type="hidden" name="select" value="${pageDTO.select }">
   <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
   <button name="sort" value="sortS" type="submit" class="btn btn-primary" id="sortSalary" style="background-color: #1842B6 !important;">급여순</button></label>
-</form>
 </div>
+</form>
+
+<br>
+직종 : 개발자, 퍼블리셔, 디자이너, 기타
+<br>
+지역 : 전체, 서울, 부산, 인천, 대전, 대구, 울산, 광주, 세종, 경기도, 강원도, 충청북도, 충청남도, 경상북도, 경상남도, 전라북도, 전라남도, 제주
 
 <table class="table">
   <thead>
@@ -186,17 +136,19 @@ h5{
     	    <td class="left">${resumeDTO.r_name}</td>
     		<td>${resumeDTO.name}</td>
     		<td>${resumeDTO.matching }</td>
-    		<td>${resumeDTO.r_salary}</td>
+    		<td><fmt:formatNumber value="${resumeDTO.r_salary}" pattern="#,###"/>만원</td>
     	</tr>
     </c:forEach>
 </table>
-
 	<form action="${pageContext.request.contextPath}/board/searchFree" method="get">
 	<select name="select">
 	<option value="r_name" selected>제목</option>
 	<option value="r_content">내용</option>
 	<option value="name123">이름</option>
+	<option value="field">직종</option>
+	<option value="region">지역</option>
 	</select>
+	
 	<input type="text" class="search" name="search">
 	<input type="submit" value="검색" class="btn btn-primary" style="background-color: #1842B6 !important;">
 	</form>
