@@ -7,10 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>공T 프로젝트</title>
-<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <style>
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
 </style>
 </head>
 
@@ -62,7 +65,7 @@
     </div>
     
     
-	<div class="summary col-4">
+	<div class="summary col-4" style="width:  960px !important;">
 		<div class="list list-education">
             <div class="item is-singleline newcomer">
                 <div class="header">공고 등록일시</div>
@@ -128,18 +131,11 @@
             </tr>
             <tr>
                 <th scope="row" style="vertical-align: middle;">필요인원</th>
-                <td style="vertical-align: middle;">${projectDTO.p_member}명</td>
+                <td style="vertical-align: middle;">&nbsp;&nbsp;${projectDTO.p_member}명</td>
             </tr>
             <tr>
                 <th scope="row" style="vertical-align: middle;">필요직종</th>
-                <td style="vertical-align: middle;"><div class="content is-label">
-                    	<div class="value">
-                        	<ul class="list-hopework">
-                					<li><div class="item">${projectDTO.field}</div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
+                <td style="vertical-align: middle;">&nbsp;&nbsp;${projectDTO.field}</td>
              </tr>
         </tbody>
     </table>
@@ -229,7 +225,7 @@
 <!--         </div> -->
 
         <div class="nav" role="navigation">
-            <ul>
+            <ul style="list-style: none;">
                 <li onclick="location.href='#profile'"><button type="button" class="button button-nav">공고 정보</button></li>
                 <li onclick="location.href='#content'"><button type="button" class="button button-nav">프로젝트 내용</button></li>
                 <li onclick="location.href='#js-hopeworkAnchor'"><button type="button" class="button button-nav">모집 정보</button></li>

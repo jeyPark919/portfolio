@@ -62,16 +62,15 @@ tr:hover {background-color: #748dd3;}
 <table class="table">
   <tr style="background-color: transparent !important;">
 
-    <th  scope="col" style=" font-size:20px !important; color: black;">제목</th>
-    <th  scope="col" style=" font-size:20px !important; color: black;">내용</th>
-
+    <th style=" font-size:25px !important; color: black;">이력서 제목</th>
+    <th style=" font-size:25px !important; color: black;">희망 급여</th>
 
   </tr>
   	<c:forEach var="ResumeDTO" items="${ResumeDTOList}">
-  <tr>
 
-    <td style="text-align: center !important; font-size:15px !important; color: black;">${ResumeDTO.r_name}</td>
-   <td style="text-align: center !important; font-size:15px !important; color: black;">${ResumeDTO.r_content}</td>
+  <tr onclick="location.href='${pageContext.request.contextPath}/resume/resume?r_num=${ResumeDTO.r_num }'">
+    <td style="text-align: center !important; font-size:20px !important;">${ResumeDTO.r_name}</td>
+    <td style="text-align: center !important; font-size:20px !important;">${ResumeDTO.r_salary}</td>
 
   </tr>
   </c:forEach>

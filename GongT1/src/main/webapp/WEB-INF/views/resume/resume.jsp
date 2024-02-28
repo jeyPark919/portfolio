@@ -7,11 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>공T 이력서</title>
-<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <style>
-
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
 </style>
 </head>
 
@@ -139,23 +141,16 @@
     <table class="table table-hopework">
     	<caption><span class="skip">희망근무조건</span></caption>
             <tbody>
-            	<tr><th scope="row">희망근무지</th>
-                    <td>
-            			${resumeDTO.region}
+            	<tr><th scope="row" style="vertical-align: middle;">희망근무지</th>
+                    <td style="vertical-align: middle;">
+            			&nbsp;&nbsp;${resumeDTO.region}
 					</td>
                 </tr>
-                <tr><th scope="row">희망급여</th>
-                    <td>${resumeDTO.r_salary}만원</td>
+                <tr><th scope="row" style="vertical-align: middle;">희망급여</th>
+                    <td style="vertical-align: middle;">&nbsp;&nbsp;${resumeDTO.r_salary}만원</td>
                 </tr>
-                <tr><th scope="row">지원직종</th>
-                    <td><div class="content is-label">
-                        	<div class="value">
-                            	<ul class="list-hopework">
-            							<li><div class="item">${resumeDTO.field}</div></li>
-                            	</ul>
-                        	</div>
-                     	 </div>
-                     </td>
+                <tr><th scope="row" style="vertical-align: middle;">지원직종</th>
+                    <td style="vertical-align: middle;">&nbsp;&nbsp;${resumeDTO.field} </td>
             	</tr>
             </tbody>
 	</table>
@@ -262,7 +257,7 @@
 
 
         <div class="nav" role="navigation">
-            <ul>
+            <ul style="list-style: none;">
                 <li onclick="location.href='#profile'"><button type="button" class="button button-nav">인적사항</button></li>
                 <li onclick="location.href='#skill'"><button type="button" class="button button-nav">보유 기술</button></li>
                 <li onclick="location.href='#content'"><button type="button" class="button button-nav">이력서 내용</button></li>

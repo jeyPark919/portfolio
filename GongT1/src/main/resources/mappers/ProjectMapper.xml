@@ -102,9 +102,6 @@ where p_num = #{p_num}
 </update>
 
 
-<!-- <select id="projectShow" resultType="com.itwillbs.domain.ProjectDTO"> -->
-<!-- select * from project -->
-<!-- where p_num = #{p_num} -->
-<!-- </select>	 -->
+
 		
 </mapper>
