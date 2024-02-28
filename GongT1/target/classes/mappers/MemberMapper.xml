@@ -11,11 +11,17 @@
 		select * from member 
 		where id = #{id} and pw = #{pw} 
 	</select>
+	
+	<select id="insertCheck" resultType="com.itwillbs.domain.MemberDTO">
+		select * from member
+		where id = #{id} or email = #{email} or phone = #{phone}
+		<if test="comnum != null">or comnum = #{comnum}</if>
+	</select>
 
 
 <insert id="insertMember"> 
 insert into member(id, pw, name, comnum, email, phone, type) 
-values(#{id}, #{pw}, #{name},#{comnum},#{email},#{phone}, #{type}) 
+values(#{id}, #{pw}, #{name},#{comnum},#{email},#{phone}, #{type})  
 </insert>
 
 <!--  아이디 찾기  -->

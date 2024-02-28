@@ -52,9 +52,9 @@ width: 100px;
 <sub>※아이디 영문,숫자 20자 내로 입력해주세요.</sub>
 <div class="dupdivid"></div><br>
 <h3>비밀번호</h3>
-<input type="password" name="pw" maxlength="20" required><br>
+<input type="password" id="pw" name="pw" maxlength="20" required><br>
 <h3>비밀번호 확인</h3>
-<input type="password" name="pw2" maxlength="20" required><br>
+<input type="password" id="pw2" name="pw2" maxlength="20" required><br>
 <sub>※비밀번호를 다시 작성해주세요.</sub>
 <h3>기업명</h3>
 <input type="text" name="name" maxlength="20" required><br>

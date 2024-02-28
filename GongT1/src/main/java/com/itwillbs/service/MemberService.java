@@ -122,6 +122,11 @@ public class MemberService {
 		
 		return memberDAO.resumeCheck(id);
 	}//resumeCheck()
+
+	public List<MemberDTO> insertCheck(MemberDTO memberDTO) {
+		System.out.println("MemberDAO insertCheck()");
+		return memberDAO.insertCheck(memberDTO);
+	}//insertCheck
 	
 //	public List<ChatDTO> ChattingCheck(String id) {
 //		System.out.println("MemberDAO ChattingCheck()");
