@@ -445,7 +445,8 @@ public class MemberController {
 		session.setAttribute("phone", memberDTO2.getPhone());
 		session.setAttribute("matching", memberDTO2.getMatching());
 		
-		return "redirect:/main/main";
+		session.invalidate();
+		return "mypageCompany/msg_change";
 		}else {
 			return "mypageCompany/msg";
 		}
