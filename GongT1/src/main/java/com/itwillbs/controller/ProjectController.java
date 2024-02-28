@@ -35,8 +35,7 @@ public class ProjectController {
 
 	@Inject
 	private ProjectService projectService;
-	@Inject
-	private MemberService memberService;
+
 	
 	@javax.annotation.Resource(name = "uploadPath")
 	private String uploadPath;

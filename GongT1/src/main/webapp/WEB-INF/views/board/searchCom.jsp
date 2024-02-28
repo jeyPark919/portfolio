@@ -32,66 +32,49 @@ th, td {
 
 tr:hover {background-color: #748dd3;}
 
-#left2 {
-	height: 150px;
-	width: 160px;
-	border-style : groove;
-/* 	float: inherit; */
-	border-radius: 20px;
-	text-align: left;
-/* 	margin-left: 5%; */
-	
-}
 
-#left3 {
-	height: 500px;
-	width: 160px;
-	border-style : groove;
-/* 	float: inherit; */
-	border-radius: 20px;
-	text-align: left;
-/* 	margin-left: 5%; */
-}
+ #left2 { 
+	height: 150px; 
+	width: 160px; 
+/* 	border-style : groove;  */
+/* /* 	float: inherit; */ */
+/* 	border-radius: 20px;  */
+	text-align: left; 
+/* /* 	margin-left: 5%; */ */
+	
+ } 
+
+ #left3 { 
+ 	height: 500px; 
+ 	width: 160px; 
+/*  	 	border-style : groove;  */
+/* /* 	float: inherit; */ */
+/* 	border-radius: 20px;  */
+	text-align: left; 
+/* /* 	margin-left: 5%; */ */
+ } 
 </style>
 </head>
 <body>
 
 
+
+
 <div id="border">
 <div class="sidemenu-wrap" style="margin-left:-1660px; margin-top: 90px;">
     <div class="sidemenu">
-<form action="${pageContext.request.contextPath}/board/searchCom" method="get">
-<div id="left2">
 
-<h5>직종(분야)</h5>
-<label><input type="checkbox" name="field" value="1" checked>개발자</label><br>
-<label><input type="checkbox" name="field" value="2">퍼블리셔</label><br>
-<label><input type="checkbox" name="field" value="3">디자이너</label><br>
-<label><input type="checkbox" name="field" value="4">기타</label><br>
+<form action="${pageContext.request.contextPath}/board/searchCom" method="get">
+
+<div id="left2">
+<h4 style="font-weight: bold !important;">직종</h5><br>
+개발자, 퍼블리셔, 디자이너, 기타
 
 </div><br>
 
 <div id="left3">
-
-<h5>지역</h5>
-<label><input type="checkbox" name="region" value="1" checked>전체</label><br>
-<label><input type="checkbox" name="region" value="2">서울특별시</label><br>
-<label><input type="checkbox" name="region" value="3">부산광역시</label><br>
-<label><input type="checkbox" name="region" value="4">인천광역시</label><br>
-<label><input type="checkbox" name="region" value="5">대전광역시</label><br>
-<label><input type="checkbox" name="region" value="6">대구광역시</label><br>
-<label><input type="checkbox" name="region" value="7">울산광역시</label><br>
-<label><input type="checkbox" name="region" value="8">광주광역시</label><br>
-<label><input type="checkbox" name="region" value="9">세종특별자치시</label><br>
-<label><input type="checkbox" name="region" value="10">경기도</label><br>
-<label><input type="checkbox" name="region" value="11">강원도</label><br>
-<label><input type="checkbox" name="region" value="12">충청북도</label><br>
-<label><input type="checkbox" name="region" value="13">충청남도</label><br>
-<label><input type="checkbox" name="region" value="14">경상북도</label><br>
-<label><input type="checkbox" name="region" value="15">경상남도</label><br>
-<label><input type="checkbox" name="region" value="16">전라북도</label><br>
-<label><input type="checkbox" name="region" value="17">전라남도</label><br>
-<label><input type="checkbox" name="region" value="18">제주특별자치도</label><br>
+<h4 style="font-weight: bold !important;">지역</h5><br>
+ 전체, 서울, 부산, 인천, 대전, 대구, 울산, 광주, 세종, 경기도, 강원도, 충청북도, 충청남도, 경상북도, 경상남도, 전라북도, 전라남도, 제주
 
 </div>
    </div>
@@ -113,16 +96,23 @@ tr:hover {background-color: #748dd3;}
 
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
 
-<div class="btn-group" role="group" aria-label="Basic example">
-<input type="hidden" name="search" value="${pageDTO.search}">
-<input type="hidden" name="select" value="${pageDTO.select}">
-  <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" id="sortMatching" style="background-color: #1842B6 !important;">매칭순</button>
-  <button name="sort" value="sortR" type="submit" class="btn btn-primary" id="sortReadcount" style="background-color: #1842B6 !important;">조회순</button></label>
 
+<div class="btn-group" role="group" aria-label="Basic example">
+  <input type="hidden" name="search" value="${pageDTO.search }">
+  <input type="hidden" name="select" value="${pageDTO.select }">
+  <label><button name="sort" value="sortM" type="submit" class="btn btn-primary" style="background-color: #1842B6 !important;">매칭순</button>
+  <button name="sort" value="sortR" type="submit" class="btn btn-primary" style="background-color: #1842B6 !important;">조회순</button></label>
 </div>
 </form>
+
+<br>
+<!-- 직종 : 개발자, 퍼블리셔, 디자이너, 기타 -->
+<br>
+<!-- 지역 : 전체, 서울, 부산, 인천, 대전, 대구, 울산, 광주, 세종, 경기도, 강원도, 충청북도, 충청남도, 경상북도, 경상남도, 전라북도, 전라남도, 제주 -->
+
 	<table class="table">
   <thead>
+
     <tr style="background-color: transparent !important;">
 <th scope="col" style=" font-size:20px !important; color: black;">글번호</th>
 <th scope="col" style=" font-size:20px !important; color: black;">제목</th>
@@ -130,26 +120,41 @@ tr:hover {background-color: #748dd3;}
 <th scope="col" style=" font-size:20px !important; color: black;">등록일</th>
 <th scope="col" style=" font-size:20px !important; color: black;">매칭횟수</th>
 <th scope="col" style=" font-size:20px !important; color: black;">조회수</th>
-</tr>
+<th scope="col" style=" font-size:20px !important; color: black;">마감여부</th>
+
 </thead>
+
+<c:set var = "today" value="<%=new java.util.Date()%>"/>
+<fmt:formatDate var="now" type="date" value="${today}" pattern="yyyy.MM.dd.HH.mm.ss"/>
 
     <c:forEach var="projectDTO" items="${projectBoardList }">
     	<tr onclick="location.href='${pageContext.request.contextPath}/project/project?p_num=${projectDTO.p_num }'">
+
     		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.p_num}</td>
     	    <td style="text-align: center !important; font-size:15px !important;">${projectDTO.p_title}</td>
     		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.name}</td>
     		<td style="text-align: center !important; font-size:15px !important;"><fmt:formatDate value="${projectDTO.p_writedate}" pattern="yyyy.MM.dd"/></td>
     		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.matching }</td>
     		<td style="text-align: center !important; font-size:15px !important;">${projectDTO.p_readcount}</td>
+    		<td>
+    		<fmt:formatDate var="dead" value="${projectDTO.p_deadline}" pattern="yyyy.MM.dd.HH.mm.ss"/>
+    		<c:choose>
+    		<c:when test="${now ge dead}">모집종료</c:when>
+    		<c:when test="${now lt dead}">모집중</c:when>
+    		</c:choose>
+    		</td>
+
     	</tr>
     </c:forEach>
 
 </table>
 	<form action="${pageContext.request.contextPath}/board/searchCom" method="get">
 	<select name="select">
-	<option value="p_title" selected>제목</option>
-	<option value="p_content">내용</option>
-	<option value="name123">회사명</option>
+	<option value="p_title" style="font-size: 15px !important;">제목</option>
+	<option value="p_content" style="font-size: 15px !important;">내용</option>
+	<option value="name123" style="font-size: 15px !important;">회사명</option>
+	<option value="field" style="font-size: 15px !important;">직종</option>
+	<option value="region" style="font-size: 15px !important;">지역</option>
 	</select>
 	<input type="text" class="search" name="search">
 	<input type="submit" value="검색" class="btn btn-primary" style="background-color: #1842B6 !important;">

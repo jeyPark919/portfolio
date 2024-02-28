@@ -33,30 +33,38 @@
 		
 		
 		<select id="getProjectBoardList" resultType="com.itwillbs.domain.ProjectDTO">
-select p.*, m.name, m.matching from project p join member m on p.id = m.id
-<if test="search != null">
-<if test="select == 'p_title'"> where p_title like CONCAT('%',#{search},'%') </if>
-<if test="select == 'p_content'"> where p_content like CONCAT('%',#{search},'%') </if>
-<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
-</if>
-<if test="sort == '' or sort == null">
-order by p.p_num desc
-</if>
-<if test="sort == 'sortM'"> order by m.matching desc, p.p_num desc </if>
-		<if test="sort == 'sortR'"> order by p.p_readcount desc </if>
- limit #{startRow},#{pageSize}
-</select>
-
-
-
-<select id="getProjectBoardCount" resultType="java.lang.Integer">
-select count(p.p_num) from project p join member m on p.id = m.id
-<if test="search != null">
-<if test="select == 'p_title'"> where p_title like CONCAT('%',#{search},'%') </if>
-<if test="select == 'p_content'"> where p_content like CONCAT('%',#{search},'%') </if>
-<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
-</if>
-</select>
+		select p.*, m.name, m.matching from project p join member m on p.id = m.id
+		join field f on p.field_num = f.field_num
+		join region r on p.region_num = r.region_num
+			<if test="search != null">
+			<if test="select == 'p_title'"> where p_title like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'p_content'"> where p_content like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'field'"> where f.field like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'region'"> where r.region like CONCAT('%',#{search},'%') </if>
+			</if>
+			<if test="sort == '' or sort == null">
+			order by p.p_num desc
+			</if>
+			<if test="sort == 'sortM'"> order by m.matching desc, p.p_num desc </if>
+			<if test="sort == 'sortR'"> order by p.p_readcount desc </if>
+			limit #{startRow},#{pageSize}
+	</select>
+		
+	<select id="getProjectBoardCount" resultType="java.lang.Integer">
+		select count(p.p_num) from project p join member m on p.id = m.id
+		join field f on p.field_num = f.field_num
+		join region r on p.region_num = r.region_num
+			<if test="search != null">
+			<if test="select == 'p_title'"> where p_title like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'p_content'"> where p_content like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'name123'"> where m.name like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'field'"> where f.field like CONCAT('%',#{search},'%') </if>
+			<if test="select == 'region'"> where r.region like CONCAT('%',#{search},'%') </if>
+			</if>
+	</select>
+	
+	
 <select id="getProjectBoard" resultType="com.itwillbs.domain.ProjectDTO"> select * from project where p_num = #{p_num} </select>
 <update id="updateProjectReadcount"> update project set p_readcount = p_readcount + 1 where p_num = #{p_num} </update>
 
