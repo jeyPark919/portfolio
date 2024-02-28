@@ -23,7 +23,6 @@ import com.itwillbs.domain.ResumeDTO;
 import com.itwillbs.service.AdminService;
 
 @Controller
-
 public class AdminController {
 	@Inject
 	private AdminService adminService;

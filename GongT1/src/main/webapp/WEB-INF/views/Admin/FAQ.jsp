@@ -9,7 +9,9 @@
 <title>notice</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
 
 <style>
@@ -188,6 +190,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 
 
+
 <button class="accordion">등록 방법</button>
 <div class="panel">
   <p>프리랜서와 기업 둘다 동일하게 마이페이지에서 이력서 및 공고를 등록하실 수 있습니다.</p>
@@ -217,12 +220,6 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <!-- 						href="#">8</a><a href="#">9</a> <a href="#">10</a> <a href="#">다음</a> -->
 	
 <div class="clear"></div>	
-<div id="table_search">
-	
-						<input type="text" name="search" class="input_box"> 
-						<input id="btn"type="button" value="검색" class="btn">
-				</div>
-				<div class="clear"></div>
 </div>
 
 

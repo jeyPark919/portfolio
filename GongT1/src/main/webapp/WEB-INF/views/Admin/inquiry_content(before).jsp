@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+   <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -107,9 +107,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <tr><td>문의 작성자</td><td>${inquiryDTO.id}</td></tr>  
 <tr><td>문의 내용</td><td>${inquiryDTO.i_content}</td></tr>
 <tr><td>문의 작성날짜</td><td>${inquiryDTO.i_date}</td></tr>
-<c:if test="${sessionScope.id != 'admin'}">
 
-</c:if>
 </table>
 <div id="table_search">
 		<c:if test="${sessionScope.id != 'admin'}">

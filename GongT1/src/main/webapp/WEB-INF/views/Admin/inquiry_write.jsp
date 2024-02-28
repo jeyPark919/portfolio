@@ -9,12 +9,9 @@
 <title>notice</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 
-
-
-
 <style>
 #border{
-	height: 1400px;
+	height: 1130px;
 }
 
 #up {
@@ -55,12 +52,14 @@ table {
 	padding-left:50px;
 }
 
+
 /* th, td { */
 /* 	border: 1px solid black; */
 /* 	text-align: center; */
 /* 	padding: 4px; */
 /* 	height: 1px; */
 /* } */
+
 
 /* input { */
 /* 	width: 473px; */
@@ -89,13 +88,16 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </head>
 
 <body>
-<jsp:include page="../inc//top.jsp" />
+<jsp:include page="../inc/top.jsp" />
 <div id="border">
 <div id="up">
+
 <!-- 	<h1>커뮤니티</h1> -->
+
 </div>
 
 <div id="left">		
+
 
 <div class="sidemenu">
         <button type="button" class="button button-update" ><span onclick="location.href='${pageContext.request.contextPath}/Admin/notice'" >공지사항</span></button>
@@ -103,12 +105,15 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
         <button type="button" class="button button-update" style="background-color: #1842B6;"><span onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry'" style="color: white !important;">1:1문의</span></button>
 </div>
 
+
 </div>
 
 <div id="right">
 
 
-<h2>문의 하기</h2>
+
+<h2 style="margin-left: 120px;">문의 하기</h2>
+
 
 
 
@@ -122,7 +127,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 <table>
 <tr>
 	<td>문의 작성자</td>
-	<td><input type="text" name="id" id = "write" value="${sessionScope.id}" readonly></td>
+	<td><input type="text" name="id" id = "write" value="${sessionScope.id}" style ="width:473px;" readonly></td>
 </tr>
 <tr>
 	<td>문의 제목</td>
@@ -130,30 +135,36 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </tr>
 <tr>
 	<td>문의 내용</td>
-	<td><textarea name="i_content" rows="20" cols="50" id = "write"></textarea></td>
+	<td><textarea name="i_content" rows="20" cols="50" id = "write" style ="width:473px;"></textarea></td>
 </tr>
 <tr>
 <td></td>
-<td style="text-align: center;"><input type="submit" value="글쓰기" ></input></td>
+
+<td style="text-align: center;"><input type="submit" value="글쓰기" class="btn btn-primary"></input></td>
+
 </tr>
 
 </table>
 </form>
 
+
 </c:if>
 
 
 
-<table>
+
+
+
 <c:if test="${sessionScope.id == 'admin'}">
 <form action="${pageContext.request.contextPath}/Admin/inquiry_updatePro" method="post">
+<table>
 <tr>
 	<td>답변 수신자</td>
-	<td><input type="text" name="id" id = "write" value="${inquiryDTO.id}" readonly></td>
+	<td><input type="text" name="id" id = "write" value="${inquiryDTO.id}" readonly style ="width:473px;"></td>
 	</tr>
 <tr>
 	<td>답변 작성자</td>
-	<td><input type="text" name="admin_id" id = "write" value="${sessionScope.id}" readonly></td>
+	<td><input type="text" name="admin_id" id = "write" value="${sessionScope.id}" readonly style ="width:473px;" ></td>
 </tr>
 <tr>
 <td>답변 제목</td>
@@ -161,16 +172,19 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </tr>
 <tr>
 <td>문의 답변내용</td>
-	<td><textarea name="asw_content" rows="20" cols="50" id = "write"></textarea></td>
-</tr><br>
+	<td><textarea name="asw_content" rows="20" cols="50" id = "write" style ="width:473px;"></textarea></td>
+</tr>
 
 <input type="hidden" name="i_num" value="${inquiryDTO.i_num}">
-
-</form><br>
-<input type="submit" value="답변 쓰기" class="btn">
+<tr>
+<td></td>
+<td style="text-align: center;"><input type="submit" value="글쓰기" class="btn btn-primary"  ></input></td>
+</tr>
+</table>
+</form>
 </c:if> 
 
-</table>
+
 </div>
 
 

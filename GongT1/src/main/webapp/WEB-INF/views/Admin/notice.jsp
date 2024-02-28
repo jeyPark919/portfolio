@@ -7,10 +7,13 @@
 <jsp:include page="../inc/top.jsp" />
 <head>
 <meta charset="UTF-8">
+
 <title>공지사항</title>
 <link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
 <style>
 table {
   border-collapse: collapse;
@@ -23,7 +26,9 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+
 tr:hover {background-color: #748dd3;}
+
 </style>
 </head>
 <body>
@@ -56,6 +61,8 @@ tr:hover {background-color: #748dd3;}
 
 
 
+
+
 <fieldset style="text-align: center; font-size: 20px; width: 100%; height: 80%;" >
 
 	<table class="table">
@@ -73,6 +80,7 @@ tr:hover {background-color: #748dd3;}
     	<td style="text-align: center !important; font-size:15px !important; color: black;">${nDTO.admin_id}</td>
     	<td style="text-align: center !important; font-size:15px !important; color: black;"><fmt:formatDate value="${nDTO.n_date}" pattern="yyyy.MM.dd"/></td>
     	<td style="text-align: center !important; font-size:15px !important; color: black;">${nDTO.n_readcount}</td></tr>
+
     </c:forEach>
     
  </table>
@@ -91,24 +99,40 @@ tr:hover {background-color: #748dd3;}
 
 
 </div>
+
 	<div id="table_search">			
-	<c:if test="${sessionScope.id == 'admin'}">
-		<input type="button" value="글쓰기" class="btn" 
+<form action="${pageContext.request.contextPath}/Admin/notice" method="get">
+<select name="select">
+	<option value="p_title" selected>제목</option>
+	<option value="p_content">내용</option>
+</select>
+	<input type="text" name="search" class="input_box">
+	<input type="submit" value="검색" class="btn btn-primary">
+	<input type="button" value="글목록" class="btn btn-primary"
+ 	 onclick="location.href='${pageContext.request.contextPath}/Admin/notice'">
+	
+							
+<c:if test="${sessionScope.id == 'admin'}">
+		<input type="button" value="글쓰기" class="btn btn-primary" 
   	onclick="location.href='${pageContext.request.contextPath}/Admin/write?n_num=${nDTO.n_num}'">
+
 <!-- 		<input type="button" value="글수정" class="btn"  -->
 <%--   			onclick="location.href='${pageContext.request.contextPath}/Admin/update?n_num=${nDTO.n_num}'"> --%>
 <!-- 		<input type="button" value="글삭제" class="btn"  -->
 <%--   			onclick="location.href='${pageContext.request.contextPath}/Admin/delete?n_num=${nDTO.n_num}'"> --%>
 </c:if>
-<form action="${pageContext.request.contextPath}/board/list" method="get">
-<input type="text" name="search" class="input_box">
-<input type="submit" value="검색" class="btn">
 </form>
+<%-- <form action="${pageContext.request.contextPath}/board/list" method="get"> --%>
+<!-- <input type="text" name="search" class="input_box"> -->
+<!-- <input type="submit" value="검색" class="btn"> -->
+<!-- </form> -->
 
-<input type="button" value="글목록" class="btn" 
-  onclick="location.href='${pageContext.request.contextPath}/Admin/notice'">
+<!-- <input type="button" value="글목록" class="btn"  -->
+<%--   onclick="location.href='${pageContext.request.contextPath}/Admin/notice'"> --%>
 	</div>				
 				
+
+
 
 
 </fieldset>
@@ -117,6 +141,7 @@ tr:hover {background-color: #748dd3;}
     </div>
  
  <br><br><br><br><br>
+
 <jsp:include page="../inc/bottom.jsp" />
 </body>
 </html>
