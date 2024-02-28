@@ -73,7 +73,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
         </div>
     </div>
     
-	<div class="summary col-4">
+	<div class="summary col-4" style="width: 960px;">
 		<div class="list list-education">
 			<div class="item">
                 <div class="header">&nbsp;</div>
@@ -88,9 +88,9 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
                 <div class="description">${resumeDTO.r_career}년</div>
             </div>
         	<div class="item is-singleline">
-            	<div class="header">수행&middot;경험한 프로젝트</div>
+            	<div class="header">보유 기술</div>
             	<div class="description">
-            			${resumeDTO.r_exp}
+            			${resumeDTO.r_tech}
             	</div>
         	</div>
         	<div class="item">
@@ -106,12 +106,12 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 <div id="skill" class="base skill">
 	<div class="keyword-wrap">
-        <h2 class="header">보유 기술</h2>
+        <h2 class="header">수행&middot;경험한 프로젝트</h2>
         <div class="list list-education">
             <div class="keyword-box">
                 <div class="keyword-list">
-                <div class="item" style="font-size: 140%">
-                	${resumeDTO.r_tech}
+                <div class="item" style="font-size: 140%; padding-left: 20px;">
+                	${resumeDTO.r_exp}
                 </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
         <div class="list list-education">
             <div class="keyword-box">
                 <div class="keyword-list">
-                <div class="item" style="font-size: 140%;">
+                <div class="item" style="font-size: 140%; padding-left: 20px;">
                 	${resumeDTO.r_content}
                 </div>
                 </div>

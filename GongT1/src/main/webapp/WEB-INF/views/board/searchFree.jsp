@@ -127,9 +127,11 @@ tr:hover {background-color: #748dd3;}
 </table>
 <form action="${pageContext.request.contextPath}/board/searchFree" method="get">
 	<select name="select">
-	<option value="r_name" selected>제목</option>
-	<option value="r_content">내용</option>
-	<option value="name123">이름</option>
+	<option value="r_name" selected style="font-size: 15px !important;">제목</option>
+	<option value="r_content" style="font-size: 15px !important;">내용</option>
+	<option value="name123" style="font-size: 15px !important;">이름</option>
+	<option value="field" style="font-size: 15px !important;">직종</option>
+	<option value="region" style="font-size: 15px !important;">지역</option>
 	</select>
 	<input type="text" class="search" name="search">
 	<input type="submit" value="검색" class="btn btn-primary" style="background-color: #1842B6 !important;">
