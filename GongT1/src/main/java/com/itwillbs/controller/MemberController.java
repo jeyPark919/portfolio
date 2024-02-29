@@ -446,7 +446,7 @@ public class MemberController {
 		session.setAttribute("matching", memberDTO2.getMatching());
 		
 		session.invalidate();
-		return "mypageCompany/msg_change";
+		return "main/msg_change";
 		}else {
 			return "mypageCompany/msg";
 		}
