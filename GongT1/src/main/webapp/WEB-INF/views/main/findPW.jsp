@@ -33,7 +33,7 @@ width: 100px;
 <br><br><br><br><br><br><br>
 <div id="idForm">
 <form action="" method="post">
-        <h2>아이디 찾기 결과</h2>
+        <h2>비밀번호 찾기 결과</h2>
             <label for="id">비밀번호는 </label><br>
             <h2>${memberDTO2.pw}</h2>입니다.
             <center>	
