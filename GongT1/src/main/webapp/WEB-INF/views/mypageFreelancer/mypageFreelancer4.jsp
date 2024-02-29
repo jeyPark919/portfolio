@@ -75,7 +75,7 @@ tr:hover {background-color: #748dd3;}
 <%--   	<c:forEach var="Scrap_resumeDTO" items="${Scrap_resumeDTOList}"> --%>
 <c:forEach var="Scrap_projectDTO" items="${Scrap_projectDTOList}">
 
-  <tr onclick="location.href='${pageContext.request.contextPath}/resume/resume?r_num=${resumeDTO.r_num }'">
+  <tr onclick="location.href='${pageContext.request.contextPath}/project/project?p_num=${Scrap_projectDTO.p_num }'">
     <td style="text-align: center !important; font-size:20px !important;">${Scrap_projectDTO.name}</td>
    	<td style="text-align: center !important; font-size:20px !important;">${Scrap_projectDTO.p_title}</td>
 
