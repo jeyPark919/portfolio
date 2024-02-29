@@ -59,6 +59,9 @@ public class ChattingService {
 		return chattingDAO.insertChat(chatDTO);
 	}//insertChat()
 
-	
+	public List<ChatDTO> checkChat(ChatDTO chatDTO) {
+		System.out.println("ChattingService checkChat()");
+		return chattingDAO.checkChat(chatDTO);
+	}//checkChat()
 	
 }

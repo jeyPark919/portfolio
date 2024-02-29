@@ -76,6 +76,10 @@ public class ChattingDAO {
 		return chatDTO2.getC_num();
 	}//insertChat()
 	
+	public List<ChatDTO> checkChat(ChatDTO chatDTO) {
+		System.out.println("ChattingDAO checkChat()");
+		return sqlSession.selectList(namespace+".getChatDTO", chatDTO);
+	}//checkChat()
 
 }//class ChattingDAO
 

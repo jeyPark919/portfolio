@@ -9,7 +9,6 @@
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>공T 프로젝트 찾기</title>
-<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>

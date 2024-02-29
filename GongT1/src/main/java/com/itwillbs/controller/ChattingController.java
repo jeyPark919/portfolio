@@ -70,12 +70,18 @@ public class ChattingController {
 	
 
 	
-	//채팅방 pro
 	@PostMapping("/inc/insertChatPro")
 	public String insertChattingPro(ChatDTO chatDTO) {
 		System.out.println("ChattingController insertChatPro()");
+		List<ChatDTO> chatDTOList = chattingService.checkChat(chatDTO);
+		if(chatDTOList.isEmpty()) {
 		int c_num = chattingService.insertChat(chatDTO);
 		return "redirect:/inc/chatting?c_num="+c_num;
+		} else {
+			ChatDTO chatDTO2 =  chatDTOList.get(0);
+			return "redirect:/inc/chatting?c_num="+chatDTO2.getC_num();
+		}
+		
 	}//insertChattingPro()
 	
 

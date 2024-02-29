@@ -20,10 +20,13 @@
 	
 </script>
 
-<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
 table {
   border-collapse: collapse;
   width: 100%;

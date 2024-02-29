@@ -6,9 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>공T 마이페이지</title>
-<link href="//i.jobkorea.kr/content/css/ver_2/common-sv-202401301659.css" rel="stylesheet" type="text/css" />
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
-
+<style >
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
+</style>
 </head>
 <body>
 
