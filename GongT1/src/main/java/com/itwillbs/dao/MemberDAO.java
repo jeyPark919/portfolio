@@ -131,6 +131,11 @@ public class MemberDAO {
 		
 		return sqlSession.selectList(namespace + ".resumeCheck", id);
 	}//resumeCheck()
+
+	public List<MemberDTO> insertCheck(MemberDTO memberDTO) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".insertCheck", memberDTO);
+	}//insertCheck()
 	
 //	public List<ChatDTO> ChattingCheck(String id) {
 //		System.out.println("MemberDAO ChattingCheck()");

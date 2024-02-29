@@ -42,7 +42,7 @@ width: 100px;
 <div class="wrapper">
 <div class="content">
 <h1>회원가입</h1>
-<form action="${pageContext.request.contextPath}/main/insertCompanyPro" id="join" method="post">
+<form action="${pageContext.request.contextPath}/main/insertCompanyPro" id="join" method="post" onsubmit="return validatePassword()">
 <p>회원가입을 통하여 프로젝트에 참여해보세요!</p>
 <fieldset>
 <legend><h5>필수 정보입니다. 모두 입력해주세요.</h5></legend>
@@ -52,9 +52,9 @@ width: 100px;
 <sub>※아이디 영문,숫자 20자 내로 입력해주세요.</sub>
 <div class="dupdivid"></div><br>
 <h3>비밀번호</h3>
-<input type="password" name="pw" maxlength="20" required><br>
+<input type="password" id="pw" name="pw" maxlength="20" required><br>
 <h3>비밀번호 확인</h3>
-<input type="password" name="pw2" maxlength="20" required><br>
+<input type="password" id="pw2" name="pw2" maxlength="20" required><br>
 <sub>※비밀번호를 다시 작성해주세요.</sub>
 <h3>기업명</h3>
 <input type="text" name="name" maxlength="20" required><br>
@@ -85,6 +85,29 @@ width: 100px;
 <br><br><br><br><br>
 
 <script type="text/javascript">
+//비밀번호가 일치해야 페이지가 넘어가는 코드
+function validatePassword() {
+    var passwordField = document.getElementById("pw");
+    var confirmPasswordField = document.getElementById("pw2");
+
+    // 비밀번호 필드가 존재하는지 확인
+    if (passwordField && confirmPasswordField) {
+        var password = passwordField.value;
+        var confirmPassword = confirmPasswordField.value;
+
+        if (password !== confirmPassword) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return false; // 페이지 전환을 막기 위해 false를 반환
+        }
+        return true; // 비밀번호가 일치하면 페이지 전환 허용
+    } else {
+        console.error("비밀번호 필드를 찾을 수 없습니다.");
+        return false; // 오류 발생 시 페이지 전환을 막기 위해 false를 반환
+    }
+}
+
+
+
 $(function() {
 	//아이디 중복 확인
 	$(".dupid").click(function(){

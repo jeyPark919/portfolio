@@ -105,8 +105,15 @@ public class MemberController {
 	@PostMapping("/main/insertFreelancerPro")
 	public String insertFreelancerPro(MemberDTO memberDTO) {
 		System.out.println("MemberController insertFreelancerPro()");
-		memberService.insertMember(memberDTO);
-		return "redirect:/main/main";
+		
+		List<MemberDTO> memberDTOList = memberService.insertCheck(memberDTO);
+		if(memberDTOList.isEmpty()) {
+			memberService.insertMember(memberDTO);
+			return "redirect:/main/main";
+		} else {
+			return "main/msg_error";
+		}
+		
 	}
 	
 	//아이디 중복확인
@@ -120,9 +127,14 @@ public class MemberController {
 	@PostMapping("/main/insertCompanyPro")
 	public String insertCompanyPro(MemberDTO memberDTO) {
 		System.out.println("MemberController insertCompanyPro()");
-		memberService.insertMember(memberDTO);
 		
-		return "redirect:/main/main";
+		List<MemberDTO> memberDTOList = memberService.insertCheck(memberDTO);
+		if(memberDTOList.isEmpty()) {
+			memberService.insertMember(memberDTO);
+			return "redirect:/main/main";
+		} else {
+			return "main/msg_error";
+		}
 	}
 	
 	@GetMapping("/main/searchID")
@@ -131,7 +143,7 @@ public class MemberController {
 		return "/main/searchID";
 	}
 	
-	@PostMapping("/searchIDPro")
+	@PostMapping("/main/searchIDPro")
 	public String searchIDPro(MemberDTO memberDTO, Model model) {
 		System.out.println("MemberController searchIDPro()");
 		MemberDTO memberDTO2 = new MemberDTO();
@@ -433,7 +445,8 @@ public class MemberController {
 		session.setAttribute("phone", memberDTO2.getPhone());
 		session.setAttribute("matching", memberDTO2.getMatching());
 		
-		return "redirect:/main/main";
+		session.invalidate();
+		return "mypageCompany/msg_change";
 		}else {
 			return "mypageCompany/msg";
 		}
