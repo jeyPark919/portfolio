@@ -17,7 +17,6 @@ button{
 padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
 vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 }
-
 table {
   border-collapse: collapse;
   width: 100%;
@@ -68,7 +67,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
         <div class="resume-view-wrapper" >
         <br><br>
             <div class="resume-view-container" style="height: 700px !important">
-                <div class="resume-subject" style="text-align: center !important;">마이 페이지(기업)</div>
+                <div class="resume-subject" style="text-align: center !important;">문의 내용</div>
 
 
 <div class="summary col-4"></div>
@@ -114,11 +113,11 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
   		</c:if>
   		<c:if test="${sessionScope.id == 'admin'}">
 		<input type="button" value="답변 쓰기" class="btn btn-primary"  
-  			onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_update?i_num=${inquiryDTO.i_num}'">
+  			onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_answer?i_num=${inquiryDTO.i_num}'">
 		<input type="button" value="답변 수정" class="btn btn-primary"
-  			onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_update?i_num=${inquiryDTO.i_num}'">
+  			onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_answer?i_num=${inquiryDTO.i_num}'">
 		<input type="button" value="답변 삭제" class="btn btn-primary" 
-  			onclick="location.href='${pageContext.request.contextPath}/Admin/inquiry_delete?i_num=${inquiryDTO.i_num}'">
+  			onclick="location.href='${pageContext.request.contextPath}/Admin/delete_answer?i_num=${inquiryDTO.i_num}'">
   		
 		</c:if>
 <input type="button" value="문의 목록" class="btn btn-primary" 

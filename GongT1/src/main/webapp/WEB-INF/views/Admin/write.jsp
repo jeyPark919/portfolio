@@ -12,10 +12,6 @@
 
 
 <style>
-button{
-padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
-vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
-}
 #border{
 	height: 1130px;
 }

@@ -69,8 +69,9 @@ public class AdminDAO {
 	}
 	public void updateInquiry(InquiryDTO inquiryDTO) {
 		System.out.println("AdminDAO updateInquiry");
-		sqlSession.update( namesapce + ".updateInquiry" , inquiryDTO);
+		sqlSession.update(namesapce+".updateInquiry", inquiryDTO);
 	}
+	
 	public void deleteNotice(NoticeDTO noticeDTO) {
 		System.out.println("AdminDAO deleteNotice");
 		sqlSession.delete(namesapce + ".deleteNotice", noticeDTO);
@@ -124,5 +125,16 @@ public class AdminDAO {
 		
 		sqlSession.delete(namesapce+".deleteresume" , resumeDTO);
 	}
+	
+	public void inquiry_answer(InquiryDTO inquiryDTO) {
+		System.out.println("AdminDAO inquiry_answer");
+		sqlSession.update( namesapce + ".inquiry_answer" , inquiryDTO);
+	}
+	public void delete_answer(int i_num) {
+		System.out.println("AdminDAO deleteresume()");
+		
+		sqlSession.update( namesapce + ".deleteAnswer" , i_num);
+	}
+	
 	 
 }

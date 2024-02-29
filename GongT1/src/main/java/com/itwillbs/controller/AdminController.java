@@ -240,6 +240,8 @@ public class AdminController {
 		return "redirect:/Admin/notice";
 	}
 	
+	
+	
 	//문의 수정
 	@RequestMapping(value="/Admin/inquiry_update" ,method=RequestMethod.GET)
 	public String update(InquiryDTO inquiryDTO, Model model) {
@@ -249,10 +251,19 @@ public class AdminController {
 		
 		model.addAttribute("inquiryDTO",inquiryDTO);
 		System.out.println("AdminController inquiry_update()");
-		return "Admin/inquiry_write";
+		return "Admin/inquiry_update";
 	}	
+	@RequestMapping(value="/Admin/inquiry_answer" ,method=RequestMethod.GET)
+	public String updateAnswer(InquiryDTO inquiryDTO, Model model) {
+		System.out.println("AdminController inquiry_answer()");
+		System.out.println(inquiryDTO);
+		inquiryDTO = adminService.getInquiry(inquiryDTO);
+		
+		model.addAttribute("inquiryDTO",inquiryDTO);
+		System.out.println("AdminController inquiry_answer()");
+		return "Admin/inquiry_write";
+	}
 	
-	//문의 수정 pro
 	@RequestMapping(value="/Admin/inquiry_updatePro" ,method=RequestMethod.POST)
 	public String inquiry_updatePro(InquiryDTO inquiryDTO) {
 		System.out.println("AdminController inquiry_updatePro()");
@@ -264,12 +275,31 @@ public class AdminController {
 		return "redirect:/Admin/inquiry";
 	}
 	
+	@RequestMapping(value="/Admin/inquiry_answerPro" ,method=RequestMethod.POST)
+	public String inquiry_answerPro(InquiryDTO inquiryDTO) {
+		System.out.println("AdminController inquiry_answerPro()");
+		System.out.println(inquiryDTO);
+		
+		adminService.inquiry_answer(inquiryDTO);
+		
+		// /board/list 글목록으로 주소변경하면서 이동
+		return "redirect:/Admin/inquiry";
+	}
+	
 	//문의 삭제
 	@RequestMapping(value="/Admin/inquiry_delete" ,method=RequestMethod.GET)
 	public String delete(InquiryDTO inquiryDTO) {
 		System.out.println("AdminController delete()");
 		System.out.println(inquiryDTO);
 		adminService.deleteInquiry(inquiryDTO);
+		return "redirect:/Admin/inquiry";
+	}
+	
+	@RequestMapping(value="/Admin/delete_answer" ,method=RequestMethod.GET)
+	public String deleteAnswer(HttpServletRequest request) {
+		System.out.println("AdminController delete_answer()");
+		int i_num = Integer.parseInt(request.getParameter("i_num"));
+		adminService.delete_answer(i_num);
 		return "redirect:/Admin/inquiry";
 	}
 	

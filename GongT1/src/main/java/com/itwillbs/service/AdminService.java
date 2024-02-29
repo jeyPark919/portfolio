@@ -131,10 +131,18 @@ public class AdminService {
 //	}
 	public void updateInquiry(InquiryDTO inquiryDTO) {
 		System.out.println("AdminService updateInquiry()");
-		inquiryDTO.setAsw_date(new Timestamp(System.currentTimeMillis()));
 		adminDAO.updateInquiry(inquiryDTO); 
 	}
 	
+	public void inquiry_answer(InquiryDTO inquiryDTO) {
+		System.out.println("AdminService inquiry_answer()");
+		inquiryDTO.setAsw_date(new Timestamp(System.currentTimeMillis()));
+		adminDAO.inquiry_answer(inquiryDTO); 
+	}
+	public void delete_answer(int i_num) {
+		System.out.println("AdminService delete_answer");
+		adminDAO.delete_answer(i_num);
+	}
 	public List<MemberDTO> amember() {
 		System.out.println("AdminService admincom()");
 		
@@ -179,5 +187,6 @@ public class AdminService {
 		
 		adminDAO.deleteresume(resumeDTO);
 	}
+	
 	
 }

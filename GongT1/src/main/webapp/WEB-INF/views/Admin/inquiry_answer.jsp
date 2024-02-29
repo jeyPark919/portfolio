@@ -156,7 +156,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 
 <c:if test="${sessionScope.id == 'admin'}">
-<form action="${pageContext.request.contextPath}/Admin/inquiry_answerPro" method="post">
+<form action="${pageContext.request.contextPath}/Admin/inquiry_updatePro" method="post">
 <table>
 <tr>
 	<td>답변 수신자</td>

@@ -44,10 +44,13 @@ public class ProjectController {
 	@RequestMapping(value = "/project/project", method = RequestMethod.GET)
 	public String project1(HttpSession session, HttpServletRequest request, Model model) {
 		int p_num = Integer.parseInt(request.getParameter("p_num"));
+		ProjectDTO projectDTO = projectService.getProject(p_num);
+		projectService.updateProjectReadcount(projectDTO);
 		model.addAttribute("memberDTO", projectService.getMember(p_num));
-		model.addAttribute("projectDTO", projectService.getProject(p_num));
+		model.addAttribute("projectDTO", projectDTO);
 		return "project/project";
 	}//project()
+	
 	
 	@GetMapping("/project/projectWrite")
 	public String projectWrite() {

@@ -10,6 +10,10 @@
 <link href="//i.jobkorea.kr/content/css/ver_2/text_user/resume/view.css?v=202402061400" rel="stylesheet" type="text/css" />
 
 <style>
+button{
+padding:0; margin:0; font-size:12.5px; letter-spacing: 0px; border:0 none;
+vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
+}
 #border{
 	height: 1130px;
 }
@@ -123,7 +127,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 <c:if test="${sessionScope.id ne 'admin'}">
 
-<form action="${pageContext.request.contextPath}/Admin/inquiry_writePro" method="post">
+<form action="${pageContext.request.contextPath}/Admin/inquiry_updatePro" method="post">
 <table>
 <tr>
 	<td>문의 작성자</td>
@@ -139,8 +143,8 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 </tr>
 <tr>
 <td></td>
-
-<td style="text-align: center;"><input type="submit" value="글쓰기" class="btn btn-primary"></input></td>
+<input type="hidden" name="i_num" value="${inquiryDTO.i_num}">
+<td style="text-align: center;"><input type="submit" value="글수정" class="btn btn-primary"></input></td>
 
 </tr>
 
@@ -156,7 +160,7 @@ vertical-align:middle; overflow:visible; background:transparent; cursor:pointer;
 
 
 <c:if test="${sessionScope.id == 'admin'}">
-<form action="${pageContext.request.contextPath}/Admin/inquiry_answerPro" method="post">
+<form action="${pageContext.request.contextPath}/Admin/inquiry_updatePro" method="post">
 <table>
 <tr>
 	<td>답변 수신자</td>
