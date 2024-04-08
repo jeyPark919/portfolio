@@ -135,7 +135,6 @@ public class ResumeController {
 		System.out.println("MemberController resumeWritePro()");
 		ResumeDTO resumeDTO = new ResumeDTO();
 		
-		if(resumeDTO.getR_file() != null) {
 		//파일 업로드
 		UUID uuid = UUID.randomUUID();
 		String filename = uuid.toString()+"_"+file.getOriginalFilename();
@@ -143,7 +142,6 @@ public class ResumeController {
 		System.out.println(uploadPath);
 		FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
 		resumeDTO.setR_file(filename);
-		}
 		resumeDTO.setId(request.getParameter("id"));
 		resumeDTO.setRegion_num(Integer.parseInt(request.getParameter("region_num")));
 		resumeDTO.setField_num(Integer.parseInt(request.getParameter("field_num")));

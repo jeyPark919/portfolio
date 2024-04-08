@@ -151,7 +151,6 @@ public class ProjectController {
 		System.out.println("MemberController projectWritePro()");
 		System.out.println(request.getParameter("p_num"));
 		ProjectDTO projectDTO = new ProjectDTO();
-		if(projectDTO.getP_file() != null) {
 		//파일 업로드
 		UUID uuid = UUID.randomUUID();
 		String filename = uuid.toString()+"_"+file.getOriginalFilename();
@@ -159,7 +158,6 @@ public class ProjectController {
 		System.out.println(uploadPath);
 		FileCopyUtils.copy(file.getBytes(), new File(uploadPath,filename));
 		projectDTO.setP_file(filename);
-		}
 //		projectDTO.setP_num(Integer.parseInt(request.getParameter("p_num")));
 		projectDTO.setId(request.getParameter("id"));
 		projectDTO.setRegion_num(Integer.parseInt(request.getParameter("region_num")));

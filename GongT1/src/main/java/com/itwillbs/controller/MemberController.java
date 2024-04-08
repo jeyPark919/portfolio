@@ -294,6 +294,8 @@ public class MemberController {
 		return "mypageCompany/mypageCompany2";
 	}//mypageCompany2
 	
+	
+	
 	@GetMapping("/mypageCompany/mypageCompany3")
 	public String mypageCompany3(HttpSession session, Model model) {
 		System.out.println("MemberController mypageCompany3()");
